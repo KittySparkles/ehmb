@@ -9,6 +9,7 @@ import {
 } from "react-aria-components"
 
 import { useBuild } from "../../contexts/Build/Provider"
+import { useBookmarks } from "../../contexts/Bookmarks/Provider"
 
 import { Dialog, type DialogProps } from "../Dialog"
 import { Button } from "../Button"
@@ -19,7 +20,9 @@ import Styles from "./styles.module.css"
 
 export const BuildMenu = () => {
   const resetDialogRef = useRef<HTMLDialogElement>(null)
-  const { level } = useBuild()
+  const { level, hash } = useBuild()
+  const { isBookmarked, addBookmark, removeBookmark } = useBookmarks()
+  const bookmark = isBookmarked(hash)
 
   return (
     <>
@@ -36,6 +39,15 @@ export const BuildMenu = () => {
               onAction={() => copy(window.location.href)}
             >
               Copy to clipboard
+            </MenuItem>
+            <MenuItem
+              className={Styles.item}
+              onAction={() =>
+                bookmark ? removeBookmark(hash) : addBookmark(hash)
+              }
+              isDisabled={level === 0}
+            >
+              {bookmark ? "Remove bookmark" : "Add bookmark"}
             </MenuItem>
             <MenuItem
               className={Styles.item}

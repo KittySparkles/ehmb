@@ -23,6 +23,8 @@ const useDiffedDescription = (skill: Skill) => {
     intlSegmenter: new Intl.Segmenter("en", { granularity: "word" }),
   })
 
+  if (diff.length === 1) return microMarkdown(current)
+
   return diff.map((chunk, index, array) => {
     // Find the next chunk that is neither an addition nor a deletion; in other
     // words the next part of the sentence that’s unchanged.

@@ -41,22 +41,29 @@ const BookmarkInfo: FC<BookmarkProps> = ({ bookmark, level, mastery }) => {
   const updatedDate = bookmark.updatedAt ? formatDate(bookmark.updatedAt) : null
 
   return (
-    <p className={Styles.info}>
-      Level <span style={{ color }}>{level}</span>{" "}
-      <span className={Styles.mastery}>{mastery.name}</span> mastery build,
-      bookmarked on{" "}
-      <time dateTime={createdDateTime} className={Styles.date}>
-        {createdDate}
-      </time>
-      {updatedDate ? (
-        <>
-          , last updated on{" "}
-          <time dateTime={updatedDateTime} className={Styles.date}>
-            {updatedDate}
-          </time>
-        </>
-      ) : null}
-    </p>
+    <div className={Styles.info}>
+      <p className={Styles.baseInfo}>
+        Level <span style={{ color }}>{level}</span>{" "}
+        <span className={Styles.mastery}>{mastery.name}</span> mastery build
+      </p>
+      <p className={Styles.dateInfo}>
+        Bookmarked on{" "}
+        <time dateTime={createdDateTime} className={Styles.date}>
+          {createdDate}
+        </time>
+        .
+        {updatedDate ? (
+          <>
+            <br />
+            Last updated on{" "}
+            <time dateTime={updatedDateTime} className={Styles.date}>
+              {updatedDate}
+            </time>
+            .
+          </>
+        ) : null}
+      </p>
+    </div>
   )
 }
 

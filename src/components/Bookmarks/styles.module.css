@@ -18,8 +18,14 @@
   }
 }
 
-.info {
+.info > p {
   margin: 0;
+}
+
+.dateInfo.dateInfo {
+  margin-top: 0.5em;
+  font-size: 80%;
+  color: rgb(255 255 255 / 0.7);
 }
 
 .link {

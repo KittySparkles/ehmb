@@ -65,20 +65,22 @@ const ENTRIES = [
 
 export const FAQ = () => {
   return (
-    <Box>
-      <div className={Styles.wrapper}>
-        <Title Component="h2" size={200}>
-          FAQ
-        </Title>
-        {ENTRIES.map((entry) => (
-          <div className={Styles.entry} key={entry.question}>
-            <Title Component="h3" size={150} className={Styles.question}>
-              {entry.question}
-            </Title>
-            {entry.answer}
-          </div>
-        ))}
-      </div>
-    </Box>
+    <>
+      <Title Component="h2" size={200}>
+        FAQ
+      </Title>
+      <Box>
+        <div className={Styles.wrapper}>
+          {ENTRIES.map((entry) => (
+            <div className={Styles.entry} key={entry.question}>
+              <Title Component="h3" size={150} className={Styles.question}>
+                {entry.question}
+              </Title>
+              {entry.answer}
+            </div>
+          ))}
+        </div>
+      </Box>
+    </>
   )
 }

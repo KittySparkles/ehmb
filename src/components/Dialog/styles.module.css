@@ -19,7 +19,7 @@
 
 .dialog::backdrop {
   transition: 300ms;
-  background-color: rgb(0 0 0 / 0.3)
+  background-color: rgb(0 0 0 / 0.5)
 }
 
 .header {

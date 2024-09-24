@@ -1,15 +1,26 @@
 import { StrictMode } from "react"
 import { createRoot } from "react-dom/client"
-import { createBrowserRouter, Navigate, RouterProvider } from "react-router-dom"
+import {
+  createBrowserRouter,
+  Navigate,
+  type NavigateOptions,
+  RouterProvider,
+} from "react-router-dom"
 
 import { dehashData } from "./helpers/hash.ts"
 import { mapSchema } from "./helpers/mapSchema.ts"
 import { App } from "./components/App/index.tsx"
+import { FAQPage } from "./components/FAQ/index.tsx"
 import { MASTERIES } from "./schema/data.ts"
 
 import "./index.css"
 import "@fontsource/londrina-solid"
-import { FAQPage } from "./components/FAQ/index.tsx"
+
+declare module "react-aria-components" {
+  interface RouterConfig {
+    routerOptions: NavigateOptions
+  }
+}
 
 const router = createBrowserRouter([
   {

@@ -1,16 +1,9 @@
-import { useNavigate } from "react-router-dom"
-
-import { MASTERIES } from "../../schema/data"
-import { useMastery } from "../../contexts/Mastery/Provider"
-import { Select, SelectOption } from "../Select"
 import { Title } from "../Title"
 
 import Styles from "./styles.module.css"
+import { NavigationMenu } from "../NavigationMenu"
 
 export const Header = () => {
-  const mastery = useMastery()
-  const navigate = useNavigate()
-
   return (
     <>
       <header className={Styles.header}>
@@ -32,17 +25,7 @@ export const Header = () => {
           </Title>
         </div>
         <div className={Styles.right}>
-          <Select
-            label="Mastery"
-            selectedKey={mastery.slug}
-            onSelectionChange={(selected) => navigate(`/${selected}`)}
-            items={MASTERIES.map((mastery) => ({
-              ...mastery,
-              id: mastery.slug,
-            }))}
-          >
-            {(item) => <SelectOption>{item.name}</SelectOption>}
-          </Select>
+          <NavigationMenu />
         </div>
       </header>
     </>

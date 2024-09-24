@@ -1,4 +1,6 @@
 import type { FC } from "react"
+import { RouterProvider } from "react-aria-components"
+import { useHref, useNavigate } from "react-router-dom"
 
 import { BuildProvider } from "../../contexts/Build/Provider"
 import { MasteryProvider } from "../../contexts/Mastery/Provider"
@@ -10,17 +12,23 @@ import type { MasteryType } from "../../types"
 import { BookmarksProvider } from "../../contexts/Bookmarks/Provider"
 import { Bookmarks } from "../Bookmarks"
 
-export const App: FC<{ masteryType: MasteryType }> = ({ masteryType }) => (
-  <BookmarksProvider>
-    <MasteryProvider masteryType={masteryType}>
-      <BuildProvider>
-        <Header />
-        <Container>
-          <Grid />
-          <Bookmarks />
-        </Container>
-        <Footer />
-      </BuildProvider>
-    </MasteryProvider>
-  </BookmarksProvider>
-)
+export const App: FC<{ masteryType: MasteryType }> = ({ masteryType }) => {
+  const navigate = useNavigate()
+
+  return (
+    <RouterProvider navigate={navigate} useHref={useHref}>
+      <BookmarksProvider>
+        <MasteryProvider masteryType={masteryType}>
+          <BuildProvider>
+            <Header />
+            <Container>
+              <Grid />
+              <Bookmarks />
+            </Container>
+            <Footer />
+          </BuildProvider>
+        </MasteryProvider>
+      </BookmarksProvider>
+    </RouterProvider>
+  )
+}

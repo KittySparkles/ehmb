@@ -49,6 +49,17 @@ export const NavigationMenu = () => {
           <Section className={Styles.section}>
             <Header className={Styles.header}>Pages</Header>
             <MenuItem
+              className={[
+                Styles.item,
+                pathname === "/bookmarks" && Styles.itemActive,
+              ]
+                .filter(Boolean)
+                .join(" ")}
+              href="/bookmarks"
+            >
+              Bookmarks
+            </MenuItem>
+            <MenuItem
               className={[Styles.item, pathname === "/faq" && Styles.itemActive]
                 .filter(Boolean)
                 .join(" ")}

@@ -10,7 +10,6 @@ import { Container } from "../Container"
 import { Footer } from "../Footer"
 import type { MasteryType } from "../../types"
 import { BookmarksProvider } from "../../contexts/Bookmarks/Provider"
-import { Bookmarks } from "../Bookmarks"
 
 export const App: FC<{ masteryType: MasteryType }> = ({ masteryType }) => {
   const navigate = useNavigate()
@@ -23,7 +22,6 @@ export const App: FC<{ masteryType: MasteryType }> = ({ masteryType }) => {
             <Header />
             <Container>
               <Grid />
-              <Bookmarks />
             </Container>
             <Footer />
           </BuildProvider>

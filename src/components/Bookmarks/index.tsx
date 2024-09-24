@@ -1,14 +1,21 @@
 import { useRef, type FC } from "react"
 import { Link } from "react-router-dom"
 
-import { type Bookmark, useBookmarks } from "../../contexts/Bookmarks/Provider"
+import {
+  type Bookmark,
+  BookmarksProvider,
+  useBookmarks,
+} from "../../contexts/Bookmarks/Provider"
 import { dehashData } from "../../helpers/hash"
 import { MASTERIES } from "../../schema/data"
 import { Title } from "../Title"
 import { Button, buttonStyles } from "../Button"
 import { Dialog, type DialogProps } from "../Dialog"
-import { boxStyles } from "../Box"
-import type { Mastery } from "../../types"
+import { Header } from "../Header"
+import { Container } from "../Container"
+import { Footer } from "../Footer"
+import { Box } from "../Box"
+import type { Mastery, MasteryType } from "../../types"
 
 import Styles from "./styles.module.css"
 
@@ -34,7 +41,7 @@ const BookmarkInfo: FC<BookmarkProps> = ({ bookmark, level, mastery }) => {
   const updatedDate = bookmark.updatedAt ? formatDate(bookmark.updatedAt) : null
 
   return (
-    <p>
+    <p className={Styles.info}>
       Level <span style={{ color }}>{level}</span>{" "}
       <span className={Styles.mastery}>{mastery.name}</span> mastery build,
       bookmarked on{" "}
@@ -53,6 +60,15 @@ const BookmarkInfo: FC<BookmarkProps> = ({ bookmark, level, mastery }) => {
   )
 }
 
+const BookmarkActions: FC<BookmarkProps> = ({ bookmark, level, mastery }) => (
+  <div className={Styles.actions}>
+    <Link to={`/${mastery.slug}/${bookmark.hash}`} className={buttonStyles}>
+      Load
+    </Link>
+    <RemoveBookmarkButton bookmark={bookmark} level={level} mastery={mastery} />
+  </div>
+)
+
 const resolveBookmark = (bookmark: Bookmark) => {
   const { type, level } = dehashData(bookmark.hash)
   const mastery = MASTERIES.find((mastery) => mastery.id === type)
@@ -60,11 +76,47 @@ const resolveBookmark = (bookmark: Bookmark) => {
   return { ...bookmark, level, mastery }
 }
 
+const EXAMPLE_HASH = "th55055300200505050054550110" as `${MasteryType}string`
+
 export const Bookmarks = () => {
   const { bookmarks } = useBookmarks()
   const resolvedBookmarks = bookmarks
     .map(resolveBookmark)
     .filter((bookmark) => bookmark !== null)
+
+  if (bookmarks.length === 0) {
+    const bookmark = {
+      hash: EXAMPLE_HASH,
+      id: "example-build",
+      createdAt: new Date(),
+    }
+    // biome-ignore lint/style/noNonNullAssertion: safe
+    const mastery = MASTERIES.find((mastery) => mastery.id === "th")!
+
+    return (
+      <>
+        <Title Component="h2" size={200}>
+          Bookmarked builds
+        </Title>
+
+        <p>
+          You currently do not have any bookmarked builds. You can bookmark any
+          build you compose from the ☰ on the top right of the skill grid, and
+          they will appear here. From there, you can then pick up where you left
+          of by loading them.
+        </p>
+
+        <p>Here is an example bookmark as an example:</p>
+
+        <div className={Styles.list}>
+          <Box className={Styles.item}>
+            <BookmarkInfo bookmark={bookmark} mastery={mastery} level={61} />
+            <BookmarkActions bookmark={bookmark} mastery={mastery} level={61} />
+          </Box>
+        </div>
+      </>
+    )
+  }
 
   return (
     <>
@@ -73,22 +125,19 @@ export const Bookmarks = () => {
       </Title>
       <ul className={Styles.list}>
         {resolvedBookmarks.map(({ level, mastery, ...bookmark }) => (
-          <li key={bookmark.id} className={[Styles.item, boxStyles].join(" ")}>
-            <BookmarkInfo bookmark={bookmark} level={level} mastery={mastery} />
-            <div className={Styles.actions}>
-              <Link
-                to={`/${mastery?.slug}/${bookmark.hash}`}
-                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                className={buttonStyles}
-              >
-                Load
-              </Link>
-              <RemoveBookmarkButton
+          <li key={bookmark.id} className={Styles.item}>
+            <Box>
+              <BookmarkInfo
                 bookmark={bookmark}
                 level={level}
                 mastery={mastery}
               />
-            </div>
+              <BookmarkActions
+                bookmark={bookmark}
+                level={level}
+                mastery={mastery}
+              />
+            </Box>
           </li>
         ))}
       </ul>
@@ -150,3 +199,13 @@ const RemoveBookmarkDialog: FC<
     </Dialog>
   )
 }
+
+export const BookmarksPage = () => (
+  <BookmarksProvider>
+    <Header />
+    <Container>
+      <Bookmarks />
+    </Container>
+    <Footer />
+  </BookmarksProvider>
+)

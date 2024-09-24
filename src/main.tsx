@@ -11,6 +11,7 @@ import { dehashData } from "./helpers/hash.ts"
 import { mapSchema } from "./helpers/mapSchema.ts"
 import { App } from "./components/App/index.tsx"
 import { FAQPage } from "./components/FAQ/index.tsx"
+import { BookmarksPage } from "./components/Bookmarks/index.tsx"
 import { MASTERIES } from "./schema/data.ts"
 
 import "./index.css"
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
   {
     path: "/faq",
     element: <FAQPage />,
+  },
+  {
+    path: "/bookmarks",
+    element: <BookmarksPage />,
   },
   ...MASTERIES.map((mastery) => ({
     path: `/${mastery.slug}/:hash?`,

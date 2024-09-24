@@ -1,33 +1,23 @@
-import { useMemo } from "react"
+import type { FC } from "react"
 
-import { useBuild } from "../../contexts/Build/Provider"
-import { MASTERIES } from "../../schema/data"
+import { BuildProvider } from "../../contexts/Build/Provider"
+import { MasteryProvider } from "../../contexts/Mastery/Provider"
 import { Header } from "../Header"
 import { Grid } from "../Grid"
 import { Container } from "../Container"
 import { FAQ } from "../FAQ"
 import { Footer } from "../Footer"
+import type { MasteryType } from "../../types"
 
-export const App = () => {
-  const { level, masteryType } = useBuild()
-
-  const mastery = useMemo(
-    () => MASTERIES.find((mastery) => mastery.id === masteryType),
-    [masteryType]
-  )
-
-  if (!mastery) {
-    throw new Error(`Could not find mastery for type ${masteryType}`)
-  }
-
-  return (
-    <>
+export const App: FC<{ masteryType: MasteryType }> = ({ masteryType }) => (
+  <MasteryProvider masteryType={masteryType}>
+    <BuildProvider>
       <Header />
       <Container>
-        <Grid name={mastery.name} level={level} />
+        <Grid />
         <FAQ />
       </Container>
       <Footer />
-    </>
-  )
-}
+    </BuildProvider>
+  </MasteryProvider>
+)

@@ -1,17 +1,36 @@
 import { StrictMode } from "react"
 import { createRoot } from "react-dom/client"
+import { createBrowserRouter, Navigate, RouterProvider } from "react-router-dom"
 
+import { dehashData } from "./helpers/hash.ts"
+import { mapSchema } from "./helpers/mapSchema.ts"
 import { App } from "./components/App/index.tsx"
-import { BuildProvider } from "./contexts/Build/Provider.tsx"
+import { MASTERIES } from "./schema/data.ts"
 
 import "./index.css"
 import "@fontsource/londrina-solid"
 
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Navigate to={`/${MASTERIES[0].slug}`} />,
+  },
+  ...MASTERIES.map((mastery) => ({
+    path: `/${mastery.slug}/:hash?`,
+    element: <App masteryType={mastery.id} />,
+    loader: ({ params }: { params: { hash?: string } }) => {
+      try {
+        return { build: dehashData(params.hash ?? "").build }
+      } catch {
+        return { build: mapSchema(mastery.schema) }
+      }
+    },
+  })),
+])
+
 // biome-ignore lint/style/noNonNullAssertion: safe
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <BuildProvider>
-      <App />
-    </BuildProvider>
+    <RouterProvider router={router} />
   </StrictMode>
 )

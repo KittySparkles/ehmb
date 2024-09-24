@@ -1,4 +1,4 @@
-import type { FC } from "react"
+import type { FC, ReactNode } from "react"
 import {
   Button,
   Label,
@@ -18,7 +18,7 @@ import Styles from "./styles.module.css"
 interface Props<T extends object> extends Omit<SelectProps<T>, "children"> {
   label?: string
   items?: Iterable<T>
-  children: React.ReactNode | ((item: T) => React.ReactNode)
+  children: ReactNode | ((item: T) => ReactNode)
 }
 
 export function Select<T extends object>({

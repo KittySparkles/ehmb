@@ -1,13 +1,15 @@
-import type { MasteryType } from "../../types"
+import { useNavigate } from "react-router-dom"
+
 import { MASTERIES } from "../../schema/data"
-import { useBuild } from "../../contexts/Build/Provider"
-import { Title } from "../Title"
+import { useMastery } from "../../contexts/Mastery/Provider"
 import { Select, SelectOption } from "../Select"
+import { Title } from "../Title"
 
 import Styles from "./styles.module.css"
 
 export const Header = () => {
-  const { masteryType, setMasteryType } = useBuild()
+  const mastery = useMastery()
+  const navigate = useNavigate()
 
   return (
     <>
@@ -32,11 +34,12 @@ export const Header = () => {
         <div className={Styles.right}>
           <Select
             label="Mastery"
-            selectedKey={masteryType}
-            onSelectionChange={(selected) =>
-              setMasteryType(selected as MasteryType)
-            }
-            items={MASTERIES}
+            selectedKey={mastery.slug}
+            onSelectionChange={(selected) => navigate(`/${selected}`)}
+            items={MASTERIES.map((mastery) => ({
+              ...mastery,
+              id: mastery.slug,
+            }))}
           >
             {(item) => <SelectOption>{item.name}</SelectOption>}
           </Select>

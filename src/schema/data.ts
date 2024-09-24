@@ -7,11 +7,36 @@ import { STONE_ORB_SCHEMA } from "./STONE_ORB"
 import { TWO_HANDED_SCHEMA } from "./TWO_HANDED"
 
 export const MASTERIES = [
-  { name: "Bow", id: "bo" as const, schema: BOW_SCHEMA },
-  { name: "Double Blade", id: "db" as const, schema: DOUBLE_BLADE_SCHEMA },
-  { name: "Dual Pistol", id: "dp" as const, schema: DUAL_PISTOL_SCHEMA },
-  { name: "Magic Staff", id: "ms" as const, schema: MAGIC_STAFF_SCHEMA },
-  { name: "Rifle", id: "ri" as const, schema: RIFLE_SCHEMA },
-  { name: "Stone Orb", id: "so" as const, schema: STONE_ORB_SCHEMA },
-  { name: "Two-Handed", id: "th" as const, schema: TWO_HANDED_SCHEMA },
+  { name: "Bow", slug: "bow", id: "bo" as const, schema: BOW_SCHEMA },
+  {
+    name: "Double Blade",
+    slug: "double-blade",
+    id: "db" as const,
+    schema: DOUBLE_BLADE_SCHEMA,
+  },
+  {
+    name: "Dual Pistol",
+    slug: "dual-pistol",
+    id: "dp" as const,
+    schema: DUAL_PISTOL_SCHEMA,
+  },
+  {
+    name: "Magic Staff",
+    slug: "magic-staff",
+    id: "ms" as const,
+    schema: MAGIC_STAFF_SCHEMA,
+  },
+  { name: "Rifle", slug: "rifle", id: "ri" as const, schema: RIFLE_SCHEMA },
+  {
+    name: "Stone Orb",
+    slug: "stone-orb",
+    id: "so" as const,
+    schema: STONE_ORB_SCHEMA,
+  },
+  {
+    name: "Two-Handed",
+    slug: "two-handed",
+    id: "th" as const,
+    schema: TWO_HANDED_SCHEMA,
+  },
 ]

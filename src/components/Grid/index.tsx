@@ -1,6 +1,5 @@
-import type { FC } from "react"
-
 import { useBuild } from "../../contexts/Build/Provider"
+import { useMastery } from "../../contexts/Mastery/Provider"
 import type { Skill } from "../../types"
 import { Tile } from "../Tile"
 import { Title } from "../Title"
@@ -8,14 +7,15 @@ import { BuildMenu } from "../BuildMenu"
 
 import Styles from "./styles.module.css"
 
-export const Grid: FC<{ level: number; name: string }> = ({ level, name }) => {
-  const { build } = useBuild()
+export const Grid = () => {
+  const mastery = useMastery()
+  const { level, build } = useBuild()
 
   return (
     <>
       <div className={Styles.header}>
         <Title Component="h2" size={150} className={Styles.name}>
-          {name}
+          {mastery.name}
         </Title>
         <p className={Styles.level}>
           Level:{" "}

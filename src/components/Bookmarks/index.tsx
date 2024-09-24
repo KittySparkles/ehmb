@@ -18,22 +18,20 @@ type BookmarkProps = {
   mastery: Mastery
 }
 
+const formatDate = (date: Date) =>
+  date.toLocaleString(["en-GB"], {
+    dateStyle: "long",
+    timeStyle: "short",
+  })
+
 const BookmarkInfo: FC<BookmarkProps> = ({ bookmark, level, mastery }) => {
   const color = `rgb(${360 - level * 6}, ${level * 6}, 0)`
   const createdDateTime = bookmark.createdAt.toISOString()
   const updatedDateTime = bookmark.updatedAt
     ? bookmark.createdAt.toISOString()
     : undefined
-  const createdDate = bookmark.createdAt.toLocaleString(["en-GB"], {
-    dateStyle: "full",
-    timeStyle: "short",
-  })
-  const updatedDate = bookmark.updatedAt
-    ? bookmark.updatedAt.toLocaleString(["en-GB"], {
-        dateStyle: "full",
-        timeStyle: "short",
-      })
-    : null
+  const createdDate = formatDate(bookmark.createdAt)
+  const updatedDate = bookmark.updatedAt ? formatDate(bookmark.updatedAt) : null
 
   return (
     <p>

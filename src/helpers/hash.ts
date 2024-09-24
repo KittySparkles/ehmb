@@ -6,7 +6,7 @@ export const hashData = (masteryType: MasteryType, data: Build) =>
 
 export const dehashData = (
   hash: string
-): { type: MasteryType; build: Build } => {
+): { type: MasteryType; build: Build; level: number } => {
   const type = hash.slice(0, 2) as MasteryType
   const mastery = MASTERIES.find((mastery) => mastery.id === type)
 
@@ -19,6 +19,7 @@ export const dehashData = (
     ...skill,
     current: values.shift() ?? 0,
   })) as Build
+  const level = build.reduce((acc, key) => acc + key.current, 0)
 
-  return { type, build }
+  return { type, build, level }
 }

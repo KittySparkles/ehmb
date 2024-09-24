@@ -14,7 +14,7 @@ export const Grid = () => {
   return (
     <>
       <div className={Styles.header}>
-        <Title Component="h2" size={150} className={Styles.name}>
+        <Title Component="h2" size={200} className={Styles.name}>
           {mastery.name}
         </Title>
         <p className={Styles.level}>

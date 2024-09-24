@@ -9,11 +9,16 @@ import { MASTERIES } from "./schema/data.ts"
 
 import "./index.css"
 import "@fontsource/londrina-solid"
+import { FAQPage } from "./components/FAQ/index.tsx"
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Navigate to={`/${MASTERIES[0].slug}`} />,
+  },
+  {
+    path: "/faq",
+    element: <FAQPage />,
   },
   ...MASTERIES.map((mastery) => ({
     path: `/${mastery.slug}/:hash?`,

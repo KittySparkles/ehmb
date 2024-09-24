@@ -5,7 +5,6 @@ import { MasteryProvider } from "../../contexts/Mastery/Provider"
 import { Header } from "../Header"
 import { Grid } from "../Grid"
 import { Container } from "../Container"
-import { FAQ } from "../FAQ"
 import { Footer } from "../Footer"
 import type { MasteryType } from "../../types"
 import { BookmarksProvider } from "../../contexts/Bookmarks/Provider"
@@ -19,7 +18,6 @@ export const App: FC<{ masteryType: MasteryType }> = ({ masteryType }) => (
         <Container>
           <Grid />
           <Bookmarks />
-          <FAQ />
         </Container>
         <Footer />
       </BuildProvider>

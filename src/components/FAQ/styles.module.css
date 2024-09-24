@@ -1,4 +1,4 @@
-.question:not(:first-child) {
+.question {
   margin-top: 1em;
 }
 

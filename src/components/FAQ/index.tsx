@@ -1,4 +1,6 @@
-import { Box } from "../Box"
+import { Header } from "../Header"
+import { Container } from "../Container"
+import { Footer } from "../Footer"
 import { Title } from "../Title"
 
 import Styles from "./styles.module.css"
@@ -69,18 +71,26 @@ export const FAQ = () => {
       <Title Component="h2" size={200}>
         FAQ
       </Title>
-      <Box>
-        <div className={Styles.wrapper}>
-          {ENTRIES.map((entry) => (
-            <div className={Styles.entry} key={entry.question}>
-              <Title Component="h3" size={150} className={Styles.question}>
-                {entry.question}
-              </Title>
-              {entry.answer}
-            </div>
-          ))}
-        </div>
-      </Box>
+      <div className={Styles.wrapper}>
+        {ENTRIES.map((entry) => (
+          <div className={Styles.entry} key={entry.question}>
+            <Title Component="h3" size={150} className={Styles.question}>
+              {entry.question}
+            </Title>
+            {entry.answer}
+          </div>
+        ))}
+      </div>
     </>
   )
 }
+
+export const FAQPage = () => (
+  <>
+    <Header />
+    <Container>
+      <FAQ />
+    </Container>
+    <Footer />
+  </>
+)

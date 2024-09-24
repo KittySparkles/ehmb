@@ -11,6 +11,7 @@ import { Title } from "../Title"
 import { Button } from "../Button"
 
 import Styles from "./styles.module.css"
+import { ShiftBy } from "../ShiftBy"
 
 export type DialogProps = PropsWithChildren<
   ComponentProps<"dialog"> & {
@@ -36,7 +37,9 @@ export const Dialog: FC<DialogProps> = ({
           onPress={() => dialogRef.current?.close()}
           className={Styles.close}
         >
-          &times;
+          <ShiftBy y={-2} Component="span">
+            &times;
+          </ShiftBy>
         </Button>
       </div>
       <div className={Styles.content}>{children}</div>

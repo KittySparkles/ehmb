@@ -20,20 +20,37 @@ type BookmarkProps = {
 
 const BookmarkInfo: FC<BookmarkProps> = ({ bookmark, level, mastery }) => {
   const color = `rgb(${360 - level * 6}, ${level * 6}, 0)`
-  const dateTime = bookmark.createdAt.toISOString()
-  const date = bookmark.createdAt.toLocaleString(["en-GB"], {
+  const createdDateTime = bookmark.createdAt.toISOString()
+  const updatedDateTime = bookmark.updatedAt
+    ? bookmark.createdAt.toISOString()
+    : undefined
+  const createdDate = bookmark.createdAt.toLocaleString(["en-GB"], {
     dateStyle: "full",
     timeStyle: "short",
   })
+  const updatedDate = bookmark.updatedAt
+    ? bookmark.updatedAt.toLocaleString(["en-GB"], {
+        dateStyle: "full",
+        timeStyle: "short",
+      })
+    : null
 
   return (
     <p>
       Level <span style={{ color }}>{level}</span>{" "}
       <span className={Styles.mastery}>{mastery.name}</span> mastery build,
       bookmarked on{" "}
-      <time dateTime={dateTime} className={Styles.date}>
-        {date}
+      <time dateTime={createdDateTime} className={Styles.date}>
+        {createdDate}
       </time>
+      {updatedDate ? (
+        <>
+          , last updated on{" "}
+          <time dateTime={updatedDateTime} className={Styles.date}>
+            {updatedDate}
+          </time>
+        </>
+      ) : null}
     </p>
   )
 }
@@ -46,7 +63,6 @@ const resolveBookmark = (bookmark: Bookmark) => {
 }
 
 export const Bookmarks = () => {
-  const removeBookmarkDialogRef = useRef<HTMLDialogElement>(null)
   const { bookmarks } = useBookmarks()
   const resolvedBookmarks = bookmarks
     .map(resolveBookmark)
@@ -59,10 +75,7 @@ export const Bookmarks = () => {
       </Title>
       <ul className={Styles.list}>
         {resolvedBookmarks.map(({ level, mastery, ...bookmark }) => (
-          <li
-            key={bookmark.hash}
-            className={[Styles.item, boxStyles].join(" ")}
-          >
+          <li key={bookmark.id} className={[Styles.item, boxStyles].join(" ")}>
             <BookmarkInfo bookmark={bookmark} level={level} mastery={mastery} />
             <div className={Styles.actions}>
               <Link
@@ -72,16 +85,10 @@ export const Bookmarks = () => {
               >
                 Load
               </Link>
-              <Button
-                onPress={() => removeBookmarkDialogRef.current?.showModal()}
-              >
-                Remove
-              </Button>
-              <RemoveBookmarkDialog
+              <RemoveBookmarkButton
                 bookmark={bookmark}
                 level={level}
                 mastery={mastery}
-                dialogRef={removeBookmarkDialogRef}
               />
             </div>
           </li>
@@ -91,7 +98,29 @@ export const Bookmarks = () => {
   )
 }
 
-export const RemoveBookmarkDialog: FC<
+const RemoveBookmarkButton: FC<BookmarkProps> = ({
+  bookmark,
+  level,
+  mastery,
+}) => {
+  const removeBookmarkDialogRef = useRef<HTMLDialogElement>(null)
+
+  return (
+    <>
+      <Button onPress={() => removeBookmarkDialogRef.current?.showModal()}>
+        Remove
+      </Button>
+      <RemoveBookmarkDialog
+        bookmark={bookmark}
+        level={level}
+        mastery={mastery}
+        dialogRef={removeBookmarkDialogRef}
+      />
+    </>
+  )
+}
+
+const RemoveBookmarkDialog: FC<
   BookmarkProps & {
     dialogRef: DialogProps["dialogRef"]
   }
@@ -106,7 +135,7 @@ export const RemoveBookmarkDialog: FC<
         <Button
           onPress={() => {
             dialogRef.current?.close()
-            removeBookmark(bookmark.hash)
+            removeBookmark(bookmark.id)
           }}
           autoFocus
           key="confirm"

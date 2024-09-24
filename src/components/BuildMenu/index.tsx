@@ -21,8 +21,14 @@ import Styles from "./styles.module.css"
 export const BuildMenu = () => {
   const resetDialogRef = useRef<HTMLDialogElement>(null)
   const { level, hash } = useBuild()
-  const { isBookmarked, addBookmark, removeBookmark } = useBookmarks()
-  const bookmark = isBookmarked(hash)
+  const { findBookmarkByHash, addBookmark, updateBookmark, removeBookmark } =
+    useBookmarks()
+  const bookmark = findBookmarkByHash(hash)
+  const id = useRef<string | null>(null)
+
+  if (!id.current && bookmark) {
+    id.current = bookmark.id
+  }
 
   return (
     <>
@@ -40,15 +46,31 @@ export const BuildMenu = () => {
             >
               Copy to clipboard
             </MenuItem>
-            <MenuItem
-              className={Styles.item}
-              onAction={() =>
-                bookmark ? removeBookmark(hash) : addBookmark(hash)
-              }
-              isDisabled={level === 0}
-            >
-              {bookmark ? "Remove bookmark" : "Add bookmark"}
-            </MenuItem>
+            {id.current ? (
+              <>
+                <MenuItem
+                  className={Styles.item}
+                  onAction={() => updateBookmark(id.current as string, hash)}
+                  isDisabled={level === 0}
+                >
+                  Update bookmark
+                </MenuItem>
+                <MenuItem
+                  className={Styles.item}
+                  onAction={() => removeBookmark(id.current as string)}
+                >
+                  Remove bookmark
+                </MenuItem>
+              </>
+            ) : (
+              <MenuItem
+                className={Styles.item}
+                onAction={() => addBookmark(hash)}
+                isDisabled={level === 0}
+              >
+                Add bookmark
+              </MenuItem>
+            )}
             <MenuItem
               className={Styles.item}
               onAction={() => resetDialogRef.current?.showModal()}

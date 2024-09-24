@@ -8,26 +8,33 @@ import {
   useMemo,
   useState,
 } from "react"
+
 import type { MasteryType } from "../../types"
+import { generateId } from "../../helpers/generateId"
 
 export type Bookmark = {
+  id: string
   hash: `${MasteryType}string`
   createdAt: Date
+  updatedAt?: Date
 }
 export type SerializedBookmark = Bookmark & {
   createdAt: string
+  updatedAt?: string
 }
 
 export const BookmarksContext = createContext<{
   bookmarks: Bookmark[]
   addBookmark: (hash: string) => void
-  removeBookmark: (hash: string) => void
-  isBookmarked: (hash: string) => Bookmark | undefined
+  updateBookmark: (id: string, hash: string) => void
+  removeBookmark: (id: string) => void
+  findBookmarkByHash: (id: string) => Bookmark | undefined
 }>({
   bookmarks: [],
   addBookmark: () => undefined,
+  updateBookmark: () => undefined,
   removeBookmark: () => undefined,
-  isBookmarked: () => undefined,
+  findBookmarkByHash: () => undefined,
 })
 
 export const BookmarksProvider: FC<PropsWithChildren> = ({ children }) => {
@@ -41,6 +48,9 @@ export const BookmarksProvider: FC<PropsWithChildren> = ({ children }) => {
       ).map((bookmark) => ({
         ...bookmark,
         createdAt: new Date(bookmark.createdAt),
+        updatedAt: bookmark.updatedAt
+          ? new Date(bookmark.updatedAt)
+          : undefined,
       }))
     } catch {
       return []
@@ -50,22 +60,31 @@ export const BookmarksProvider: FC<PropsWithChildren> = ({ children }) => {
   const addBookmark = useCallback((hash: string) => {
     setBookmarks((bookmarks) =>
       bookmarks.concat({
+        id: generateId(),
         hash,
         createdAt: new Date(),
       } as Bookmark)
     )
   }, [])
 
-  const removeBookmark = useCallback((hash: string) => {
+  const updateBookmark = useCallback((id: string, hash: string) => {
     setBookmarks((bookmarks) =>
-      bookmarks.filter((bookmark) => bookmark.hash !== hash)
+      bookmarks.map((bookmark) =>
+        bookmark.id === id
+          ? ({ ...bookmark, hash, updatedAt: new Date() } as Bookmark)
+          : bookmark
+      )
     )
   }, [])
 
-  const isBookmarked = useCallback(
-    (hash: string) => {
-      return bookmarks.find((bookmark) => bookmark.hash === hash)
-    },
+  const removeBookmark = useCallback((id: string) => {
+    setBookmarks((bookmarks) =>
+      bookmarks.filter((bookmark) => bookmark.id !== id)
+    )
+  }, [])
+
+  const findBookmarkByHash = useCallback(
+    (hash: string) => bookmarks.find((bookmark) => bookmark.hash === hash),
     [bookmarks]
   )
 
@@ -74,8 +93,14 @@ export const BookmarksProvider: FC<PropsWithChildren> = ({ children }) => {
   }, [bookmarks])
 
   const context = useMemo(
-    () => ({ bookmarks, addBookmark, removeBookmark, isBookmarked }),
-    [bookmarks, addBookmark, removeBookmark, isBookmarked]
+    () => ({
+      bookmarks,
+      addBookmark,
+      updateBookmark,
+      removeBookmark,
+      findBookmarkByHash,
+    }),
+    [bookmarks, addBookmark, updateBookmark, removeBookmark, findBookmarkByHash]
   )
 
   return (

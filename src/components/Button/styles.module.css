@@ -31,6 +31,7 @@
   -webkit-font-smoothing: antialiased;
   text-shadow: 0 1px rgb(89 51 36);
   font-family: var(--font-stack);
+  text-decoration: none;
 }
 
 

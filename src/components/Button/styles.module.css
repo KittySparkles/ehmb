@@ -1,0 +1,49 @@
+@property --button-gradient-top {
+  syntax: '<color>';
+  initial-value: transparent;
+  inherits: true;
+}
+
+@property --button-gradient-bottom {
+  syntax: '<color>';
+  initial-value: transparent;
+  inherits: true;
+}
+
+.button {
+  border: 1px solid rgb(21 28 34);
+  border-radius: var(--radius-m);
+  padding: 0.25em 1.5em calc(0.25em + 2px) 1.5em;
+  display: inline-block;
+  min-width: 80px;
+  font-size: 125%;
+
+  --button-gradient-top: rgb(247 239 192);
+  --button-gradient-bottom: rgb(234 188 165);
+  transition: background-color 250ms;
+  transition: all 250ms, --button-gradient-top 250ms, --button-gradient-bottom 250ms;
+  background-image: linear-gradient(to bottom, var(--button-gradient-top), var(--button-gradient-bottom));
+  box-shadow: inset 0 -2px rgb(186 117 114);
+
+  letter-spacing: 0.1px;
+  -webkit-text-fill-color: white;
+  -webkit-text-stroke: 0.5px rgb(89 51 36);
+  -webkit-font-smoothing: antialiased;
+  text-shadow: 0 1px rgb(89 51 36);
+  font-family: var(--font-stack);
+}
+
+
+.button:not(:disabled):not([data-disabled="true"]):hover,
+.button:not(:disabled):not([data-disabled="true"]):focus {
+  --button-gradient-top: rgb(192 186 154);
+  --button-gradient-bottom: rgb(180 154 127);
+  box-shadow: inset 0 -2px rgb(142 87 80);
+}
+
+.button:disabled,
+.button[data-disabled="true"] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  filter: grayscale(100%);
+}

@@ -1,0 +1,24 @@
+.table {
+  width: 100%;
+  table-layout: fixed;
+  border-spacing: 4px;
+  margin-bottom: 2em;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1em;
+  gap: 1em;
+}
+
+.name {
+  margin-right: auto;
+}
+
+.level {
+  font-family: var(--font-stack);
+  font-size: 120%;
+  margin: 0;
+}

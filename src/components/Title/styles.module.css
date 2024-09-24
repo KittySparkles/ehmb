@@ -1,0 +1,8 @@
+.title {
+  color: white;
+  text-shadow: 0 1.5px var(--dark);
+  font-family: var(--font-stack);
+  font-weight: normal;
+  font-size: 100%;
+  margin: 0;
+}

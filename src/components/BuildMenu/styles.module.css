@@ -1,0 +1,36 @@
+.button {
+  font-size: 150%;
+}
+
+.menu {
+  max-height: inherit;
+  overflow: auto;
+  padding: 0.5em;
+  min-width: 150px;
+  outline: none;
+}
+
+.item {
+  margin: 2px;
+  padding: 0.3em 0.6em;
+  border-radius: calc(var(--radius-m) - 0.25em);
+  outline: none;
+  cursor: pointer;
+  color: var(--text-color);
+  font-size: 100%;
+  position: relative;
+  display: grid;
+  grid-template-areas: "label kbd"
+                      "desc  kbd";
+  align-items: center;
+  column-gap: 1em;
+  forced-color-adjust: none;
+
+  &[data-focused] {
+    background: rgb(from white r g b / 0.2);
+  }
+
+  &[aria-disabled="true"] {
+    cursor: not-allowed;
+  }
+}

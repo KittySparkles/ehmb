@@ -1,0 +1,32 @@
+.controls {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5em;
+  margin-top: 1em;
+}
+
+.button.button {
+  padding: 0;
+  border: 0;
+  background: rgb(0 0 0 / 0.3);
+
+  line-height: 1.5em;
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 50%;
+
+  box-shadow: none;
+  color: white;
+  -webkit-text-fill-color: currentcolor;
+  -webkit-text-stroke: 0;
+  text-shadow: none;
+  min-width: 0;
+  font-family: unset;
+  font-size: 100%;
+}
+
+.button.button:not(:disabled):hover,
+.button.button:not(:disabled):focus {
+  box-shadow: none;
+  background-color: rgb(from white r g b / 0.2);
+}

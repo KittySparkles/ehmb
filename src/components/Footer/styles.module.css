@@ -1,0 +1,10 @@
+.footer {
+  margin-top: 3em;
+  color: #777;
+}
+
+.inner {
+  border-top: 1px solid #444;
+  display: flex;
+  justify-content: space-between;
+}

@@ -1,0 +1,55 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 1.5em;
+  background-image: linear-gradient(to bottom, rgb(62 76 92), rgb(48 63 83), rgb(35 51 67));
+  box-shadow: 0 0.5em 0.25em rgb(0 0 0 / 0.4);
+  margin-bottom: 2em;
+}
+
+.highlight {
+  color: var(--lime)
+}
+
+.logo {
+  max-width: 40px;
+  display: block;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  border-radius: 0.25em;
+}
+
+.left {
+  display: flex;
+  gap: 1.5em;
+  align-items: center;
+}
+
+.left > p {
+  margin: 0;
+}
+
+.right {
+  display: flex;
+  gap: 1.5em;
+}
+
+
+
+@media (max-width: 600px) {
+  .left {
+    gap: 1em;
+  }
+
+  .highlight {
+    color: inherit;
+    letter-spacing: -0.25ch;
+  }
+
+  .extra {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+}

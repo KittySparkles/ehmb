@@ -1,0 +1,37 @@
+
+.description strong {
+  color: var(--lime);
+  font-weight: normal;
+}
+
+.next {
+  opacity: 0.8;
+}
+
+.dependsOn {
+  margin-top: 2em;
+  color: rgb(223 163 172);
+  font-size: 80%;
+  margin-bottom: 0;
+}
+
+.rank {
+  color: rgb(153 196 192);
+  margin: 0;
+}
+
+.del {
+  text-decoration: none;
+  color: rgb(217 157 157);
+}
+
+.ins {
+  text-decoration: none;
+  color: rgb(153 196 192);
+}
+
+.controls {
+  position: absolute;
+  top: 0;
+  right: 1em;
+}

@@ -7,6 +7,10 @@ import {
   MenuTrigger,
   Popover,
 } from "react-aria-components"
+import Copy from "@spectrum-icons/workflow/Copy"
+import Star from "@spectrum-icons/workflow/Star"
+import StarOutline from "@spectrum-icons/workflow/StarOutline"
+import Refresh from "@spectrum-icons/workflow/Refresh"
 
 import { useBuild } from "../../contexts/Build/Provider"
 import { useBookmarks } from "../../contexts/Bookmarks/Provider"
@@ -44,7 +48,7 @@ export const BuildMenu = () => {
               className={Styles.item}
               onAction={() => copy(window.location.href)}
             >
-              Copy to clipboard
+              <Copy size="M" /> Copy to clipboard
             </MenuItem>
             {id.current ? (
               <>
@@ -53,31 +57,32 @@ export const BuildMenu = () => {
                   onAction={() => updateBookmark(id.current as string, hash)}
                   isDisabled={level === 0}
                 >
-                  Update bookmark
+                  <Star size="M" /> Update bookmark
                 </MenuItem>
                 <MenuItem
                   className={Styles.item}
                   onAction={() => removeBookmark(id.current as string)}
                 >
-                  Remove bookmark
+                  <StarOutline size="M" /> Remove bookmark
                 </MenuItem>
               </>
-            ) : (
+            ) : level > 0 ? (
               <MenuItem
                 className={Styles.item}
                 onAction={() => addBookmark(hash)}
-                isDisabled={level === 0}
               >
-                Add bookmark
+                <Star size="M" /> Add bookmark
+              </MenuItem>
+            ) : null}
+            {level > 0 && (
+              <MenuItem
+                className={Styles.item}
+                onAction={() => resetDialogRef.current?.showModal()}
+              >
+                <Refresh size="M" />
+                Reset
               </MenuItem>
             )}
-            <MenuItem
-              className={Styles.item}
-              onAction={() => resetDialogRef.current?.showModal()}
-              isDisabled={level === 0}
-            >
-              Reset
-            </MenuItem>
           </Menu>
         </Popover>
       </MenuTrigger>

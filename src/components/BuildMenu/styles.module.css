@@ -23,7 +23,8 @@
   grid-template-areas: "label kbd"
                       "desc  kbd";
   align-items: center;
-  column-gap: 1em;
+  justify-content: flex-start;
+  column-gap: 0.5em;
   forced-color-adjust: none;
 
   &[data-focused] {

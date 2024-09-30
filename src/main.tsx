@@ -7,7 +7,7 @@ import {
   RouterProvider,
 } from "react-router-dom"
 
-import { dehashData } from "./helpers/hash.ts"
+import { dehashData, legacy_dehashData } from "./helpers/hash.ts"
 import { mapSchema } from "./helpers/mapSchema.ts"
 import { App } from "./components/App/index.tsx"
 import { FAQPage } from "./components/FAQ/index.tsx"
@@ -41,6 +41,10 @@ const router = createBrowserRouter([
     element: <App masteryType={mastery.id} />,
     loader: ({ params }: { params: { hash?: string } }) => {
       try {
+        if (params.hash && /^\w{2}\d+$/.test(params.hash)) {
+          return { build: legacy_dehashData(params.hash ?? "").build }
+        }
+
         return { build: dehashData(params.hash ?? "").build }
       } catch {
         return { build: mapSchema(mastery.schema) }

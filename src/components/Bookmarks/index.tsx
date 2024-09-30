@@ -83,7 +83,7 @@ const resolveBookmark = (bookmark: Bookmark) => {
   return { ...bookmark, level, mastery }
 }
 
-const EXAMPLE_HASH = "th55055300200505050054550110" as `${MasteryType}string`
+const EXAMPLE_HASH = "thd5e5f3i2w5y4D1E1" as `${MasteryType}string`
 
 export const Bookmarks = () => {
   const { bookmarks } = useBookmarks()

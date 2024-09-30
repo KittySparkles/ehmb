@@ -48,8 +48,16 @@ export const useSkill = (skill?: Skill, position?: Skill["position"]) => {
     if (dependencyOf && dependencyOf.current > 0)
       return { permission: "DENIED", reason: "DEPENDENCY" }
 
+    // Not enough points in the tree to still fulfill requirements
+    if (
+      build
+        .filter((other) => other.name !== skill.name && other.current > 0)
+        .some((skill) => level - skill.current - 1 < skill.position[0] * 5)
+    )
+      return { permission: "DENIED", reason: "TOO_MUCH_SPENT" }
+
     return { permission: "ALLOWED" }
-  }, [skill, dependencyOf])
+  }, [skill, build, level, dependencyOf])
 
   const increment = useCallback(() => {
     if (!skill || !canIncrement) return

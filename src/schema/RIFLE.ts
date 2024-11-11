@@ -85,7 +85,7 @@ export const RIFLE_SCHEMA = [
   {
     name: "Radiation Aftermath",
     description:
-      "*Nucler Strike* now leaves behind a radioactive field continuously damaging enemies within the area for *X* damage every *0.5s* for *5s*.",
+      "*Nuclear Strike* now leaves behind a radioactive field continuously damaging enemies within the area for *X* damage every *0.5s* for *5s*.",
     max: 4,
     position: [3, 2],
     requires: "Nuclear Strike",

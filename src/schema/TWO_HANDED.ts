@@ -140,7 +140,7 @@ export const TWO_HANDED_SCHEMA = [
   {
     name: "Speed Surge",
     description:
-      "Receving damage has a *20/40/60/80/100%* chance to increase *Movement Speed* by *5/10/15/20/25%* for *7.5s*.",
+      "Receiving damage has a *20/40/60/80/100%* chance to increase *Movement Speed* by *5/10/15/20/25%* for *7.5s*.",
     max: 4,
     requires: "Swift Steps",
     position: [6, 0],
@@ -155,7 +155,7 @@ export const TWO_HANDED_SCHEMA = [
   {
     name: "Celestial Callings",
     description:
-      "Your attacks have a *15/22.5/30/37.5/45%* chance to call down an ancient soul from the heavens, dealing X* damage to a random nearby enemy.",
+      "Your attacks have a *15/22.5/30/37.5/45%* chance to call down an ancient soul from the heavens, dealing *X* damage to a random nearby enemy.",
     max: 5,
     position: [6, 2],
   },

@@ -30,7 +30,7 @@ export const MAGIC_STAFF_SCHEMA = [
   {
     name: "Flame Shield",
     description:
-      "Grants a permanent flame shield that increases *Armor* by *10/20/30/40/50* and deals *X* damage back to attackers.",
+      "Grant a permanent flame shield that increases *Armor* by *10/20/30/40/50* and deals *X* damage back to attackers.",
     max: 5,
     position: [1, 2],
   },
@@ -83,7 +83,7 @@ export const MAGIC_STAFF_SCHEMA = [
   {
     name: "Frozen Orb",
     description:
-      "Every *12th* attack launches a frozen orb dealing *X* damage and slows enemies by *20%* for *4s*.",
+      "Every *12th* attack launches a frozen orb dealing *X* damage and slowing enemies by *20%* for *4s*.",
     max: 5,
     position: [3, 3],
   },
@@ -135,7 +135,7 @@ export const MAGIC_STAFF_SCHEMA = [
   {
     name: "Blizzard",
     description:
-      "Every *30s*, summon a blizzard that travels towards nearby enemies. Blizzard deals *X* damage every *0.5/1/1.5/2/2.5s* for *5s* in a *1m* area.",
+      "Every *30s*, summon a blizzard that travels towards nearby enemies, dealing *X* damage every *0.5/1/1.5/2/2.5s* for *5s* in a *1m* area.",
     max: 5,
     position: [6, 3],
   },

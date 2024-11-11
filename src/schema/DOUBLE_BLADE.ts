@@ -64,7 +64,7 @@ export const DOUBLE_BLADE_SCHEMA = [
   {
     name: "Pain and Suffer",
     description:
-      "Dip your blades in deadly poison, causing attacks to *poison* enemies, dealing *X* damage every *1/0.9/0.8/0.7/0.6s* for *4s*.",
+      "Dip your blades in deadly poison, causing attacks to poison enemies, dealing *X* damage every *1/0.9/0.8/0.7/0.6s* for *4s*.",
     max: 5,
     position: [2, 3],
     requires: "Lethal Wounds",
@@ -118,7 +118,7 @@ export const DOUBLE_BLADE_SCHEMA = [
   {
     name: "Master Assassin",
     description:
-      "While at *full HP*, shadows envelop you to increase *Crit Chance* by *5/6/7/8%* and *Crit Damage* by *10/15/20/25%*.",
+      "While full health, shadows envelop you to increase *Crit Chance* by *5/6/7/8%* and *Crit Damage* by *10/15/20/25%*.",
     max: 4,
     position: [5, 2],
     requires: "Echo Strike",

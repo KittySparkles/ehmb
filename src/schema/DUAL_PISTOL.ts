@@ -88,7 +88,7 @@ export const DUAL_PISTOL_SCHEMA = [
   {
     name: "Blasting Volley",
     description:
-      "When sticky bombs explode, they emit *1/2/3/4/5* laser(s) in a random directions dealing *X* damage on hit.",
+      "When *Sticky Bombs* explode, they emit *1/2/3/4/5* laser(s) in a random directions dealing *X* damage on hit.",
     max: 5,
     position: [4, 1],
     requires: "Sticky Bombs",
@@ -131,7 +131,7 @@ export const DUAL_PISTOL_SCHEMA = [
   {
     name: "Eye in the Sky",
     description:
-      "When you land a critical hit, call down a beam from the skies to obliterate the target area dealing *X* damage every *0.3s* for *3s*. This can only happen every *15s*.",
+      "Critical hits call down a beam from the skies to obliterate the target area dealing *X* damage every *0.3s* for *3s*. This can only happen every *15s*.",
     max: 5,
     position: [6, 3],
   },

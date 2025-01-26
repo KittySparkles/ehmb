@@ -17,11 +17,18 @@ const BOW = [
 
 const DOUBLE_BLADE = [
   {
-    name: "DPS",
+    name: "DPS with A/M Speed",
     author: "Kitty",
     hash: "dbe5f5g5n1w4D1E1",
     notes:
       "I don’t take Lethal Wounds or Pain and Suffer because neither bleeding nor poison can crit, and a lot of damage comes from critical hits.",
+  },
+  {
+    name: "DPS with Fan of Knives",
+    author: "Kitty",
+    hash: "dbe5f5n1q5w4D1E1",
+    notes:
+      "No additional Movement Speed or Attack Speed, but Fan of Knives which is buffed by the Lil’Chains pet.",
   },
 ]
 

@@ -1,17 +1,17 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
-import { useMastery } from "../../contexts/Mastery/Provider"
-import { Box } from "../Box"
-import { Title } from "../Title"
-import { Popover } from "../Popover"
-import { Button, buttonStyles } from "../Button"
+import { useMastery } from "../../contexts/Mastery/Provider";
+import { Box } from "../Box";
+import { Title } from "../Title";
+import { Popover } from "../Popover";
+import { Button, buttonStyles } from "../Button";
 
-import { RECOMMENDED_BUILDS } from "./data"
-import Styles from "./styles.module.css"
+import { RECOMMENDED_BUILDS } from "./data";
+import Styles from "./styles.module.css";
 
 export const RecommendedBuilds = () => {
-  const mastery = useMastery()
-  const builds = RECOMMENDED_BUILDS[mastery.id]
+  const mastery = useMastery();
+  const builds = RECOMMENDED_BUILDS[mastery.id];
 
   return (
     <>
@@ -31,23 +31,25 @@ export const RecommendedBuilds = () => {
                 >
                   Load
                 </Link>
-                <Popover
-                  control={
-                    <Button className={Styles.toggle}>
-                      <span className={Styles.help}>ⓘ</span>
-                      <Title Component="span">Notes</Title>
-                    </Button>
-                  }
-                >
-                  <blockquote className={Styles.note}>
-                    <q>{build.notes}</q>
-                  </blockquote>
-                </Popover>
+                {build.notes && (
+                  <Popover
+                    control={
+                      <Button className={Styles.toggle}>
+                        <span className={Styles.help}>ⓘ</span>
+                        <Title Component="span">Notes</Title>
+                      </Button>
+                    }
+                  >
+                    <blockquote className={Styles.note}>
+                      <q>{build.notes}</q>
+                    </blockquote>
+                  </Popover>
+                )}
               </div>
             </Box>
           </li>
         ))}
       </ul>
     </>
-  )
-}
+  );
+};

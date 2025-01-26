@@ -66,6 +66,14 @@ const MAGIC_STAFF = [
   },
 ]
 
+const RIFLE = [
+  {
+    name: 'Farming',
+    author: 'iFunz',
+    hash: 'ria5e5g5i5j5l5p4s5v1x1A1D1',
+  }
+]
+
 const TWO_HANDED = [
   {
     name: "Single-target",
@@ -88,7 +96,7 @@ export const RECOMMENDED_BUILDS: Record<MasteryType, RecommendedBuild[]> = {
   db: DOUBLE_BLADE,
   dp: DUAL_PISTOL,
   ms: MAGIC_STAFF,
-  ri: [],
+  ri: RIFLE,
   so: [],
   th: TWO_HANDED,
 }

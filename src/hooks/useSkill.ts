@@ -20,7 +20,7 @@ export const useSkill = (skill?: Skill, position?: Skill["position"]) => {
     if (!skill) return { permission: "DENIED", reason: "UNKNOWN" }
 
     // Too many points spent
-    if (level > 61) return { permission: "DENIED", reason: "MAX_SPENT" }
+    if (level > 62) return { permission: "DENIED", reason: "MAX_SPENT" }
 
     // Not enough points spent
     if (level < skill.position[0] * 5)

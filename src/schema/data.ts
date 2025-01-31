@@ -3,6 +3,7 @@ import { DOUBLE_BLADE_SCHEMA } from "./DOUBLE_BLADE"
 import { DUAL_PISTOL_SCHEMA } from "./DUAL_PISTOL"
 import { MAGIC_STAFF_SCHEMA } from "./MAGIC_STAFF"
 import { RIFLE_SCHEMA } from "./RIFLE"
+import { SHIELD_SCHEMA } from "./SHIELD"
 import { STONE_ORB_SCHEMA } from "./STONE_ORB"
 import { TWO_HANDED_SCHEMA } from "./TWO_HANDED"
 
@@ -27,6 +28,7 @@ export const MASTERIES = [
     schema: MAGIC_STAFF_SCHEMA,
   },
   { name: "Rifle", slug: "rifle", id: "ri" as const, schema: RIFLE_SCHEMA },
+  { name: "Shield", slug: "shield", id: "sh" as const, schema: SHIELD_SCHEMA },
   {
     name: "Stone Orb",
     slug: "stone-orb",

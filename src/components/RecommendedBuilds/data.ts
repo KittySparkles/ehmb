@@ -74,6 +74,8 @@ const RIFLE = [
   },
 ]
 
+const SHIELD: RecommendedBuild[] = []
+
 const STONE_ORB = [
   {
     name: 'DPS',
@@ -107,6 +109,7 @@ export const RECOMMENDED_BUILDS: Record<MasteryType, RecommendedBuild[]> = {
   dp: DUAL_PISTOL,
   ms: MAGIC_STAFF,
   ri: RIFLE,
+  sh: SHIELD,
   so: STONE_ORB,
   th: TWO_HANDED,
 }

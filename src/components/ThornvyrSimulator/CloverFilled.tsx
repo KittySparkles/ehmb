@@ -1,4 +1,6 @@
-export const CloverFilled = () => (
+import type { FC } from "react";
+
+export const CloverFilled: FC<{ title: string }> = ({ title }) => (
   <svg
     height="800px"
     width="800px"
@@ -7,6 +9,7 @@ export const CloverFilled = () => (
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 512.002 512.002"
   >
+    <title>{title}</title>
     <g>
       <g>
         <path

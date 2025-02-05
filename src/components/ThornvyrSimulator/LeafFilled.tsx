@@ -1,11 +1,13 @@
-export const LeafFilled = () => (
+import type { FC } from "react";
+
+export const LeafFilled: FC<{ title: string }> = ({ title }) => (
   <svg
     width="800px"
     height="800px"
     viewBox="0 0 48 48"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <title>leaf-solid</title>
+    <title>{title}</title>
     <g id="Layer_2" data-name="Layer 2">
       <g id="invisible_box" data-name="invisible box">
         <rect width="48" height="48" fill="none" />

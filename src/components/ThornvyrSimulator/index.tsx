@@ -1,4 +1,5 @@
 import {
+  type CSSProperties,
   type FC,
   type PropsWithChildren,
   useCallback,
@@ -253,7 +254,7 @@ const Symbols: FC<{
       {
         "--item-count": symbols.length,
         "--duration": 10,
-      } as React.CSSProperties
+      } as CSSProperties
     }
   >
     {symbols.map((symbol, index) => (
@@ -263,7 +264,7 @@ const Symbols: FC<{
         style={
           {
             "--rot": index * (360 / symbols.length),
-          } as React.CSSProperties
+          } as CSSProperties
         }
         className={[
           Styles.item,
@@ -279,14 +280,32 @@ const Symbols: FC<{
           onClick={() => onClick(symbol)}
         >
           {symbol.shape === "clover" && symbol.color === "filled" && (
-            <CloverFilled />
+            <CloverFilled
+              title={`Clover, filled, ${
+                symbol.border === "true" ? "with border" : "without border"
+              }`}
+            />
           )}
           {symbol.shape === "clover" && symbol.color === "empty" && (
-            <CloverEmpty />
+            <CloverEmpty
+              title={`Clover, empty, ${
+                symbol.border === "true" ? "with border" : "without border"
+              }`}
+            />
           )}
-          {symbol.shape === "leaf" && symbol.color === "empty" && <LeafEmpty />}
+          {symbol.shape === "leaf" && symbol.color === "empty" && (
+            <LeafEmpty
+              title={`Leaf, empty, ${
+                symbol.border === "true" ? "with border" : "without border"
+              }`}
+            />
+          )}
           {symbol.shape === "leaf" && symbol.color === "filled" && (
-            <LeafFilled />
+            <LeafFilled
+              title={`Leaf, filled, ${
+                symbol.border === "true" ? "with border" : "without border"
+              }`}
+            />
           )}
         </button>
       </li>

@@ -12,6 +12,7 @@ import { mapSchema } from "./helpers/mapSchema.ts"
 import { App } from "./components/App/index.tsx"
 import { FAQPage } from "./components/FAQ/index.tsx"
 import { BookmarksPage } from "./components/Bookmarks/index.tsx"
+import { ThornvyrSimulator } from "./components/ThornvyrSimulator/index.tsx"
 import { MASTERIES } from "./schema/data.ts"
 
 import "./index.css"
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
       }
     },
   })),
+  {
+    path: "/thornvyr",
+    element: <ThornvyrSimulator />,
+  },
 ])
 
 // biome-ignore lint/style/noNonNullAssertion: safe

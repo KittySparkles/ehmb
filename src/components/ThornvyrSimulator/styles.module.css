@@ -1,0 +1,136 @@
+
+
+.ring {
+  --circle-size: min(500px, calc(100vw - var(--item-size) * 2));
+  --item-size: 4em;
+
+  font-family: var(--font-stack);
+  color: white;
+
+  width: var(--circle-size);
+  height: var(--circle-size);
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  border-radius: 50%;
+  background: radial-gradient(closest-side, orange var(--x), firebrick);
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.animate {
+  animation: color-change calc(var(--duration, 10) * 1s) ease-in;
+}
+
+@keyframes color-change {
+  from {
+    --x: 100%;
+  }
+  to {
+    --x: 0%;
+  }
+}
+
+@property --x {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 0%;
+}
+
+.ring ul {
+  list-style: none;
+  position: absolute;
+  inset: 0;
+}
+
+.item {
+  display: block;
+  position: absolute;
+  background-color: var(--dark);
+  box-shadow: 0 0 0 0.5em var(--dark);
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  width: var(--item-size);
+  height: var(--item-size);
+  fill: currentColor;
+  margin: calc(-1 * var(--item-size) / 2);
+  transform: rotate(calc(var(--rot) * 1deg))
+    translate(calc(var(--circle-size) / 2)) rotate(calc(var(--rot) * -1deg));
+}
+
+.item button {
+  background-color: transparent;
+  border: 0.25em solid transparent;
+  color: inherit;
+  padding: 0.75em;
+  cursor: pointer;
+  display: block;
+  border-radius: 50%;
+  transition: 250ms;
+}
+
+.item button > svg {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.item button:not(:disabled):hover {
+  box-shadow: 0 0 0 2em rgb(0 0 0 / 0.3);
+}
+
+.border button {
+  border-color: currentColor;
+}
+
+.answer {
+  outline: 0.5em solid lightgreen;
+  outline-offset: 1em;
+}
+
+.start {
+  background-color: transparent;
+  font-size: 150%;
+  font-family: inherit;
+  border: 0.15em solid;
+  border-radius: 0.5em;
+  padding: 0.75em 1em;
+  transition: 250ms;
+}
+
+.start:hover {
+  box-shadow: 0 0 0 0.2em rgb(0 0 0 / 0.3);
+}
+
+.middle {
+  z-index: 2;
+  margin: auto;
+  width: calc(100% - var(--item-size) * 2);
+  text-align: center;
+}
+
+.time {
+  display: block;
+  font-size: 200%;
+  color: var(--dark);
+  text-align: center;
+}
+
+
+@media (max-width: 500px) {
+  .ring {
+    --item-size: 3em;
+  }
+  .start {
+    font-size: 125%;
+  }
+  .time {
+    font-size: 150%;
+  }
+}

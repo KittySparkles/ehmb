@@ -14,6 +14,7 @@ import { CloverEmpty } from "./CloverEmpty";
 import useInterval from "../../hooks/useInterval";
 
 import Styles from "./styles.module.css";
+import { Button } from "../Button";
 
 type Color = "filled" | "empty";
 type Shape = "leaf" | "clover";
@@ -196,7 +197,7 @@ export const ThornvyrSimulator = () => {
     return (
       <div id="ring" className={Styles.ring}>
         <div className={Styles.middle}>
-          <StartButton onClick={start}>Start</StartButton>
+          <StartButton onPress={start}>Start</StartButton>
         </div>
       </div>
     );
@@ -207,7 +208,7 @@ export const ThornvyrSimulator = () => {
       <div id="ring" className={Styles.ring}>
         <div className={Styles.middle}>
           <span className={Styles.time}>Success!</span>
-          <StartButton onClick={start}>Restart</StartButton>
+          <StartButton onPress={start}>Restart</StartButton>
         </div>
       </div>
     );
@@ -228,7 +229,7 @@ export const ThornvyrSimulator = () => {
           {state.status === "FAILED" && (
             <>
               <span className={Styles.time}>Failed.</span>
-              <StartButton onClick={start}>Retry</StartButton>
+              <StartButton onPress={start}>Retry</StartButton>
             </>
           )}
         </div>
@@ -313,11 +314,11 @@ const Symbols: FC<{
   </ul>
 );
 
-const StartButton: FC<PropsWithChildren<{ onClick: VoidFunction }>> = ({
+const StartButton: FC<PropsWithChildren<{ onPress: VoidFunction }>> = ({
   children,
-  onClick,
+  onPress,
 }) => (
-  <button type="button" onClick={onClick} className={Styles.start}>
+  <Button type="button" onPress={onPress} className={Styles.start}>
     {children}
-  </button>
+  </Button>
 );

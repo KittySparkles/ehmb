@@ -78,14 +78,20 @@ const SHIELD: RecommendedBuild[] = [
   {
     name: 'Multi-target DPS',
     author: 'Kitty',
-    hash: 'she5h1p5r1s5x5A5C1F1',
-    notes: '1 point in Sharpened Instincts to be crit-capped with 1 Dragon Ring.'
+    hash: 'she5k1l5r1s5t5A5C1F1',
+    notes: 'You may need to use Sharpened Instincts to be crit-capped.'
   },
   {
     name: 'Single-target DPS',
     author: 'Lác VKL',
     hash: 'shf5k5q1s5t5D1E1F1',
     notes: 'You may need to use Sharpened Instincts to be crit-capped.'
+  },
+  {
+    name: 'Hybrid DPS',
+    author: 'Lác VKL',
+    hash: 'shg5q1r1s5t5B1C1D1E1',
+    notes: 'This build can also be used against Malvorra the Summoner.'
   }
 ]
 

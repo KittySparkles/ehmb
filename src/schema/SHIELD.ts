@@ -82,7 +82,7 @@ export const SHIELD_SCHEMA = [
   },
   {
     name: 'Radiant Slam',
-    description: '*Shield Slam* also releases a beam of radiant energy dealing *X* daamge to enemies in front. If Fury Aura is active, damage further increases with *Armor*.',
+    description: '*Shield Slam* also releases a beam of radiant energy dealing *X* damage to enemies in front. If Fury Aura is active, damage further increases with *Armor*.',
     max: 5,
     position: [3, 3],
     requires: 'Shield Slam'

@@ -159,7 +159,7 @@ export const SHIELD_SCHEMA = [
   },
   {
     name: 'Piercing Valor',
-    description: 'If Valor Aura is active, *Piercing Strike* deals *200%* increased damage.',
+    description: 'If Valor Aura is active, *Piercing Strike* deals *110%* increased damage.',
     max: 1,
     position: [7, 1],
     requires: 'Piercing Strike'

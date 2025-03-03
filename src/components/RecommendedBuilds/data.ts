@@ -17,18 +17,23 @@ const BOW = [
 
 const DOUBLE_BLADE = [
   {
-    name: 'DPS with A/M Speed',
-    author: 'Kitty',
-    hash: 'dbe5f5g5n1w4D1E1',
-    notes:
-      'I don’t take Lethal Wounds or Pain and Suffer because neither bleeding nor poison can crit, and a lot of damage comes from critical hits.',
+    name: 'Single target, no pet',
+    author: 'Keylir',
+    hash: 'dbe5f4l4n1w4z5E1',
+    notes: 'This build does not expect the Lil’Chains pet. It also works just as well both with the normal and unique Double Blades.'
   },
   {
-    name: 'DPS with Fan of Knives',
+    name: 'Single target, with pet',
     author: 'Kitty',
-    hash: 'dbe5f5n1q5w4D1E1',
+    hash: 'dbe5f5n1u2w4D1E1',
     notes:
-      'No additional Movement Speed or Attack Speed, but Fan of Knives which is buffed by the Lil’Chains pet.',
+      'This build includes Fan of Knives which is buffed by the Lil’Chains pet.',
+  },
+  {
+    name: 'AoE',
+    author: 'Keylir',
+    hash: 'dbe5f4l3n1w4D1E1',
+    comments: 'This build should work well with the normal Double Blades and without the Lil’Chains pet, or with the unique blades with or without the Lil’Chains pet.'
   },
 ]
 

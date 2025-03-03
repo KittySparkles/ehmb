@@ -9,7 +9,7 @@
 }
 
 .item {
-  flex-basis: calc(100% / 3 - 0.5em);
+  width: calc(100% / 3 - 0.75em);
 }
 
 @media (max-width: 600px) {

@@ -37,7 +37,6 @@ export const BOW_SCHEMA = [
     description: "Increase *Crit Damage* by *10/15/20/25/30%*.",
     max: 5,
     position: [1, 2],
-    requires: "Careful Aim",
   },
   {
     name: "Survivor",

@@ -166,6 +166,5 @@ export const RIFLE_SCHEMA = [
       "Every *4th* attack marks *1* nearby enemy for an *artillery strike*. Your next attack orders explosive blasts upon the marked enemy, dealing *X* damage in a small radius.",
     max: 3,
     position: [7, 3],
-    requires: "Ricochet Rounds",
   },
 ] as RawSkill[]

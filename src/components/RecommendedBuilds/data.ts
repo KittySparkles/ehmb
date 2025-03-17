@@ -50,14 +50,14 @@ const DUAL_PISTOL = [
   {
     name: "Single Target",
     author: "niloc",
-    hash: "dpf5m5r5s4w5D3F1",
+    hash: "dpf5m4r5s5w5D3F1",
     notes:
       "Maxed Prey on the Weak. Maxed Incendiary Bullets. Steel Bullets as filler.",
   },
   {
     name: "AoE",
     author: "niloc",
-    hash: "dpf5m5r5s2w5y1D3F1",
+    hash: "dpf5m2r5s5w5y1D3F1",
     notes:
       "Remove 2 points from Steel Bullets for Ricochet nodes. IF USING UNIQUE PISTOLS DO NOT SWITCH POINTS.",
   },

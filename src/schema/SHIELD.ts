@@ -173,7 +173,7 @@ export const SHIELD_SCHEMA = [
   },
   {
     name: 'Last Resort',
-    description: 'Entering *Defensive Stance* also grants *3s* of immunity. This has a 90s cooldown.',
+    description: 'Prevent your next death and grants *3s* of immunity. This has a 90s cooldown.',
     max: 1,
     position: [7, 3],
     requires: 'Defensive Stance'

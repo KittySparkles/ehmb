@@ -97,22 +97,22 @@ const RIFLE = [
 
 const SHIELD: RecommendedBuild[] = [
   {
-    name: "Multi-target DPS",
+    name: "Single-target core",
     author: "Kitty",
-    hash: "she5k1l5r1s5t5A5C1F1",
-    notes: "You may need to use Sharpened Instincts to be crit-capped.",
+    hash: "shb5c5q1s5t5y5D1E1F1",
+    notes: "Whether you have the base Shield or Oathkeeper doesn’t really matter too much.\nIf you have the Braveheart pet at celestial 1 rank, you can skip Bastion’s Resilience.\nYou can spend some points in Sharpened Instincts to be crit-capped.\nYou can decide whether you want Defensive Stance + Last Resort.\nThe remaining points can be spent across Critical Edge, Vitality and Swift Protector.",
   },
   {
-    name: "Single-target DPS",
-    author: "Lác VKL",
-    hash: "shf5k5q1s5t5D1E1F1",
-    notes: "You may need to use Sharpened Instincts to be crit-capped.",
+    name: "Multi-target core",
+    author: "Kitty",
+    hash: "shc5p5r1s5C1E1",
+    notes: "Whether you have the base Shield or Oathkeeper doesn’t really matter too much.\nIf you have the Braveheart pet at celestial 1 rank, you can skip Bastion’s Resilience.\nYou can spend some points in Sharpened Instincts to be crit-capped.\nYou can decide whether you want Defensive Stance + Last Resort.\nThe remaining points can be spent across Ironclad, Vitality, Radiant Strike and Swift Protector.",
   },
   {
-    name: "Hybrid DPS",
-    author: "Lác VKL",
-    hash: "shg5q1r1s5t5B1C1D1E1",
-    notes: "This build can also be used against Malvorra the Summoner.",
+    name: "Hybrid core",
+    author: "Kitty",
+    hash: "shc5q1r1s5t5C1D1E1",
+    notes: "Whether you have the base Shield or Oathkeeper doesn’t really matter too much.\nIf you have the Braveheart pet at celestial 1 rank, you can skip Bastion’s Resilience.\nYou can spend some points in Sharpened Instincts to be crit-capped.\nYou can decide whether you want Defensive Stance + Last Resort.\nThe remaining points can be spent across Vitality and Swift Protector.",
   },
 ];
 

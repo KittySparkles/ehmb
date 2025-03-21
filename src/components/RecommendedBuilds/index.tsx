@@ -41,7 +41,15 @@ export const RecommendedBuilds = () => {
                     }
                   >
                     <blockquote className={Styles.note}>
-                      <q>{build.notes}</q>
+                      {build.notes.includes("\n") ? (
+                        <ul>
+                          {build.notes.split("\n").map((note) => (
+                            <li>{note}</li>
+                          ))}
+                        </ul>
+                      ) : (
+                        <q>{build.notes}</q>
+                      )}
                     </blockquote>
                   </Popover>
                 )}

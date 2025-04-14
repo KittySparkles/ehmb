@@ -13,6 +13,8 @@ export const RecommendedBuilds = () => {
   const mastery = useMastery();
   const builds = RECOMMENDED_BUILDS[mastery.id];
 
+  if (builds.length === 0) return null
+
   return (
     <>
       <Title Component="h2" size={200}>
@@ -44,7 +46,7 @@ export const RecommendedBuilds = () => {
                       {build.notes.includes("\n") ? (
                         <ul>
                           {build.notes.split("\n").map((note) => (
-                            <li>{note}</li>
+                            <li key={note}>{note}</li>
                           ))}
                         </ul>
                       ) : (

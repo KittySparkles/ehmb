@@ -53,7 +53,6 @@ export const DOUBLE_BLADE_SCHEMA = [
       "Your attacks have a *10/15/20/25/30%* chance to inflict *bleeding wounds*, dealing *X* damage every *0.4/0.38/0.36/0.34/0.32s* for *2/2.3/2.6/2.9/3.2s*.",
     max: 5,
     position: [1, 3],
-    requires: "Bloodthirst",
   },
   {
     name: "Evasion",
@@ -108,20 +107,20 @@ export const DOUBLE_BLADE_SCHEMA = [
     requires: "Gathering Shadows",
   },
   {
+    name: "Septic Blades",
+    description:
+      "Increase *Poison Damage* and *Bleed Damage* by *10/20/30/40/50%*.",
+    max: 5,
+    position: [4, 3],
+    requires: "Pain and Suffer",
+  },
+  {
     name: "Winds of Fleet",
     description:
       "*Fan of Knives* gives you a burst of speed, increasing *Movement Speed* by *15/18.8/22.6/26.4/30%* and *Attack Speed* by *10/20/30/40%* for *1s*.",
     max: 4,
     position: [5, 0],
     requires: "Black Powder",
-  },
-  {
-    name: "Master Assassin",
-    description:
-      "While full health, shadows envelop you to increase *Crit Chance* by *5/6/7/8%* and *Crit Damage* by *10/15/20/25%*.",
-    max: 4,
-    position: [5, 2],
-    requires: "Echo Strike",
   },
   {
     name: "Alacrity",
@@ -145,6 +144,13 @@ export const DOUBLE_BLADE_SCHEMA = [
     position: [6, 2],
   },
   {
+    name: "Master Assassin",
+    description:
+      "While full health, shadows envelop you to increase *Crit Chance* by *5/6/7/8%* and *Crit Damage* by *10/15/20/25%*.",
+    max: 5,
+    position: [6, 3],
+  },
+  {
     name: "Death for All",
     description:
       "*Death from Above* now damages all enemies around the target.",
@@ -159,5 +165,13 @@ export const DOUBLE_BLADE_SCHEMA = [
     max: 1,
     position: [7, 2],
     requires: "Shadow Clones",
+  },
+  {
+    name: "Chain Reaction",
+    description:
+      "While *Master Assassin* us actuve, your attacks have a *1.5/1.75/2/2.25/2.5%* to trigger an additional hit, dealing *3.5/7/10.5/14/18%* of the original damage.",
+    max: 5,
+    position: [7, 3],
+    requires: "Master Assassin"
   },
 ] as RawSkill[]

@@ -61,7 +61,6 @@ export const DUAL_PISTOL_SCHEMA = [
     description: "Increase *Dodge* by *2/3/4/5/6%*.",
     max: 5,
     position: [2, 3],
-    requires: "Tough Skin",
   },
   {
     name: "Steel Bullets",
@@ -102,6 +101,12 @@ export const DUAL_PISTOL_SCHEMA = [
     requires: "Bullet Hell",
   },
   {
+    name: "Firetrail",
+    description: "Increase *Burn Damage* by *4.5/9/13.5/18/22.5%*.",
+    max: 5,
+    position: [4, 3],
+  },
+  {
     name: "Ricochet",
     description: "Your bullets now *ricochet* once.",
     max: 1,
@@ -129,6 +134,13 @@ export const DUAL_PISTOL_SCHEMA = [
     position: [6, 1],
   },
   {
+    name: "Guided Rockets",
+    description:
+      "Every *17th* attack fires rockets at all active targets, dealing *X* damage. The damage is split evenly among all targets.",
+    max: 5,
+    position: [6, 2],
+  },
+  {
     name: "Eye in the Sky",
     description:
       "Critical hits call down a beam from the skies to obliterate the target area dealing *X* damage every *0.3s* for *3s*. This can only happen every *15s*.",
@@ -142,6 +154,13 @@ export const DUAL_PISTOL_SCHEMA = [
     max: 3,
     position: [7, 1],
     requires: "Dragon Blast",
+  },
+  {
+    name: "Explosive Payload",
+    description:
+      "Rockets now explode on impact, dealing *X* damage in a small area and burning their primary targets for *30/40/50/60/70%* of the main rocket’s damage over *2s*.",
+    max: 5,
+    position: [7, 2],
   },
   {
     name: "Duo in the Sky",

@@ -14,15 +14,15 @@ export const TWO_HANDED_SCHEMA = [
     position: [0, 1],
   },
   {
-    name: "Battle Guard",
-    description: "Increase *Armor* by *3/6/9/12/15*.",
+    name: "Sharp Edges",
+    description:
+      "Attacks have a *20/40/60/80/100%* chance to inflict bleeding wounds, dealing *X* damage every *0.50/0.48/0.45/0.43/0.40s* for *2/2.5/3/3.5/4s*.",
     max: 5,
     position: [0, 2],
   },
   {
-    name: "Sharp Edges",
-    description:
-      "Attacks have a *20/40/60/80/100%* chance to inflict bleeding wounds, dealing *X* damage every *0.50/0.48/0.45/0.43/0.40s* for *2/2.5/3/3.5/4s*.",
+    name: "Battle Guard",
+    description: "Increase *Armor* by *3/6/9/12/15*.",
     max: 5,
     position: [0, 3],
   },
@@ -48,13 +48,6 @@ export const TWO_HANDED_SCHEMA = [
       "Grant *20/40/60/80/100%* chance to reflect *X* damage to attackers.",
     max: 5,
     requires: "Battle Guard",
-    position: [1, 2],
-  },
-  {
-    name: "Life Tap",
-    description: "Increase *Leech* by *3/6/9/12/15*.",
-    max: 5,
-    requires: "Sharp Edges",
     position: [1, 3],
   },
   {
@@ -71,11 +64,24 @@ export const TWO_HANDED_SCHEMA = [
     position: [2, 1],
   },
   {
+    name: "Deep Wounds",
+    description: "Increase *Bleed Damage* by *4.5/9/13.5/18/22.5%*.",
+    max: 5,
+    requires: "Sharp Edges",
+    position: [2, 2],
+  },
+  {
     name: "Enrage",
     description:
       "While below *20/40/60%* *Max HP*, gain *Enrage*, increasing *Damage* by *20/25/30%*.",
     max: 3,
     position: [2, 3],
+  },
+  {
+    name: "Swift Steps",
+    description: "Increase *Movement Speed* by *4/5/6/7/8%*.",
+    max: 5,
+    position: [3, 0],
   },
   {
     name: "Ground Slam",
@@ -92,9 +98,11 @@ export const TWO_HANDED_SCHEMA = [
     position: [3, 3],
   },
   {
-    name: "Swift Steps",
-    description: "Increase *Movement Speed* by *4/5/6/7/8%*.",
-    max: 5,
+    name: "Speed Surge",
+    description:
+      "Receiving damage has a *20/40/60/80/100%* chance to increase *Movement Speed* by *5/10/15/20/25%* for *7.5s*.",
+    max: 4,
+    requires: "Swift Steps",
     position: [4, 0],
   },
   {
@@ -138,11 +146,9 @@ export const TWO_HANDED_SCHEMA = [
     position: [5, 2],
   },
   {
-    name: "Speed Surge",
-    description:
-      "Receiving damage has a *20/40/60/80/100%* chance to increase *Movement Speed* by *5/10/15/20/25%* for *7.5s*.",
-    max: 4,
-    requires: "Swift Steps",
+    name: "Life Tap",
+    description: "Increase *Leech* by *6/12/18* and *Damage* by *3/6/9%*.",
+    max: 3,
     position: [6, 0],
   },
   {
@@ -165,6 +171,13 @@ export const TWO_HANDED_SCHEMA = [
     max: 1,
     requires: "Critical Rage",
     position: [6, 3],
+  },
+  {
+    name: "Edge of Death",
+    description: "Increase *Crit Damage* by *45%*, *Resilience* by *5%*, but you can no longer heal yourself above *85%* HP.",
+    max: 1,
+    position: [7, 0],
+    requires: "Life Tap"
   },
   {
     name: "Ultimate Judgement",

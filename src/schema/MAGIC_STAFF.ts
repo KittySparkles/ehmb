@@ -14,6 +14,13 @@ export const MAGIC_STAFF_SCHEMA = [
     position: [0, 1],
   },
   {
+    name: "Flame Shield",
+    description:
+      "Grant a permanent flame shield that increases *Armor* by *10/20/30/40/50* and deals *X* damage back to attackers.",
+    max: 5,
+    position: [0, 2],
+  },
+  {
     name: "Frozen Skin",
     description:
       "Increase *Max HP* by *20/40/60/80/100* and *Movement Speed* by *1/2/3/4/5%*.",
@@ -28,11 +35,12 @@ export const MAGIC_STAFF_SCHEMA = [
     requires: "Quick Cast",
   },
   {
-    name: "Flame Shield",
+    name: "Flamestorm",
     description:
-      "Grant a permanent flame shield that increases *Armor* by *10/20/30/40/50* and deals *X* damage back to attackers.",
+      "Taking damage has a *10/20/30/40/50%* chance to activate *Flamestorm*, increasing *Movement Speed* by *5/10/15/20/25%* and dealing *X* damage to nearby enemies every *0.5s* for *3/3.5/3.9/4.4/4.8s*.",
     max: 5,
     position: [1, 2],
+    requires: "Flame Shield",
   },
   {
     name: "Ice Lance",
@@ -50,12 +58,11 @@ export const MAGIC_STAFF_SCHEMA = [
     requires: "Arcane Precision",
   },
   {
-    name: "Flamestorm",
+    name: "Blazing Hands",
     description:
-      "Taking damage has a *10/20/30/40/50%* chance to activate *Flamestorm*, increasing *Movement Speed* by *5/10/15/20/25%* and dealing *X* damage to nearby enemies every *0.5s* for *3/3.5/3.9/4.4/4.8s*.",
+      "Increase *Attack Speed* by *4.5/9/13.5/18/22.5%*, *Leech* by *3/6/9/12/15* and *HP Regen* by *65/130/195/260/325*.",
     max: 5,
     position: [2, 2],
-    requires: "Flame Shield",
   },
   {
     name: "Shattering Ice",

@@ -88,6 +88,12 @@ export const STONE_ORB_SCHEMA = [
     requires: "Earthen Spikes",
   },
   {
+    name: "Maneuvers",
+    description: "Increase *Movement Speed* by *2/4/6/8/10%*.",
+    max: 5,
+    position: [3, 3],
+  },
+  {
     name: "Stoneskin",
     description:
       "Increase *Armor* by *1/2/3/4/5*, *Max HP* by *15/30/45/60/75* and *Damage* by *1/2/3/4/5%*.",
@@ -101,12 +107,6 @@ export const STONE_ORB_SCHEMA = [
       "Every *8th* attack causes the earth to tremble, dealing *X* damage every *0.75s* for *3s*.",
     max: 5,
     position: [4, 1],
-  },
-  {
-    name: "Maneuvers",
-    description: "Increase *Movement Speed* by *2/4/6/8/10%*.",
-    max: 5,
-    position: [4, 3],
   },
   {
     name: "Earthen Strength",
@@ -129,6 +129,12 @@ export const STONE_ORB_SCHEMA = [
       "Increase *Attack Speed* by *3/6/9/12/15%*, *Leech* by *1/2/3/4/5* and *HP Regen* by *75/80/85/90/95*.",
     max: 5,
     position: [5, 2],
+  },
+  {
+    name: "Molten Heart",
+    description: "Increase *Burn Damage* by *4.5/9/13.5/18/22.5%*.",
+    max: 5,
+    position: [5, 3],
   },
   {
     name: "Boulder",

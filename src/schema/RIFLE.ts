@@ -8,6 +8,13 @@ export const RIFLE_SCHEMA = [
     position: [0, 0],
   },
   {
+    name: "Shattering Rounds",
+    description:
+      "Bullets have a *12.5/25/37.5/50%* chance to shatter on impact, dealing *X* damage to nearby enemies.",
+    max: 4,
+    position: [0, 1],
+  },
+  {
     name: "Focus",
     description: "Increase *Damage* by *5/10/15/20/25%*.",
     max: 5,
@@ -26,11 +33,12 @@ export const RIFLE_SCHEMA = [
     position: [1, 0],
   },
   {
-    name: "Shattering Rounds",
+    name: "Incendiary Rounds",
     description:
-      "Bullets have a *12.5/25/37.5/50%* chance to shatter on impact, dealing *X* damage to nearby enemies.",
-    max: 4,
+      "Bullets have a *20/30/40/50/60%* chance to ignite the enemy upon impact, dealing *X* damage every *1s* for *3s*.",
+    max: 5,
     position: [1, 1],
+    requires: "Shattering Rounds",
   },
   {
     name: "Dedication",
@@ -47,12 +55,10 @@ export const RIFLE_SCHEMA = [
     position: [2, 0],
   },
   {
-    name: "Incendiary Rounds",
-    description:
-      "Bullets have a *20/30/40/50/60%* chance to ignite the enemy upon impact, dealing *X* damage every *1s* for *3s*.",
+    name: "Scorchmark",
+    description: "Increase *Burn Damage* by *4.5/9/13.5/18/22.5%*.",
     max: 5,
     position: [2, 1],
-    requires: "Shattering Rounds",
   },
   {
     name: "Nuclear Strike",

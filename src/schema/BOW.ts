@@ -74,6 +74,12 @@ export const BOW_SCHEMA = [
     position: [3, 0],
   },
   {
+    name: "Winds of Fleet",
+    description: "Increase *Movement Speed* by *3/6/9/12/15%*.",
+    max: 5,
+    position: [3, 2],
+  },
+  {
     name: "Trick Shots",
     description: "Your attacks ricochet *1* time.",
     max: 1,
@@ -88,10 +94,11 @@ export const BOW_SCHEMA = [
     requires: "Rain of Arrows",
   },
   {
-    name: "Winds of Fleet",
-    description: "Increase *Movement Speed* by *3/6/9/12/15%*.",
+    name: "Toxic Draw",
+    description: "Increase *Poison Damage* by *4.5/9/13.5/18/22.5%*.",
     max: 5,
     position: [4, 1],
+    requires: "Poisoned Arrows",
   },
   {
     name: "Winds of Fury",
@@ -162,7 +169,6 @@ export const BOW_SCHEMA = [
       "Increase *Damage* by *10/20/30%*, *Crit Chance* by *2/4/6%* and *Crit Damage* by *10/15/20%* byt also increase *Damage Taken* by *25/30/35%*.",
     max: 3,
     position: [7, 2],
-    requires: "Barrage",
   },
   {
     name: "Lone Wolf",

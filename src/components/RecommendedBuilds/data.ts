@@ -9,7 +9,14 @@ type RecommendedBuild = {
 
 const BOW: RecommendedBuild[] = [];
 
-const DOUBLE_BLADE: RecommendedBuild[] = [];
+const DOUBLE_BLADE: RecommendedBuild[] = [
+  {
+    name: 'Single DPS',
+    author: 'Keylir',
+    hash: 'dbe5f5n1t5z5A5F5',
+    notes: 'Final 3 points flexbile, negligible gains anywhere you put them. I usually just do Death for All to make the build a one size fits all type. The other two I usually drop into movespeed, but Shadow Colossus is an option if you just like the ability.'
+  }
+];
 
 const DUAL_PISTOL: RecommendedBuild[] = [];
 

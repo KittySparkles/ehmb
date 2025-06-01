@@ -9,7 +9,7 @@ export const DOUBLE_BLADE_SCHEMA = [
   },
   {
     name: "Lethal Precision",
-    description: "Increase *Damage* by *6/12/18/24/30%*.",
+    description: "Increase *Damage* by *5/10/15/20/25%*.",
     max: 5,
     position: [0, 1],
   },
@@ -50,20 +50,20 @@ export const DOUBLE_BLADE_SCHEMA = [
   {
     name: "Lethal Wounds",
     description:
-      "Your attacks have a *10/15/20/25/30%* chance to inflict *bleeding wounds*, dealing *X* damage every *0.4/0.38/0.36/0.34/0.32s* for *2/2.3/2.6/2.9/3.2s*.",
+      "Your attacks have a *10/15/20/25/30%* chance to cause bleeding, dealing *X* damage every *0.63/0.6/0.56/0.53/0.5s* for *2/2.3/2.6/2.9/3.2s*.",
     max: 5,
     position: [1, 3],
   },
   {
     name: "Evasion",
-    description: "Increase *Dodge* by *3/6/9/12%*.",
+    description: "Increase *Dodge* by *1/2/3/4%*.",
     max: 4,
     position: [2, 1],
   },
   {
     name: "Pain and Suffer",
     description:
-      "Dip your blades in deadly poison, causing attacks to poison enemies, dealing *X* damage every *1/0.9/0.8/0.7/0.6s* for *4s*.",
+      "Dip your blades in deadly poison, dealing *X* damage every *1.6/1.42/1.26/1.1/0.94s* for *4s*.",
     max: 5,
     position: [2, 3],
     requires: "Lethal Wounds",
@@ -78,7 +78,7 @@ export const DOUBLE_BLADE_SCHEMA = [
   {
     name: "Art of Dodge",
     description:
-      "Every *15s*, gain *100%* chance to *dodge* the next attack. Also dodging an attack increases *Damage* by *50%* for *3s*.",
+      "Every *15s*, guarantee dodging the next attack. Also dodging an attack increases *Damage* by *50%* for *3s*.",
     max: 1,
     position: [3, 1],
     requires: "Evasion",
@@ -86,14 +86,14 @@ export const DOUBLE_BLADE_SCHEMA = [
   {
     name: "Gathering Shadows",
     description:
-      "Every *10th* attack summons gathering shadows that explodes into cuts, dealing *X* damage to enemies inside.",
+      "Every *10th* attack summons shadows that explode into cuts, dealing *X* damage to enemies inside.",
     max: 5,
     position: [3, 2],
   },
   {
     name: "Black Powder",
     description:
-      "*Fan of Knives* now also sends out blinding black powder to enemies, dealing *X* extra damage.",
+      "*Fan of Knives* also sends out blinding black powder to enemies, dealing *X* extra damage.",
     max: 5,
     position: [4, 0],
     requires: "Fan of Knives",
@@ -101,7 +101,7 @@ export const DOUBLE_BLADE_SCHEMA = [
   {
     name: "Echo Strike",
     description:
-      "Enemies caught inside *Gathering Shadows* now get struck by its echo, dealing an additional *X* damage.",
+      "Enemies caught inside *Gathering Shadows* get struck by its echo, dealing an additional *X* damage.",
     max: 5,
     position: [4, 2],
     requires: "Gathering Shadows",
@@ -109,7 +109,7 @@ export const DOUBLE_BLADE_SCHEMA = [
   {
     name: "Septic Blades",
     description:
-      "Increase *Poison Damage* and *Bleed Damage* by *10/20/30/40/50%*.",
+      "Increase *Poison Damage* and *Bleed Damage* by *15/10/15/20/25%*.",
     max: 5,
     position: [4, 3],
     requires: "Pain and Suffer",
@@ -117,7 +117,7 @@ export const DOUBLE_BLADE_SCHEMA = [
   {
     name: "Winds of Fleet",
     description:
-      "*Fan of Knives* gives you a burst of speed, increasing *Movement Speed* by *15/18.8/22.6/26.4/30%* and *Attack Speed* by *10/20/30/40%* for *1s*.",
+      "*Fan of Knives* gives a burst of speed, increasing *Movement Speed* by *10/12.5/15/17.5%* and *Attack Speed* by *5/10/15/20%* for *1s*.",
     max: 4,
     position: [5, 0],
     requires: "Black Powder",
@@ -125,35 +125,34 @@ export const DOUBLE_BLADE_SCHEMA = [
   {
     name: "Alacrity",
     description:
-      "Killing an enemy increases *Movement Speed* by *3/6/9/12/15%* for *1s*. This can stack up to *10* times.",
+      "Killing an enemy increases *Movement Speed* by *3/3.75/4.5/5.25/6%* for *1/2/3/4/5s*. This can stack up to *10* times.",
     max: 5,
     position: [6, 0],
   },
   {
     name: "Death from Above",
     description:
-      "Every *16th* attack triggers a deadly combo. A surge of daggers descends upon *2* random enemies, each dealing *X* damage.",
+      "Every *16th* attack triggers a surge of daggers descending upon *2/4/6/8/10* random enemies, each dealing *X* damage.",
     max: 5,
     position: [6, 1],
   },
   {
     name: "Shadow Clones",
     description:
-      "Every *12th* attack summons *1/2/3/4/5* shadow clone that charge and explodes on enemies for *X* damage.",
+      "Every *12th* attack summons *1/2/3/4/5* shadow clone charging and exploding on enemies for *X* damage.",
     max: 5,
     position: [6, 2],
   },
   {
     name: "Master Assassin",
     description:
-      "While full health, shadows envelop you to increase *Crit Chance* by *5/6/7/8%* and *Crit Damage* by *10/15/20/25%*.",
+      "While full health, shadows envelop you to increase *Crit Chance* by *5/6/7/8/9%* and *Crit Damage* by *10/15/20/25/30%*.",
     max: 5,
     position: [6, 3],
   },
   {
     name: "Death for All",
-    description:
-      "*Death from Above* now damages all enemies around the target.",
+    description: "*Death from Above* damages all enemies around the target.",
     max: 1,
     position: [7, 1],
     requires: "Death from Above",
@@ -161,7 +160,7 @@ export const DOUBLE_BLADE_SCHEMA = [
   {
     name: "Shadow Colossus",
     description:
-      "Every *Shadow Clone* has *15%* chance to call forth a shadowy construct that mimics your actions for *8s*. It also increases *Armor* by *75* for its duration.",
+      "Every *Shadow Clone* has *15%* chance to call forth a shadowy construct mimicking your actions and increasing *Armor* by *75* for *8s*.",
     max: 1,
     position: [7, 2],
     requires: "Shadow Clones",
@@ -169,9 +168,9 @@ export const DOUBLE_BLADE_SCHEMA = [
   {
     name: "Chain Reaction",
     description:
-      "While *Master Assassin* us actuve, your attacks have a *1.5/1.75/2/2.25/2.5%* to trigger an additional hit, dealing *3.5/7/10.5/14/18%* of the original damage.",
+      "While *Master Assassin* us actuve, your attacks have a *1/1.15/1.3/1.45/1.6%* to trigger an additional hit, dealing *2.2/4.4/6.6/8.8/10.1%* of the original damage.",
     max: 5,
     position: [7, 3],
-    requires: "Master Assassin"
+    requires: "Master Assassin",
   },
 ] as RawSkill[]

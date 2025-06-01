@@ -34,7 +34,7 @@ export const BOW_SCHEMA = [
   },
   {
     name: "Critical Aim",
-    description: "Increase *Crit Damage* by *10/15/20/25/30%*.",
+    description: "Increase *Crit Damage* by *6/9/12/15/18%*.",
     max: 5,
     position: [1, 2],
   },
@@ -55,14 +55,14 @@ export const BOW_SCHEMA = [
   {
     name: "Ice Arrows",
     description:
-      "Enhance your arrows with ice. Your attacks have *8/16/24/32/40%* chance to freeze the enemy for *1s*.",
+      "Enhance your arrows with ice, causing attacks to have *10/17.5/25/32.5/40%* chance to freeze the enemy for *0.52/0.65/0.71/0.85/1s*.",
     max: 5,
     position: [2, 2],
   },
   {
     name: "Lightning Arrows",
     description:
-      "Enhance your arrows with thunder. Your attacks have a *10/12.5/15/17.5/20%* chance to blast the enemy with lighting for *X* damage. Each lighting has an extra *10/12.5/15/17.5/20%* chance to jump to another nearby enemy for the same damage.",
+      "Enhance your arrows with thunder, causing attacks to have a *5/6/7/8/9%* chance to blast the enemy with lighting for *X* damage. Each lighting has an extra *5/6/7/8/9%* chance to jump to another nearby enemy for the same damage.",
     max: 5,
     position: [2, 3],
   },
@@ -81,7 +81,7 @@ export const BOW_SCHEMA = [
   },
   {
     name: "Trick Shots",
-    description: "Your attacks ricochet *1* time.",
+    description: "Your attacks ricochet once.",
     max: 1,
     position: [3, 3],
   },
@@ -95,20 +95,20 @@ export const BOW_SCHEMA = [
   },
   {
     name: "Toxic Draw",
-    description: "Increase *Poison Damage* by *4.5/9/13.5/18/22.5%*.",
+    description: "Increase *Poison Damage* by *3/6/9/12/15%*.",
     max: 5,
     position: [4, 1],
     requires: "Poisoned Arrows",
   },
   {
     name: "Winds of Fury",
-    description: "Increase *Attack Speed* by *3/6/9/12/15%*.",
+    description: "Increase *Attack Speed* by *2/4/6/8/10%*.",
     max: 5,
     position: [4, 2],
   },
   {
     name: "Improved Trick Shots",
-    description: "Your attacks ricochet an additional *1* time.",
+    description: "Your attacks ricochet twice.",
     max: 1,
     position: [4, 3],
     requires: "Trick Shots",
@@ -123,7 +123,7 @@ export const BOW_SCHEMA = [
   {
     name: "Barrage",
     description:
-      "Your attacks have *5/10/15/20/25%* chance to burst out *3* more projectiles quickly.",
+      "Your attacks have *5/10/15/20/25%* chance to burst out *3* more projectiles quickly. Has a *3.5s* cooldown.",
     max: 5,
     position: [5, 2],
   },
@@ -143,7 +143,7 @@ export const BOW_SCHEMA = [
   {
     name: "Survival Instincts",
     description:
-      "Increase *Leech* by *3/6/9/12/15* and *HP Regen* by *40/50/60/70/80*.",
+      "Increase *Leech* by *3/6/9/12/15* and *HP Regen* by *40/80/120/160/200*.",
     max: 5,
     position: [6, 1],
     requires: "Trueshot Aura",
@@ -158,7 +158,7 @@ export const BOW_SCHEMA = [
   {
     name: "Dire Pack",
     description:
-      "Dire Frenzy now also summons a wolf and a boar to stand with your bear, creating a powerful trio of the wild and both dealing *X* damage in a small area.",
+      "Dire Frenzy also summons a wolf and a boar to stand with your bear, creating a powerful trio of the wild and both dealing *X* damage in a small area.",
     max: 3,
     position: [7, 0],
     requires: "Dire Frenzy",
@@ -166,14 +166,14 @@ export const BOW_SCHEMA = [
   {
     name: "Ultimate Tactics",
     description:
-      "Increase *Damage* by *10/20/30%*, *Crit Chance* by *2/4/6%* and *Crit Damage* by *10/15/20%* byt also increase *Damage Taken* by *25/30/35%*.",
+      "Increase *Crit Chance* by *1/2/3%* and *Crit Damage* by *10/20/30%* and *Damage* by *10/20/30%*.",
     max: 3,
     position: [7, 2],
   },
   {
     name: "Lone Wolf",
     description:
-      "While fighting a single enemy, *Lethal Shot* now deals *50%* increased damage and inflicts *poison* for the same amount.",
+      "While fighting a single enemy, *Lethal Shot* deals *160%* increased damage and inflicts poison for the same amount.",
     max: 1,
     position: [7, 3],
     requires: "Lethal Shot",

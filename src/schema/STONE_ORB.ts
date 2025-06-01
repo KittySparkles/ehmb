@@ -16,7 +16,7 @@ export const STONE_ORB_SCHEMA = [
   {
     name: "Grounded",
     description:
-      "Increase *Max HP* by *50/100/150/200/250* and *Leech* by *4/6/8/10/12*.",
+      "Increase *Max HP* by *50/100/150/200/250* and *Leech* by *4/8/12/16/20*.",
     max: 5,
     position: [0, 2],
   },
@@ -36,7 +36,7 @@ export const STONE_ORB_SCHEMA = [
   {
     name: "Stone Shield",
     description:
-      "Gain a permanent stone shield that increases *Armor* by *20/40/60/80/100*. Taking damage for more than *10%* of your *Max HP* in *1s* breaks the shield. Has *3.6s* cooldown.",
+      "Gain a permanent stone shield that increases *Armor* by *20/40/60/80/100*. Taking damage for more than *10%* of your *Max HP* in *1s* breaks the shield. Has *9.15/8.25/7.33/6.42/5.5s* cooldown.",
     max: 5,
     position: [1, 1],
     requires: "Rock Armor",
@@ -44,7 +44,7 @@ export const STONE_ORB_SCHEMA = [
   {
     name: "Earthen Might",
     description:
-      "Increase *Damage* by *2/4/6/8/10%* and *Crit Damage* by *5/10/15/20/25%*.",
+      "Increase *Damage* by *2/4/6/8/10%* and *Crit Damage* by *5/7.5/10/12.5/15%*.",
     max: 5,
     position: [2, 0],
     requires: "Earth Mastery",
@@ -52,7 +52,7 @@ export const STONE_ORB_SCHEMA = [
   {
     name: "Shattering Fragments",
     description:
-      "When *Stone Shield* breaks, it shatters dealing *X* damage to nearby enemies.",
+      "When *Stone Shield* breaks, it shatters, dealing *X* damage to nearby enemies.",
     max: 5,
     position: [2, 1],
     requires: "Stone Shield",
@@ -67,14 +67,14 @@ export const STONE_ORB_SCHEMA = [
   {
     name: "Regenerative Roots",
     description:
-      "Every *10s* earth blooms under your feet, *healing* you for *5/6/7/8/9%* HP every *0.75s* for *3s*.",
+      "Every *10s* earth blooms under your feet, *healing* you for *5/10/15/20/25%* HP every *0.75s* for *3s*.",
     max: 5,
     position: [2, 3],
   },
   {
     name: "Piercing Splinters",
     description:
-      "*Shattering Fragments* also blast splinters around inflicting bleeding wounds, dealing *X* damage every *0.4s* for *2s*.",
+      "*Shattering Fragments* also blast splinters around causing bleeding and dealing *X* damage every *0.4s* for *2s*.",
     max: 5,
     position: [3, 1],
     requires: "Shattering Fragments",
@@ -82,7 +82,7 @@ export const STONE_ORB_SCHEMA = [
   {
     name: "Rupture",
     description:
-      "*Earthen Spikes* now travel towards *1* random target, dealing *X* damage to anything in its path.",
+      "*Earthen Spikes* travel towards *1/2/3/4/5* random target(s), dealing *X* damage to anything in their path.",
     max: 5,
     position: [3, 2],
     requires: "Earthen Spikes",
@@ -118,7 +118,7 @@ export const STONE_ORB_SCHEMA = [
   {
     name: "Aftershock",
     description:
-      "*Earthquake* has a *10/20/30/40/50%* chance to cause a second quake once it ends. This can trigger itself again.",
+      "*Earthquake* has a *5/10/15/20/25%* chance to cause a second quake once it ends. This can trigger itself again.",
     max: 5,
     position: [5, 1],
     requires: "Earthquake",
@@ -126,13 +126,13 @@ export const STONE_ORB_SCHEMA = [
   {
     name: "Stone Will",
     description:
-      "Increase *Attack Speed* by *3/6/9/12/15%*, *Leech* by *1/2/3/4/5* and *HP Regen* by *75/80/85/90/95*.",
+      "Increase *Attack Speed* by *3/6/9/12/15%*, *Leech* by *1/2/3/4/5* and *HP Regen* by *75/150/225/300/375*.",
     max: 5,
     position: [5, 2],
   },
   {
     name: "Molten Heart",
-    description: "Increase *Burn Damage* by *4.5/9/13.5/18/22.5%*.",
+    description: "Increase *Burn Damage* by *4/8/12/16/20%*.",
     max: 5,
     position: [5, 3],
   },
@@ -146,7 +146,7 @@ export const STONE_ORB_SCHEMA = [
   {
     name: "Tombstone",
     description:
-      "Every *8th* attack raises the earth around enemies, crushing them towards the center and dealing *X* damage. Deals *triple* damage while fighting a *single* enemy.",
+      "Every *8th* attack raises the earth around enemies, crushing them towards the center and dealing *X* damage (+ *140%* more damage when fighting a *single* enemy).",
     max: 5,
     position: [6, 2],
   },
@@ -160,7 +160,7 @@ export const STONE_ORB_SCHEMA = [
   {
     name: "Falling Sky",
     description:
-      "*Boulder* now causes the sky to fall on its path, dealing an extra *X* damage every time it crashes into the ground.",
+      "*Boulder* causes the sky to fall on its path, dealing an extra *X* damage every time it crashes into the ground.",
     max: 3,
     position: [7, 1],
     requires: "Boulder",
@@ -176,7 +176,7 @@ export const STONE_ORB_SCHEMA = [
   {
     name: "Seismic Barrier",
     description:
-      "Every *5th* attack raises a force field in front of you, blocking basic enemy projectiles. The shield lasts for *1.5/2/2.5/3/3.5s*.",
+      "Every *5th* attack raises a force field in front of you, blocking basic enemy projectiles. The shield lasts for *1.5/3/4.5/6/7.5s*.",
     max: 5,
     position: [7, 3],
   },

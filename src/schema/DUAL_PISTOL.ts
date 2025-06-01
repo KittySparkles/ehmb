@@ -15,14 +15,14 @@ export const DUAL_PISTOL_SCHEMA = [
   },
   {
     name: "Iron Will",
-    description: "Increase *Max HP* by *30/60/90/120/150*.",
+    description: "Increase *Max HP* by *60/120/180/240/300*.",
     max: 5,
     position: [0, 3],
   },
   {
     name: "Fan the Hammer",
     description:
-      "Your attacks have a *2.5/3.1/3.7/4.3/5%* chance to rapidly fire *1/2/3/4/5* additional bullet(s) that also count as a normal attack.",
+      "Your attacks have a *2.5/3.1/3.7/4.3/5%* chance to rapidly fire *1/2/3/4/5* additional bullet(s) that also count as a normal attack. Has a *2s* cooldown.",
     max: 5,
     position: [1, 1],
     requires: "Quick Hands",
@@ -43,7 +43,7 @@ export const DUAL_PISTOL_SCHEMA = [
   {
     name: "Critical Aim",
     description:
-      "Increase *Crit Chance* by *2/3/4/5/6%* and *Crit Damage* by *4/8/12/16/20%*.",
+      "Increase *Crit Chance* by *2/4/6/8/10%* and *Crit Damage* by *4/8/12/16/20%*.",
     max: 5,
     position: [2, 0],
     requires: "Iron Bullets",
@@ -51,14 +51,14 @@ export const DUAL_PISTOL_SCHEMA = [
   {
     name: "Adrenaline Surge",
     description:
-      "Taking damage increases *Movement Speed* by *4/5/6/7/8%* and *Attack Speed* by *2/4/6/8/10%*.",
+      "Taking damage increases *Movement Speed* by *4/8/12/16/20%* and *Attack Speed* by *2/4/6/8/10%*.",
     max: 5,
     position: [2, 2],
     requires: "Swift Steps",
   },
   {
     name: "Evade",
-    description: "Increase *Dodge* by *2/3/4/5/6%*.",
+    description: "Increase *Dodge* by *1/2/3/4/5%*.",
     max: 5,
     position: [2, 3],
   },
@@ -73,7 +73,7 @@ export const DUAL_PISTOL_SCHEMA = [
   {
     name: "Sticky Bombs",
     description:
-      "Every *24th* attack throws *1* sticky bomb at random enemies. Sticky bombs explode after a short delay dealing *X* damage to all nearby enemies.",
+      "Every *24th* attack throws *1/2/3/4/5* sticky bomb at random enemies, exploding after a short delay dealing *X* damage to all nearby enemies.",
     max: 5,
     position: [3, 1],
   },
@@ -87,7 +87,7 @@ export const DUAL_PISTOL_SCHEMA = [
   {
     name: "Blasting Volley",
     description:
-      "When *Sticky Bombs* explode, they emit *1/2/3/4/5* laser(s) in a random directions dealing *X* damage on hit.",
+      "When *Sticky Bombs* explode, they emit *1/2/3/4/5* laser(s) dealing *X* damage in random directions.",
     max: 5,
     position: [4, 1],
     requires: "Sticky Bombs",
@@ -95,20 +95,20 @@ export const DUAL_PISTOL_SCHEMA = [
   {
     name: "Incendiary Bullets",
     description:
-      "Infuse *Bullet Hell* with fire, causing enemies to burn for *2s* and take *X* damage every *0.75s*.",
+      "Infuse *Bullet Hell* with fire, causing enemies to burn for *2s* and take *X* damage every *0.75/0.67/0.6/0.52/0.43s*.",
     max: 5,
     position: [4, 2],
     requires: "Bullet Hell",
   },
   {
     name: "Firetrail",
-    description: "Increase *Burn Damage* by *4.5/9/13.5/18/22.5%*.",
+    description: "Increase *Burn Damage* by *3/6/9/12/15%*.",
     max: 5,
     position: [4, 3],
   },
   {
     name: "Ricochet",
-    description: "Your bullets now *ricochet* once.",
+    description: "Your bullets ricochet once.",
     max: 1,
     position: [5, 0],
   },
@@ -121,7 +121,7 @@ export const DUAL_PISTOL_SCHEMA = [
   },
   {
     name: "Advanced Ricochet",
-    description: "Your bullets now ricochet *twice*.",
+    description: "Your bullets ricochet twice.",
     max: 1,
     position: [6, 0],
     requires: "Ricochet",
@@ -129,7 +129,7 @@ export const DUAL_PISTOL_SCHEMA = [
   {
     name: "Dragon Blast",
     description:
-      "Every *20th* attack charges your pistol with primal power, conjuring an ethereal dragon that blasts enemies in its path, dealing a devastating *X* damage.",
+      "Every *20th* attack charges your pistol with primal power, conjuring an ethereal dragon that blasts enemies in its path, dealing *X* damage.",
     max: 5,
     position: [6, 1],
   },
@@ -143,14 +143,14 @@ export const DUAL_PISTOL_SCHEMA = [
   {
     name: "Eye in the Sky",
     description:
-      "Critical hits call down a beam from the skies to obliterate the target area dealing *X* damage every *0.3s* for *3s*. This can only happen every *15s*.",
+      "Critical hits call down a beam from the skies to obliterate the target area, dealing *X* damage every *0.3s* for *4.6/5/5.4/5.8/6.2s*. Has a *12s* cooldown.",
     max: 5,
     position: [6, 3],
   },
   {
     name: "Scorched Earth",
     description:
-      "*Dragon Blast* now leaves the earth scorched, dealing *X* damage every *0.5s* to enemies above for *5s*.",
+      "*Dragon Blast* leaves the earth scorched, dealing *X* damage every *0.5s* to enemies above for *5s*.",
     max: 3,
     position: [7, 1],
     requires: "Dragon Blast",
@@ -158,7 +158,7 @@ export const DUAL_PISTOL_SCHEMA = [
   {
     name: "Explosive Payload",
     description:
-      "Rockets now explode on impact, dealing *X* damage in a small area and burning their primary targets for *30/40/50/60/70%* of the main rocket’s damage over *2s*.",
+      "Rockets explode on impact, dealing *X* damage in a small area and burning their primary targets for *30/33/36/39/42%* of the main rocket’s damage over *2s*.",
     max: 5,
     position: [7, 2],
   },

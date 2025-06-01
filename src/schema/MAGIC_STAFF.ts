@@ -16,7 +16,7 @@ export const MAGIC_STAFF_SCHEMA = [
   {
     name: "Flame Shield",
     description:
-      "Grant a permanent flame shield that increases *Armor* by *10/20/30/40/50* and deals *X* damage back to attackers.",
+      "Grant a permanent flame shield increasing *Armor* by *15/30/45/60/75* and deals *X* damage back to attackers.",
     max: 5,
     position: [0, 2],
   },
@@ -37,7 +37,7 @@ export const MAGIC_STAFF_SCHEMA = [
   {
     name: "Flamestorm",
     description:
-      "Taking damage has a *10/20/30/40/50%* chance to activate *Flamestorm*, increasing *Movement Speed* by *5/10/15/20/25%* and dealing *X* damage to nearby enemies every *0.5s* for *3/3.5/3.9/4.4/4.8s*.",
+      "Taking damage has a *10/20/30/40/50%* chance to increase *Movement Speed* by *7/15/22.5/30/37.5%* and dealing *X* damage to nearby enemies every *0.5s* for *5s*.",
     max: 5,
     position: [1, 2],
     requires: "Flame Shield",
@@ -60,14 +60,14 @@ export const MAGIC_STAFF_SCHEMA = [
   {
     name: "Blazing Hands",
     description:
-      "Increase *Attack Speed* by *4.5/9/13.5/18/22.5%*, *Leech* by *3/6/9/12/15* and *HP Regen* by *65/130/195/260/325*.",
+      "Increase *Attack Speed* by *3/6/9/12/15%*, *Leech* by *2/3/4/8/10* and *HP Regen* by *40/80/120/160/200*.",
     max: 5,
     position: [2, 2],
   },
   {
     name: "Shattering Ice",
     description:
-      "*Ice Lances* now shatter on hit, dealing *20/40/60/80/100%* of original damage in a small radius.",
+      "*Ice Lances* now shatter on hit, dealing *50/80/110/140/170%* of original damage in a small radius.",
     max: 5,
     position: [2, 3],
     requires: "Ice Lance",
@@ -97,7 +97,7 @@ export const MAGIC_STAFF_SCHEMA = [
   {
     name: "Static Discharge",
     description:
-      "When *Thunderstorm* expires, it releases a static energy blast, dealing *X* damage to all enemies within range.",
+      "When *Thunderstorm* expires, it releases a static energy blast, dealing *X* extra damage to all enemies within range.",
     max: 5,
     position: [4, 1],
     requires: "Thunderstorm",
@@ -105,14 +105,14 @@ export const MAGIC_STAFF_SCHEMA = [
   {
     name: "Burning Projectiles",
     description:
-      "Your normal attacks now ignite enemies, dealing *X* damage every *0.5/0.45/0.4/0.35/0.3s* for *2/2.3/2.6/2.9/3.2s*.",
+      "Your attacks ignite enemies, dealing *X* damage every *0.49s* for *1.8/2/2.2/2.4/2.6s*.",
     max: 5,
     position: [4, 2],
   },
   {
     name: "Shattering Orbs",
     description:
-      "When *Frozen Orbs* expire, they explode dealing *X* damage to nearby enemies and freezing them for *2/2.4/2.8/3.2/3.6s*.",
+      "When *Frozen Orbs* expire, they explode dealing *X* damage to nearby enemies and freezing them for *1.5/1.7/1.8/2/2.1s*.",
     max: 5,
     position: [4, 3],
     requires: "Frozen Orb",
@@ -125,9 +125,9 @@ export const MAGIC_STAFF_SCHEMA = [
     requires: "Empowered Spells",
   },
   {
-    name: "Blazing Hands",
+    name: "Pyroclasm",
     description:
-      "Increase *Attack Speed* by *3/6/9/12/15%*, *Leech* by *2/4/6/8/10* and *HP Regen* by *40/80/120/160/200*.",
+      "Increase *Burn Damage (DoT)* by *5/10/15/20/25%*.",
     max: 5,
     position: [5, 2],
     requires: "Burning Projectiles",
@@ -142,7 +142,7 @@ export const MAGIC_STAFF_SCHEMA = [
   {
     name: "Blizzard",
     description:
-      "Every *30s*, summon a blizzard that travels towards nearby enemies, dealing *X* damage every *0.5/1/1.5/2/2.5s* for *5s* in a *1m* area.",
+      "Every *30/27/24/21/18s*, summon a blizzard that travels towards nearby enemies, dealing *X* damage every *0.5s* for *5s* in a *1/2/3/4/5m* area.",
     max: 5,
     position: [6, 3],
   },
@@ -154,17 +154,9 @@ export const MAGIC_STAFF_SCHEMA = [
     requires: "Arcane Brilliance",
   },
   {
-    name: "Static Recharge",
-    description:
-      "Fatal blows that would kill you trigger a shield, preventing your death. While active, you are immune and can’t move. Shield deals *X* damage nearby and heals you every *1s* for *4s*. Has *120s* cooldown.",
-    max: 1,
-    position: [7, 1],
-    requires: "Static Discharge",
-  },
-  {
     name: "Meteor Shower",
     description:
-      "*Meteor* now splits into 6 fragments, covering a larger area, with each fragment dealing *35%* of the original meteor’s damage.",
+      "*Meteor* now splits into *6* fragments, covering a larger area, with each fragment dealing *40%* of the original meteor’s damage.",
     max: 1,
     position: [7, 2],
     requires: "Meteor",

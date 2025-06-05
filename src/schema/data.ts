@@ -29,7 +29,7 @@ export const MASTERIES = [
     schema: MAGIC_STAFF_SCHEMA,
   },
   { name: "Rifle", slug: "rifle", id: "ri" as const, schema: RIFLE_SCHEMA },
-  { name: "Scythe", slug: "scythe", id: "sh" as const, schema: SCYTHE_SCHEMA },
+  { name: "Scythe", slug: "scythe", id: "sc" as const, schema: SCYTHE_SCHEMA },
   { name: "Shield", slug: "shield", id: "sh" as const, schema: SHIELD_SCHEMA },
   {
     name: "Stone Orb",

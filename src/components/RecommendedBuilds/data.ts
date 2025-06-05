@@ -24,6 +24,8 @@ const MAGIC_STAFF: RecommendedBuild[] = [];
 
 const RIFLE: RecommendedBuild[] = [];
 
+const SCYTHE: RecommendedBuild[] = [];
+
 const SHIELD: RecommendedBuild[] = [
   {
     name: "Single-target core",
@@ -58,6 +60,7 @@ export const RECOMMENDED_BUILDS: Record<MasteryType, RecommendedBuild[]> = {
   dp: DUAL_PISTOL,
   ms: MAGIC_STAFF,
   ri: RIFLE,
+  sc: SCYTHE,
   sh: SHIELD,
   so: STONE_ORB,
   th: TWO_HANDED,

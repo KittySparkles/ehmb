@@ -45,7 +45,6 @@ export const DOUBLE_BLADE_SCHEMA = [
     description: "Increase *Attack Speed* by *3/6/9/12/15%*.",
     max: 5,
     position: [1, 2],
-    requires: "Agile Steps",
   },
   {
     name: "Lethal Wounds",

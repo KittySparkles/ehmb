@@ -164,7 +164,7 @@ export const SHIELD_SCHEMA = [
   {
     name: "Defensive Stance",
     description:
-      "Whenever you fall below *20/30/40% Max HP*, enter a defensive stance that grants *250/500/750 Armor*.",
+      "Whenever you fall below *20/30/40% Max HP*, enter a defensive stance that grants *200/400/600 Armor*.",
     max: 3,
     position: [6, 3],
   },

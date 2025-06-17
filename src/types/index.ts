@@ -5,21 +5,13 @@ export type VariableType =
   | { type: "raw"; value: string; highlight?: boolean }
 export type Variables = Record<string, VariableType>
 
-export type RawSkill =
-  | {
-      id: number
-      max: number
-      position: [number, number]
-      requires?: number
-      variables: Variables
-    }
-  | {
-      id: number
-      description: string
-      max: number
-      position: [number, number]
-      requires?: number
-    }
+export type RawSkill = {
+  id: number
+  max: number
+  position: [number, number]
+  requires?: number
+  variables: Variables
+}
 export type Skill = RawSkill & { current: number }
 export type Build = Skill[]
 export type Mastery = (typeof MASTERIES)[number]

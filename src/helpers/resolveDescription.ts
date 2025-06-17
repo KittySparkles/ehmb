@@ -11,20 +11,24 @@ const REGEX = [
 
 const unfoldValue = (string = "") => String(string).split("/")
 
-export const resolveDescription = (skill: Skill, rank: number) => {
-  const re = REGEX[skill.max]
+export const resolveDescription = (
+  description: string,
+  max: number,
+  rank: number
+) => {
+  const re = REGEX[max]
 
   if (!re) {
-    return skill.description
+    return description
   }
 
-  const variables = skill.description.match(re) || []
+  const variables = description.match(re) || []
 
-  const values = Array.from({ length: skill.max }, (_, index) =>
+  const values = Array.from({ length: max }, (_, index) =>
     variables.reduce(
       (result, variable) =>
         result.replace(variable, unfoldValue(variable)[index]),
-      skill.description
+      description
     )
   )
 

@@ -14,10 +14,9 @@ import { TRANSLATIONS } from "../../schema/data"
 
 export const LOCALE = "en"
 
-const useDiffedDescription = (skill: Skill) => {
-  if (!("description" in skill)) return ""
-  const current = resolveDescription(skill, skill.current)
-  const next = resolveDescription(skill, skill.current + 1)
+const useDiffedDescription = (skill: Skill, description: string) => {
+  const current = resolveDescription(description, skill.max, skill.current)
+  const next = resolveDescription(description, skill.max, skill.current + 1)
 
   if (skill.current === skill.max) return microMarkdown(current)
   if (skill.current === 0) return microMarkdown(next)
@@ -92,15 +91,19 @@ const useDiffedDescription = (skill: Skill) => {
 }
 
 const useLocalizedDescription = (skill: Skill) => {
-  const diffedDescription = useDiffedDescription(skill)
-  if (!("variables" in skill)) return diffedDescription
+  const key = `Talent_${skill.id}_Desc`
+  const translation = TRANSLATIONS.get(key)?.[LOCALE]
+  if (!translation) throw new Error(`Could not find description for ${key}`)
 
-  let description = (
-    TRANSLATIONS.get(`Talent_${skill.id}_Desc`)?.[LOCALE] ?? ""
-  )
-    .replace(/<color=green>/g, "*")
+  // Replace the coloration variables with stars since this is what our system
+  // uses for highlight (could potentially stop doing that and use the colora-
+  // tion variables directly)
+  let description = translation
+    .replace(/<color=[^>]+>/g, "*")
     .replace(/<\/color>/g, "*")
 
+  // For every variable that is defined for the given skill, replace it inside
+  //
   for (const variableName in skill.variables) {
     const variable = skill.variables[variableName]
     if (variable.type === "raw")
@@ -119,9 +122,8 @@ const useLocalizedDescription = (skill: Skill) => {
   }
 
   description = description.replace(/\*([%sm])/g, "$1*")
-  console.log(description)
 
-  return useDiffedDescription({ ...skill, description })
+  return useDiffedDescription(skill, description)
 }
 
 export const SkillInfo: FC<{ skill: Skill }> = ({ skill }) => {

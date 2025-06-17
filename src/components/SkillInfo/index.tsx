@@ -12,7 +12,7 @@ import { Controls } from "../Controls"
 import Styles from "./styles.module.css"
 import { TRANSLATIONS } from "../../schema/data"
 
-export const LOCALE = "fr"
+export const LOCALE = "en"
 
 const useDiffedDescription = (skill: Skill) => {
   if (!("description" in skill)) return ""
@@ -105,14 +105,14 @@ const useLocalizedDescription = (skill: Skill) => {
     const variable = skill.variables[variableName]
     if (variable.type === "raw")
       description = description.replace(
-        `{{${variableName}}}`,
+        new RegExp(`{{${variableName}}}`, "g"),
         variable.highlight !== false ? `*${variable.value}*` : variable.value
       )
     else if (variable.type === "translation") {
       const next = TRANSLATIONS.get(variable.value)?.[LOCALE]
       if (next)
         description = description.replace(
-          `{{${variableName}}}`,
+          new RegExp(`{{${variableName}}}`, "g"),
           variable.highlight !== false ? `*${next}*` : next
         )
     }

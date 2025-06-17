@@ -7,6 +7,10 @@ import { SCYTHE_SCHEMA } from "./SCYTHE"
 import { SHIELD_SCHEMA } from "./SHIELD"
 import { STONE_ORB_SCHEMA } from "./STONE_ORB"
 import { TWO_HANDED_SCHEMA } from "./TWO_HANDED"
+import talents from "../../dist/talents.json"
+
+export const TALENTS = new Map<string, (typeof talents)[0]>()
+talents.forEach((talent) => TALENTS.set(talent.Key, talent))
 
 export const MASTERIES = [
   { name: "Bow", slug: "bow", id: "bo" as const, schema: BOW_SCHEMA },

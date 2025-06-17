@@ -38,7 +38,7 @@ export const Grid = () => {
 
                 return (
                   <Tile
-                    key={skill?.name ?? ci}
+                    key={skill?.id ?? ci}
                     skill={skill}
                     position={[ri, ci]}
                   />

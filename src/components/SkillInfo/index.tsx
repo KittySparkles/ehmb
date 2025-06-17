@@ -10,6 +10,7 @@ import { Title } from "../Title"
 import { Controls } from "../Controls"
 
 import Styles from "./styles.module.css"
+import { TALENTS } from "../../schema/data"
 
 const useDiffedDescription = (skill: Skill) => {
   const current = resolveDescription(skill, skill.current)
@@ -95,7 +96,7 @@ export const SkillInfo: FC<{ skill: Skill }> = ({ skill }) => {
   return (
     <>
       <Title Component="h2" size={120}>
-        {skill.name}
+        {TALENTS.get(`Talent_${skill.id}_Name`)?.en ?? skill.id}
       </Title>
 
       <p className={Styles.rank}>
@@ -109,7 +110,8 @@ export const SkillInfo: FC<{ skill: Skill }> = ({ skill }) => {
           <p className={Styles.dependsOn}>
             Requires {dependsOn.max - dependsOn.current} more point
             {dependsOn.max - dependsOn.current !== 1 ? "s" : ""} in the “
-            {dependsOn.name}” talent.
+            {TALENTS.get(`Talent_${dependsOn.id}_Name`)?.en ?? dependsOn.id}”
+            talent.
           </p>
         ) : canIncrement.reason === "NOT_ENOUGH_SPENT" ? (
           <p className={Styles.dependsOn}>

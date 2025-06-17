@@ -2,179 +2,179 @@ import type { RawSkill } from "../types"
 
 export const STONE_ORB_SCHEMA = [
   {
-    name: "Stone Fist",
+    id: 138,
     description: "Increase *Damage* by *5/10/15/20/25%*.",
     max: 5,
     position: [0, 0],
   },
   {
-    name: "Rock Armor",
+    id: 139,
     description: "Increase *Armor* by *3/6/9/12/15*.",
     max: 5,
     position: [0, 1],
   },
   {
-    name: "Grounded",
+    id: 140,
     description:
       "Increase *Max HP* by *50/100/150/200/250* and *Leech* by *4/8/12/16/20*.",
     max: 5,
     position: [0, 2],
   },
   {
-    name: "Evasion",
+    id: 143,
     description: "Increase *Dodge* by *1/2/3/4/5%*.",
     max: 5,
     position: [0, 3],
   },
   {
-    name: "Earth Mastery",
+    id: 141,
     description: "Increase *Crit Chance* by *2/4/6/8/10%*.",
     max: 5,
     position: [1, 0],
-    requires: "Stone Fist",
+    requires: 138,
   },
   {
-    name: "Stone Shield",
+    id: 142,
     description:
       "Gain a permanent stone shield that increases *Armor* by *20/40/60/80/100*. Taking damage for more than *10%* of your *Max HP* in *1s* breaks the shield. Has *9.15/8.25/7.33/6.42/5.5s* cooldown.",
     max: 5,
     position: [1, 1],
-    requires: "Rock Armor",
+    requires: 139,
   },
   {
-    name: "Earthen Might",
+    id: 144,
     description:
       "Increase *Damage* by *2/4/6/8/10%* and *Crit Damage* by *5/7.5/10/12.5/15%*.",
     max: 5,
     position: [2, 0],
-    requires: "Earth Mastery",
+    requires: 141,
   },
   {
-    name: "Shattering Fragments",
+    id: 145,
     description:
       "When *Stone Shield* breaks, it shatters, dealing *X* damage to nearby enemies.",
     max: 5,
     position: [2, 1],
-    requires: "Stone Shield",
+    requires: 142,
   },
   {
-    name: "Earthen Spikes",
+    id: 149,
     description:
       "Every *4th* attack summons earth spikes under your main target, dealing *X* damage to enemies in a small area.",
     max: 5,
     position: [2, 2],
   },
   {
-    name: "Regenerative Roots",
+    id: 147,
     description:
       "Every *10s* earth blooms under your feet, *healing* you for *5/10/15/20/25%* HP every *0.75s* for *3s*.",
     max: 5,
     position: [2, 3],
   },
   {
-    name: "Piercing Splinters",
+    id: 148,
     description:
       "*Shattering Fragments* also blast splinters around causing bleeding and dealing *X* damage every *0.4s* for *2s*.",
     max: 5,
     position: [3, 1],
-    requires: "Shattering Fragments",
+    requires: 145,
   },
   {
-    name: "Rupture",
+    id: 152,
     description:
       "*Earthen Spikes* travel towards *1/2/3/4/5* random target(s), dealing *X* damage to anything in their path.",
     max: 5,
     position: [3, 2],
-    requires: "Earthen Spikes",
+    requires: 149,
   },
   {
-    name: "Maneuvers",
+    id: 146,
     description: "Increase *Movement Speed* by *2/4/6/8/10%*.",
     max: 5,
     position: [3, 3],
   },
   {
-    name: "Stoneskin",
+    id: 150,
     description:
       "Increase *Armor* by *1/2/3/4/5*, *Max HP* by *15/30/45/60/75* and *Damage* by *1/2/3/4/5%*.",
     max: 5,
     position: [4, 0],
-    requires: "Earthen Might",
+    requires: 144,
   },
   {
-    name: "Earthquake",
+    id: 151,
     description:
       "Every *8th* attack causes the earth to tremble, dealing *X* damage every *0.75s* for *3s*.",
     max: 5,
     position: [4, 1],
   },
   {
-    name: "Earthen Strength",
+    id: 153,
     description: "Increase *Attack Target* by *1*.",
     max: 1,
     position: [5, 0],
-    requires: "Stoneskin",
+    requires: 150,
   },
   {
-    name: "Aftershock",
+    id: 154,
     description:
       "*Earthquake* has a *5/10/15/20/25%* chance to cause a second quake once it ends. This can trigger itself again.",
     max: 5,
     position: [5, 1],
-    requires: "Earthquake",
+    requires: 151,
   },
   {
-    name: "Stone Will",
+    id: 155,
     description:
       "Increase *Attack Speed* by *3/6/9/12/15%*, *Leech* by *1/2/3/4/5* and *HP Regen* by *75/150/225/300/375*.",
     max: 5,
     position: [5, 2],
   },
   {
-    name: "Molten Heart",
+    id: 202,
     description: "Increase *Burn Damage* by *4/8/12/16/20%*.",
     max: 5,
     position: [5, 3],
   },
   {
-    name: "Boulder",
+    id: 156,
     description:
       "Every *4th* attack summons a boulder that crushes enemies in its path, dealing *X* damage.",
     max: 5,
     position: [6, 1],
   },
   {
-    name: "Tombstone",
+    id: 157,
     description:
       "Every *8th* attack raises the earth around enemies, crushing them towards the center and dealing *X* damage (+ *140%* more damage when fighting a *single* enemy).",
     max: 5,
     position: [6, 2],
   },
   {
-    name: "Earthen Fury",
+    id: 159,
     description: "Additionally increase *Attack Target* by *1*.",
     max: 1,
     position: [7, 0],
-    requires: "Earthen Strength",
+    requires: 153,
   },
   {
-    name: "Falling Sky",
+    id: 160,
     description:
       "*Boulder* causes the sky to fall on its path, dealing an extra *X* damage every time it crashes into the ground.",
     max: 3,
     position: [7, 1],
-    requires: "Boulder",
+    requires: 156,
   },
   {
-    name: "Upheaval",
+    id: 161,
     description:
       "Once *Tombstone* pulls enemies towards its center, an upheaval occurs, knocking enemies up and dealing an additional *X* damage.",
     max: 3,
     position: [7, 2],
-    requires: "Tombstone",
+    requires: 157,
   },
   {
-    name: "Seismic Barrier",
+    id: 162,
     description:
       "Every *5th* attack raises a force field in front of you, blocking basic enemy projectiles. The shield lasts for *1.5/3/4.5/6/7.5s*.",
     max: 5,

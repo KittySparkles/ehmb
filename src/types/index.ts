@@ -1,11 +1,11 @@
 import type { MASTERIES } from "../schema/data"
 
 export type RawSkill = {
-  name: string
+  id: number
   description: string
   max: number
   position: [number, number]
-  requires?: string
+  requires?: number
 }
 export type Skill = RawSkill & { current: number }
 export type Build = Skill[]

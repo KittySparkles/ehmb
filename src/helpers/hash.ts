@@ -44,8 +44,8 @@ export const hashData = (masteryType: MasteryType, data: Build) => {
       .filter(({ current }) => current > 0)
       // Discard skills that are a dependency of another skill that was learnt,
       // as they are implied to be maxed out
-      .filter(({ name }) => {
-        const dependencyOf = data.find((skill) => skill.requires === name)
+      .filter(({ id }) => {
+        const dependencyOf = data.find((skill) => skill.requires === id)
         if (dependencyOf && dependencyOf.current > 0) return false
         return true
       })
@@ -75,8 +75,7 @@ export const dehashData = (hash: string) => {
 
   const values = (hash.slice(2) ?? "").match(/(\w\d)/g) ?? []
   const build = mapSchema(mastery.schema)
-  const findSkillByName = (name?: string) =>
-    build.find((skill) => skill.name === name)
+  const findSkillById = (id?: number) => build.find((skill) => skill.id === id)
 
   values.forEach((value) => {
     const char = value[0]
@@ -98,7 +97,7 @@ export const dehashData = (hash: string) => {
     // If the skill depends on another skill, mark that other skill as maxed out
     // and keep doing that for the whole skill chain
     // biome-ignore lint/suspicious/noAssignInExpressions: necessary
-    while ((prev = findSkillByName(curr.requires))) {
+    while ((prev = findSkillById(curr.requires))) {
       prev.current = prev.max
       curr = prev
     }

@@ -8,12 +8,12 @@ type TileType = "void" | "bridge" | "skill"
 export const useSkill = (skill?: Skill, position?: Skill["position"]) => {
   const { level, build, setBuild } = useBuild()
   const dependsOn = useMemo(
-    () => build.find((other) => other.name === skill?.requires),
+    () => build.find((other) => other.id === skill?.requires),
     [build, skill?.requires]
   )
   const dependencyOf = useMemo(
-    () => build.find((other) => other.requires === skill?.name),
-    [build, skill?.name]
+    () => build.find((other) => other.requires === skill?.id),
+    [build, skill?.id]
   )
 
   const canIncrement = useMemo(() => {
@@ -51,7 +51,7 @@ export const useSkill = (skill?: Skill, position?: Skill["position"]) => {
     // Not enough points in the tree to still fulfill requirements
     if (
       build
-        .filter((other) => other.name !== skill.name && other.current > 0)
+        .filter((other) => other.id !== skill.id && other.current > 0)
         .some((skill) => level - skill.current - 1 < skill.position[0] * 5)
     )
       return { permission: "DENIED", reason: "TOO_MUCH_SPENT" }
@@ -62,7 +62,7 @@ export const useSkill = (skill?: Skill, position?: Skill["position"]) => {
   const increment = useCallback(() => {
     if (!skill || !canIncrement) return
     const copy = structuredClone(build)
-    const entry = copy.find((other) => other.name === skill.name)
+    const entry = copy.find((other) => other.id === skill.id)
     if (entry) entry.current = Math.min(entry.current + 1, entry.max)
     setBuild(copy)
   }, [canIncrement, build, setBuild, skill])
@@ -70,7 +70,7 @@ export const useSkill = (skill?: Skill, position?: Skill["position"]) => {
   const decrement = useCallback(() => {
     if (!skill || !canDecrement) return
     const copy = structuredClone(build)
-    const entry = copy.find((other) => other.name === skill.name)
+    const entry = copy.find((other) => other.id === skill.id)
     if (entry) entry.current = Math.max(entry.current - 1, 0)
     setBuild(copy)
   }, [canDecrement, build, setBuild, skill])

@@ -9,6 +9,7 @@ import { Title } from "../Title"
 import { Controls } from "../Controls"
 
 import Styles from "./styles.module.css"
+import { TALENTS } from "../../schema/data"
 
 export const Tile: FC<{ skill?: Skill; position: Skill["position"] }> = ({
   skill,
@@ -42,7 +43,9 @@ export const Tile: FC<{ skill?: Skill; position: Skill["position"] }> = ({
             <Popover
               control={
                 <RButton className={Styles.toggle}>
-                  <Title Component="span">{skill.name}</Title>
+                  <Title Component="span">
+                    {TALENTS.get(`Talent_${skill.id}_Name`)?.en ?? skill.id}
+                  </Title>
                   <span className={Styles.help}>ⓘ</span>
                 </RButton>
               }

@@ -12,6 +12,8 @@ import { Controls } from "../Controls"
 import Styles from "./styles.module.css"
 import { TRANSLATIONS } from "../../schema/data"
 
+export const LOCALE = "fr"
+
 const useDiffedDescription = (skill: Skill) => {
   if (!("description" in skill)) return ""
   const current = resolveDescription(skill, skill.current)
@@ -93,7 +95,9 @@ const useLocalizedDescription = (skill: Skill) => {
   const diffedDescription = useDiffedDescription(skill)
   if (!("variables" in skill)) return diffedDescription
 
-  let description = (TRANSLATIONS.get(`Talent_${skill.id}_Desc`)?.en ?? "")
+  let description = (
+    TRANSLATIONS.get(`Talent_${skill.id}_Desc`)?.[LOCALE] ?? ""
+  )
     .replace(/<color=green>/g, "*")
     .replace(/<\/color>/g, "*")
 
@@ -105,7 +109,7 @@ const useLocalizedDescription = (skill: Skill) => {
         variable.highlight !== false ? `*${variable.value}*` : variable.value
       )
     else if (variable.type === "translation") {
-      const next = TRANSLATIONS.get(variable.value)?.en
+      const next = TRANSLATIONS.get(variable.value)?.[LOCALE]
       if (next)
         description = description.replace(
           `{{${variableName}}}`,
@@ -128,7 +132,7 @@ export const SkillInfo: FC<{ skill: Skill }> = ({ skill }) => {
   return (
     <>
       <Title Component="h2" size={120}>
-        {TRANSLATIONS.get(`Talent_${skill.id}_Name`)?.en ?? skill.id}
+        {TRANSLATIONS.get(`Talent_${skill.id}_Name`)?.[LOCALE] ?? skill.id}
       </Title>
 
       <p className={Styles.rank}>
@@ -142,7 +146,7 @@ export const SkillInfo: FC<{ skill: Skill }> = ({ skill }) => {
           <p className={Styles.dependsOn}>
             Requires {dependsOn.max - dependsOn.current} more point
             {dependsOn.max - dependsOn.current !== 1 ? "s" : ""} in the “
-            {TRANSLATIONS.get(`Talent_${dependsOn.id}_Name`)?.en ??
+            {TRANSLATIONS.get(`Talent_${dependsOn.id}_Name`)?.[LOCALE] ??
               dependsOn.id}
             ” talent.
           </p>

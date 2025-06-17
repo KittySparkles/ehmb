@@ -4,7 +4,7 @@ import { Button as RButton } from "react-aria-components"
 import type { Skill } from "../../types"
 import { Popover } from "../Popover"
 import { useSkill } from "../../hooks/useSkill"
-import { SkillInfo } from "../SkillInfo"
+import { LOCALE, SkillInfo } from "../SkillInfo"
 import { Title } from "../Title"
 import { Controls } from "../Controls"
 
@@ -44,7 +44,7 @@ export const Tile: FC<{ skill?: Skill; position: Skill["position"] }> = ({
               control={
                 <RButton className={Styles.toggle}>
                   <Title Component="span">
-                    {TRANSLATIONS.get(`Talent_${skill.id}_Name`)?.en ??
+                    {TRANSLATIONS.get(`Talent_${skill.id}_Name`)?.[LOCALE] ??
                       skill.id}
                   </Title>
                   <span className={Styles.help}>ⓘ</span>

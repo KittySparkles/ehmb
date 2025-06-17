@@ -2,7 +2,7 @@ import type { MASTERIES } from "../schema/data"
 
 export type VariableType =
   | { type: "translation"; value: string; highlight?: boolean }
-  | { type: "raw"; value: "string"; highlight?: boolean }
+  | { type: "raw"; value: string; highlight?: boolean }
 export type Variables = Record<string, VariableType>
 
 export type RawSkill =

@@ -4,7 +4,7 @@ import { writeFile } from "node:fs/promises"
 import https from "node:https"
 import dotenv from "dotenv"
 import decompress from "decompress"
-import csv from "csvtojson"
+import csvtojson from "csvtojson"
 import type Client from "@crowdin/crowdin-api-client"
 import { default as Crowdin } from "@crowdin/crowdin-api-client"
 
@@ -17,8 +17,11 @@ const client: Client = new Crowdin.default({
 
 const PROJECT_ID = 797774
 const zipPath = path.join(process.cwd(), "crowdin-translations.zip")
-const csvPath = path.join(process.cwd(), "./dist/unity-plugin/Talent.csv")
-const jsonPath = path.join(process.cwd(), "./dist/talents.json")
+const csvPaths = [
+  path.join(process.cwd(), "./dist/unity-plugin/Talent.csv"),
+  path.join(process.cwd(), "./dist/unity-plugin/Generic.csv"),
+]
+const jsonPath = path.join(process.cwd(), "./dist/translations.json")
 
 async function main() {
   console.log(`Starting to build project with ID ${PROJECT_ID}`)
@@ -62,8 +65,13 @@ async function main() {
   console.log(`Extracting ZIP file from ${zipPath}`)
   await decompress(zipPath, "dist")
 
-  console.log(`Converting CSV file to JSON from ${csvPath}`)
-  const json = await csv().fromFile(csvPath)
+  const jsons = await Promise.all(
+    csvPaths.map((path) => {
+      console.log(`Converting CSV file to JSON from ${path}`)
+      return csvtojson().fromFile(path)
+    })
+  )
+  const json = jsons.reduce((acc, array) => acc.concat(array), [])
 
   console.log(`Wring JSON file at ${jsonPath}`)
   await writeFile(jsonPath, JSON.stringify(json, null, 2), "utf8")

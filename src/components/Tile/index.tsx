@@ -9,7 +9,7 @@ import { Title } from "../Title"
 import { Controls } from "../Controls"
 
 import Styles from "./styles.module.css"
-import { TALENTS } from "../../schema/data"
+import { TRANSLATIONS } from "../../schema/data"
 
 export const Tile: FC<{ skill?: Skill; position: Skill["position"] }> = ({
   skill,
@@ -39,12 +39,13 @@ export const Tile: FC<{ skill?: Skill; position: Skill["position"] }> = ({
     >
       <div className={Styles.inner}>
         <p className={Styles.name}>
-          {skill.description && (
+          {skill && (
             <Popover
               control={
                 <RButton className={Styles.toggle}>
                   <Title Component="span">
-                    {TALENTS.get(`Talent_${skill.id}_Name`)?.en ?? skill.id}
+                    {TRANSLATIONS.get(`Talent_${skill.id}_Name`)?.en ??
+                      skill.id}
                   </Title>
                   <span className={Styles.help}>ⓘ</span>
                 </RButton>

@@ -10,9 +10,10 @@ import { Title } from "../Title"
 import { Controls } from "../Controls"
 
 import Styles from "./styles.module.css"
-import { TALENTS } from "../../schema/data"
+import { TRANSLATIONS } from "../../schema/data"
 
 const useDiffedDescription = (skill: Skill) => {
+  if (!("description" in skill)) return ""
   const current = resolveDescription(skill, skill.current)
   const next = resolveDescription(skill, skill.current + 1)
 
@@ -88,15 +89,46 @@ const useDiffedDescription = (skill: Skill) => {
   })
 }
 
+const useLocalizedDescription = (skill: Skill) => {
+  const diffedDescription = useDiffedDescription(skill)
+  if (!("variables" in skill)) return diffedDescription
+
+  let description = (TRANSLATIONS.get(`Talent_${skill.id}_Desc`)?.en ?? "")
+    .replace(/<color=green>/g, "*")
+    .replace(/<\/color>/g, "*")
+
+  for (const variableName in skill.variables) {
+    const variable = skill.variables[variableName]
+    if (variable.type === "raw")
+      description = description.replace(
+        `{{${variableName}}}`,
+        variable.highlight !== false ? `*${variable.value}*` : variable.value
+      )
+    else if (variable.type === "translation") {
+      const next = TRANSLATIONS.get(variable.value)?.en
+      if (next)
+        description = description.replace(
+          `{{${variableName}}}`,
+          variable.highlight !== false ? `*${next}*` : next
+        )
+    }
+  }
+
+  description = description.replace(/\*([%sm])/g, "$1*")
+  console.log(description)
+
+  return useDiffedDescription({ ...skill, description })
+}
+
 export const SkillInfo: FC<{ skill: Skill }> = ({ skill }) => {
   const { level } = useBuild()
   const { dependsOn, canIncrement } = useSkill(skill)
-  const description = useDiffedDescription(skill)
+  const description = useLocalizedDescription(skill)
 
   return (
     <>
       <Title Component="h2" size={120}>
-        {TALENTS.get(`Talent_${skill.id}_Name`)?.en ?? skill.id}
+        {TRANSLATIONS.get(`Talent_${skill.id}_Name`)?.en ?? skill.id}
       </Title>
 
       <p className={Styles.rank}>
@@ -110,8 +142,9 @@ export const SkillInfo: FC<{ skill: Skill }> = ({ skill }) => {
           <p className={Styles.dependsOn}>
             Requires {dependsOn.max - dependsOn.current} more point
             {dependsOn.max - dependsOn.current !== 1 ? "s" : ""} in the “
-            {TALENTS.get(`Talent_${dependsOn.id}_Name`)?.en ?? dependsOn.id}”
-            talent.
+            {TRANSLATIONS.get(`Talent_${dependsOn.id}_Name`)?.en ??
+              dependsOn.id}
+            ” talent.
           </p>
         ) : canIncrement.reason === "NOT_ENOUGH_SPENT" ? (
           <p className={Styles.dependsOn}>

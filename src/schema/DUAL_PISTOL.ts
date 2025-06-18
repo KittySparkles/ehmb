@@ -187,8 +187,6 @@ export const DUAL_PISTOL_SCHEMA = [
       attackCount0: { type: "raw", value: "20", highlight: false },
       effectDamage0: { type: "raw", value: "X" },
     },
-    description:
-      "Every *20th* attack charges your pistol with primal power, conjuring an ethereal dragon that blasts enemies in its path, dealing *X* damage.",
     max: 5,
     position: [6, 1],
   },
@@ -198,8 +196,6 @@ export const DUAL_PISTOL_SCHEMA = [
       attackCount0: { type: "raw", value: "17", highlight: false },
       effectDamage0: { type: "raw", value: "X" },
     },
-    description:
-      "Every *17th* attack fires rockets at all active targets, dealing *X* damage. The damage is split evenly among all targets.",
     max: 5,
     position: [6, 2],
   },

@@ -16,8 +16,6 @@ import Styles from "./styles.module.css"
 export const LocalizationMenu = () => {
   const { pathname, search } = useLocation()
 
-  console.log(pathname, search)
-
   return (
     <MenuTrigger>
       <RButton aria-label="Menu" className={Styles.button}>

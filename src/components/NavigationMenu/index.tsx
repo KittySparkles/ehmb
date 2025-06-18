@@ -16,7 +16,7 @@ import { MASTERIES } from "../../schema/data"
 import Styles from "./styles.module.css"
 
 export const NavigationMenu = () => {
-  const { pathname } = useLocation()
+  const { pathname, search } = useLocation()
 
   return (
     <MenuTrigger>
@@ -39,7 +39,7 @@ export const NavigationMenu = () => {
                   .filter(Boolean)
                   .join(" ")}
                 key={mastery.id}
-                href={`/${mastery.slug}`}
+                href={`/${mastery.slug}${search}`}
               >
                 {mastery.name}
               </MenuItem>

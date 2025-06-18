@@ -9,12 +9,11 @@ import {
 import { useLocation } from "react-router-dom"
 
 import { useLocalization } from "../../contexts/Localization/Provider"
+import { SUPPORTED_LOCALES } from "../../contexts/Localization/config"
 import { ShiftBy } from "../ShiftBy"
 import { boxStyles } from "../Box"
-import { MASTERIES } from "../../schema/data"
 
 import Styles from "./styles.module.css"
-import { SUPPORTED_LOCALES } from "../../contexts/Localization/config"
 
 export const LocalizationMenu = () => {
   const { pathname, search } = useLocation()

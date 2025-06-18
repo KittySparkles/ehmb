@@ -16,6 +16,7 @@ export const TRANSLATIONS_PATTERNS = [
   /^level_x$/,
   /^all_masteries$/,
   /^talent_rank$/,
+  /^reset_talents_title$/,
 ]
 
 export const SUPPORTED_LOCALES = [

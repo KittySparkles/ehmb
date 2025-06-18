@@ -14,6 +14,7 @@ import Refresh from "@spectrum-icons/workflow/Refresh"
 
 import { useBuild } from "../../contexts/Build/Provider"
 import { useBookmarks } from "../../contexts/Bookmarks/Provider"
+import { useLocalization } from "../../contexts/Localization/Provider"
 
 import { Dialog, type DialogProps } from "../Dialog"
 import { Button } from "../Button"
@@ -24,6 +25,7 @@ import Styles from "./styles.module.css"
 
 export const BuildMenu = () => {
   const resetDialogRef = useRef<HTMLDialogElement>(null)
+  const { t } = useLocalization()
   const { level, hash } = useBuild()
   const { findBookmarkByHash, addBookmark, updateBookmark, removeBookmark } =
     useBookmarks()
@@ -80,7 +82,7 @@ export const BuildMenu = () => {
                 onAction={() => resetDialogRef.current?.showModal()}
               >
                 <Refresh size="M" />
-                Reset
+                {t("reset_talents_title")}
               </MenuItem>
             )}
           </Menu>

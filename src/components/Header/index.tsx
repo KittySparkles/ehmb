@@ -2,6 +2,7 @@ import { Title } from "../Title"
 
 import Styles from "./styles.module.css"
 import { NavigationMenu } from "../NavigationMenu"
+import { LocalizationMenu } from "../LocalizationMenu"
 
 export const Header = () => {
   return (
@@ -25,6 +26,7 @@ export const Header = () => {
           </Title>
         </div>
         <div className={Styles.right}>
+          <LocalizationMenu />
           <NavigationMenu />
         </div>
       </header>

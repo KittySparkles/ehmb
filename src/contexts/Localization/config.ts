@@ -18,22 +18,22 @@ export const TRANSLATIONS_PATTERNS = [
   /^talent_rank$/,
 ]
 
-export const ALLOWED_LOCALES = [
-  "en",
-  "fr",
-  "de",
-  "it",
-  "ja",
-  "ko",
-  "pl",
-  "ru",
-  "tr",
-  "zh-CN",
-  "vi",
-  "pt-BR",
+export const SUPPORTED_LOCALES = [
+  { locale: "en", name: "English" },
+  { locale: "fr", name: "Français" },
+  { locale: "de", name: "Deutsch" },
+  { locale: "it", name: "Italiano" },
+  { locale: "ja", name: "日本語" },
+  { locale: "ko", name: "한국어" },
+  { locale: "pl", name: "Polski" },
+  { locale: "pt-BR", name: "Português" },
+  { locale: "ru", name: "Русский" },
+  { locale: "tr", name: "Türkçe" },
+  { locale: "vi", name: "Tiếng Việt" },
+  { locale: "zh-CN", name: "汉语" },
 ] as const
 
-export type Locale = (typeof ALLOWED_LOCALES)[number]
+export type Locale = (typeof SUPPORTED_LOCALES)[number]["locale"]
 export type CrowdinItem = Record<Locale, string> & {
   Key: string
   Context?: string

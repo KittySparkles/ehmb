@@ -8,7 +8,7 @@ import csvtojson from "csvtojson"
 import type Client from "@crowdin/crowdin-api-client"
 import { default as Crowdin } from "@crowdin/crowdin-api-client"
 import {
-  ALLOWED_LOCALES,
+  SUPPORTED_LOCALES,
   type CrowdinItem,
   type Locale,
   type LocalizationItem,
@@ -92,7 +92,11 @@ async function main() {
         translations: {} as Record<Locale, string>,
       }
       for (const locale in object) {
-        if (ALLOWED_LOCALES.includes(locale as Locale))
+        if (
+          SUPPORTED_LOCALES.map(({ locale }) => locale).includes(
+            locale as Locale
+          )
+        )
           item.translations[locale as Locale] = object[locale as Locale]
       }
       return item

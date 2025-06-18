@@ -12,7 +12,7 @@ import {
   useMemo,
   useState,
 } from "react"
-import { type Locale, DEFAULT_LOCALE, ALLOWED_LOCALES } from "./config"
+import { type Locale, DEFAULT_LOCALE, SUPPORTED_LOCALES } from "./config"
 import { formatUnity, translate } from "../../helpers/i18n"
 
 export const LocalizationContext = createContext<{
@@ -45,7 +45,7 @@ export const LocalizationProvider: FC<PropsWithChildren> = ({ children }) => {
     const paramLocale = params.get("locale") as Locale | null
 
     if (paramLocale) {
-      if (ALLOWED_LOCALES.includes(paramLocale)) {
+      if (SUPPORTED_LOCALES.map(({ locale }) => locale).includes(paramLocale)) {
         setLocale(paramLocale)
       } else {
         setLocale("en")

@@ -15,6 +15,10 @@ import {
   TRANSLATIONS_PATTERNS,
 } from "./config"
 
+import ora from "ora"
+
+const spinner = ora("Fetching translations…").start()
+
 dotenv.config()
 
 // @ts-expect-error
@@ -34,14 +38,14 @@ const jsonPath = path.join(
 )
 
 async function main() {
-  console.log(`Starting to build project with ID ${PROJECT_ID}`)
+  spinner.text = `Building project with ID ${PROJECT_ID}`
   const {
     data: { id: buildId },
   } = await client.translationsApi.buildProject(PROJECT_ID)
 
   let status = "inProgress"
   while (status === "inProgress") {
-    console.log(`Checking whether build with ID ${buildId} is finished`)
+    spinner.text = `Waiting for build ${buildId} to complete`
     const { data } = await client.translationsApi.checkBuildStatus(
       PROJECT_ID,
       buildId
@@ -51,13 +55,13 @@ async function main() {
     if (status !== "finished") await new Promise((res) => setTimeout(res, 1000))
   }
 
-  console.log(`Retrieving download URL for build with ID ${buildId}`)
+  spinner.text = `Retrieving download URL for build with ID ${buildId}`
   const {
     data: { url },
   } = await client.translationsApi.downloadTranslations(PROJECT_ID, buildId)
 
   // 4. Stream to file using https and fs
-  console.log(`Downloading ZIP file from ${url}`)
+  spinner.text = `Downloading ZIP file from ${url}`
   await new Promise<void>((resolve, reject) => {
     const file = createWriteStream(zipPath)
     https
@@ -72,15 +76,16 @@ async function main() {
       .on("error", reject)
   })
 
-  console.log(`Extracting ZIP file from ${zipPath}`)
+  spinner.text = `Extracting ZIP file from ${zipPath}`
   await decompress(zipPath, "dist")
 
+  spinner.text = "Converting CSV files to JSON"
   const jsons: CrowdinItem[][] = await Promise.all(
     csvPaths.map((path) => {
-      console.log(`Converting CSV file to JSON from ${path}`)
       return csvtojson().fromFile(path)
     })
   )
+  spinner.text = "Reformatting JSON for further use"
   const json = jsons
     .reduce((acc, array) => acc.concat(array), [])
     .filter((object) => {
@@ -102,10 +107,10 @@ async function main() {
       return item
     })
 
-  console.log(`Wring JSON file at ${jsonPath}`)
+  spinner.text = `Wring JSON file at ${jsonPath}`
   await writeFile(jsonPath, JSON.stringify(json, null, 2), "utf8")
 
-  console.log("All done!")
+  spinner.succeed("All done!")
 }
 
 main()

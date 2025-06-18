@@ -9,6 +9,7 @@ import {
 } from "react-aria-components"
 import { useLocation } from "react-router-dom"
 
+import { useLocalization } from "../../contexts/Localization/Provider"
 import { ShiftBy } from "../ShiftBy"
 import { boxStyles } from "../Box"
 import { MASTERIES } from "../../schema/data"
@@ -17,6 +18,7 @@ import Styles from "./styles.module.css"
 
 export const NavigationMenu = () => {
   const { pathname, search } = useLocation()
+  const { t } = useLocalization()
 
   return (
     <MenuTrigger>
@@ -41,7 +43,7 @@ export const NavigationMenu = () => {
                 key={mastery.id}
                 href={`/${mastery.slug}${search}`}
               >
-                {mastery.name}
+                {t(mastery.key)}
               </MenuItem>
             ))}
           </Section>

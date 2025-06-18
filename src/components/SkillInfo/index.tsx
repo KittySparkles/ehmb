@@ -103,25 +103,46 @@ const useLocalizedDescription = (skill: Skill) => {
     .replace(/<\/color>/g, "*")
 
   // For every variable that is defined for the given skill, replace it inside
-  //
+  // the description
   for (const variableName in skill.variables) {
     const variable = skill.variables[variableName]
-    if (variable.type === "raw")
+    const regex = new RegExp(`{{${variableName}}}`, "g")
+    const highlight = (value: string) => `*${value}*`
+
+    // If the type is `raw`, simply inject the given value in place of the
+    // variable; replaced values are typically automatically highlighted within
+    // the game, but in some cases the highlight is done in the translation in
+    // which case we shouldn’t do it twice
+    if (variable.type === "raw") {
       description = description.replace(
-        new RegExp(`{{${variableName}}}`, "g"),
-        variable.highlight !== false ? `*${variable.value}*` : variable.value
+        regex,
+        variable.highlight !== false
+          ? highlight(variable.value)
+          : variable.value
       )
+    }
+
+    // If the type is `translation`, replace the variable with the translation
+    // of the given value
     else if (variable.type === "translation") {
       const next = t(variable.value)
-      if (next)
-        description = description.replace(
-          new RegExp(`{{${variableName}}}`, "g"),
-          variable.highlight !== false ? `*${next}*` : next
-        )
+
+      if (!next) {
+        throw new Error(`Cannot find translation for key “${variable.value}”`)
+      }
+
+      description = description.replace(
+        regex,
+        variable.highlight !== false ? highlight(next) : next
+      )
     }
   }
 
-  description = description.replace(/\*([%sm])/g, "$1*")
+  // This moves some symbol units (like `%`, `s` or `m` in English, or `с` in
+  // Russian) inside of the highlights in instances where they are not
+  // (e.g. `*20*%` -> `*20%*`) — this won’t work in all languages though, and
+  // some may have non-highlighted units
+  description = description.replace(/\*([smс%])/g, "$1*")
 
   return useDiffedDescription(skill, description)
 }

@@ -4,6 +4,7 @@ import {
   type Dispatch,
   type FC,
   type PropsWithChildren,
+  type ReactNode,
   type SetStateAction,
   useCallback,
   useContext,
@@ -17,6 +18,7 @@ import {
   DEFAULT_LOCALE,
   ALLOWED_LOCALES,
   type LocalizationItem,
+  TRANSLATIONS_PATTERNS,
 } from "./config"
 import { formatUnity } from "../../helpers/formatUnity"
 
@@ -42,14 +44,28 @@ const dictionary = (translations as LocalizationItem[]).reduce<
 export const LocalizationProvider: FC<PropsWithChildren> = ({ children }) => {
   const location = useLocation()
   const [locale, setLocale] = useState<Locale>(DEFAULT_LOCALE)
+
+  const checkKey = useCallback((key: string) => {
+    if (!TRANSLATIONS_PATTERNS.some((pattern) => pattern.test(key))) {
+      console.warn(
+        `Attempted to translate key “${key}” but no translation pattern matches it, which means it is not included in the translations file. Define it in the translation patterns and rebuild the site to be able to use it.`
+      )
+    }
+  }, [])
+
   const t = useCallback(
-    (key: string) => dictionary[key]?.[locale] ?? "",
-    [locale]
+    (key: string) => {
+      checkKey(key)
+      return dictionary[key]?.[locale] ?? ""
+    },
+    [locale, checkKey]
   )
   const tf = useCallback(
-    (...args: Parameters<typeof formatUnity>) =>
-      formatUnity(t(args[0]) ?? "", ...args.slice(1)),
-    [t]
+    (key: string, ...args: ReactNode[]) => {
+      checkKey(key)
+      return formatUnity(t(key), ...args.slice(1))
+    },
+    [t, checkKey]
   )
 
   const context = useMemo(() => ({ locale, setLocale, t, tf }), [locale, t, tf])

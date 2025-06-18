@@ -1,13 +1,11 @@
-import type { JSX } from "react"
-
-type Renderable = string | number | JSX.Element
+import type { ReactNode } from "react"
 
 export function formatUnity(
   template: string,
-  ...args: Renderable[]
-): Renderable[] {
+  ...args: ReactNode[]
+): ReactNode[] {
   const regex = /\{(\d+)(:plural:([^|{}]+)\|([^{}]+))?\}/g
-  const result: Renderable[] = []
+  const result: ReactNode[] = []
   let lastIndex = 0
 
   for (const match of template.matchAll(regex)) {

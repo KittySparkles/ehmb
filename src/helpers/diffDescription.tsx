@@ -84,7 +84,7 @@ export const diffDescription = (
 
     // Finally, remove the trailing stars that were broken during the diffing
     // process.
-    const value = chunk.value.replace(/^\*/, "").replace(/\*$/, "")
+    const value = chunk.value.replace(/^\* /, " ").replace(/ \*$/, " ")
 
     return microMarkdown(value)
   })

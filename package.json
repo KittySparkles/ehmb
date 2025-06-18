@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build && npm run crowdin",
+    "build": "npm run crowdin && tsc -b && vite build",
     "preview": "vite preview",
     "crowdin": "npx tsx ./src/contexts/Localization/import.ts"
   },

@@ -31,7 +31,7 @@ export const NavigationMenu = () => {
       <Popover className={Styles.popover} placement="bottom end">
         <Menu className={[Styles.menu, boxStyles].join(" ")}>
           <Section className={Styles.section}>
-            <Header className={Styles.header}>Masteries</Header>
+            <Header className={Styles.header}>{t("all_masteries")}</Header>
             {MASTERIES.map((mastery) => (
               <MenuItem
                 className={[

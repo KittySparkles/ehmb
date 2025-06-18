@@ -14,7 +14,10 @@ export const TRANSLATIONS_PATTERNS = [
   /^talent_required$/,
   /^talent_overall_point_required$/,
   /^level_x$/,
+  /^all_masteries$/,
+  /^talent_rank$/,
 ]
+
 export const ALLOWED_LOCALES = [
   "en",
   "fr",

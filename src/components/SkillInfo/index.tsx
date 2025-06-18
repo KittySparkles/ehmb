@@ -161,7 +161,7 @@ export const SkillInfo: FC<{ skill: Skill }> = ({ skill }) => {
       </Title>
 
       <p className={Styles.rank}>
-        Rank {skill.current} / {skill.max}
+        {t("talent_rank")} {skill.current} / {skill.max}
       </p>
 
       <div className={Styles.description}>{description}</div>

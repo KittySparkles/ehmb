@@ -45,10 +45,10 @@ const ENTRIES = [
     question: "Why are damage values marked as just “X”?",
     answer: (
       <p>
-        The amount of damage skills inflict depends on the Attack Power of your
+        The amount of damage skills inflict depends on the stats of your
         character. For this reason, I decided to simply use{" "}
         <span className={Styles.highlight}>X</span> as a placeholder to
-        represent any amount of damage — regardless of Attack Power.
+        represent any amount of damage — regardless of the stats.
       </p>
     ),
   },

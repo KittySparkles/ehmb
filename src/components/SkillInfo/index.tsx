@@ -66,6 +66,11 @@ const useLocalizedDescription = (skill: Skill) => {
   // some may have non-highlighted units
   description = description.replace(/\*([smс%])/g, "$1*")
 
+  // Replace weird edge cases where we ended up with double highlighting (for
+  // instance, in the Chinese translation, some highlighting tokens were added
+  // where they’re not needed)
+  description = description.replace(/\*\*/g, "*")
+
   return diffDescription(skill, description, {
     Del: ({ children }) => <del className={Styles.del}>{children}</del>,
     Ins: ({ children }) => <ins className={Styles.ins}>{children}</ins>,

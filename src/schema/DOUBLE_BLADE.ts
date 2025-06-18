@@ -5,7 +5,7 @@ export const DOUBLE_BLADE_SCHEMA = [
     id: 72,
     variables: {
       statName0: { type: "translation", value: "Stat_CriticalChance" },
-      statPower0: { type: "raw", value: "3/6/9/12/15%" },
+      statPower0: { type: "raw", value: "3%/6%/9%/12%/15%" },
     },
     max: 5,
     position: [0, 0],
@@ -14,7 +14,7 @@ export const DOUBLE_BLADE_SCHEMA = [
     id: 73,
     variables: {
       statName0: { type: "translation", value: "Stat_AllDamage" },
-      statPower0: { type: "raw", value: "5/10/15/20/25%" },
+      statPower0: { type: "raw", value: "5%/10%/15%/20%/25%" },
     },
     max: 5,
     position: [0, 1],
@@ -23,7 +23,7 @@ export const DOUBLE_BLADE_SCHEMA = [
     id: 74,
     variables: {
       statName0: { type: "translation", value: "Stat_MovementSpeed" },
-      statPower0: { type: "raw", value: "1/2/3/4/5%" },
+      statPower0: { type: "raw", value: "1%/2%/3%/4%/5%" },
     },
     max: 5,
     position: [0, 2],
@@ -41,7 +41,7 @@ export const DOUBLE_BLADE_SCHEMA = [
     id: 76,
     variables: {
       statName0: { type: "translation", value: "Stat_CriticalDamage" },
-      statPower0: { type: "raw", value: "6/12/18/24/30%" },
+      statPower0: { type: "raw", value: "6%/12%/18%/24%/30%" },
     },
     max: 5,
     position: [1, 0],
@@ -53,7 +53,7 @@ export const DOUBLE_BLADE_SCHEMA = [
       statName0: { type: "translation", value: "Stat_Armor" },
       statPower0: { type: "raw", value: "3/6/9/12/15" },
       statName1: { type: "translation", value: "Stat_AllDamage" },
-      statPower1: { type: "raw", value: "5/10/15/20/25%" },
+      statPower1: { type: "raw", value: "5%/10%/15%/20%/25%" },
     },
     max: 5,
     position: [1, 1],
@@ -63,7 +63,7 @@ export const DOUBLE_BLADE_SCHEMA = [
     id: 78,
     variables: {
       statName0: { type: "translation", value: "Stat_AttackSpeed" },
-      statPower0: { type: "raw", value: "3/6/9/12/15%" },
+      statPower0: { type: "raw", value: "3%/6%/9%/12%/15%" },
     },
     max: 5,
     position: [1, 2],
@@ -71,7 +71,7 @@ export const DOUBLE_BLADE_SCHEMA = [
   {
     id: 79,
     variables: {
-      effectChance0: { type: "raw", value: "10/15/20/25/30%" },
+      effectChance0: { type: "raw", value: "10%/15%/20%/25%/30%" },
       effectDamage0: { type: "raw", value: "X" },
       effectEveryX0: { type: "raw", value: "0.63/0.6/0.56/0.53/0.5" },
       effectDuration0: { type: "raw", value: "2/2.3/2.6/2.9/3.2" },
@@ -83,7 +83,7 @@ export const DOUBLE_BLADE_SCHEMA = [
     id: 80,
     variables: {
       statName0: { type: "translation", value: "Stat_Dodge" },
-      statPower0: { type: "raw", value: "1/2/3/4%" },
+      statPower0: { type: "raw", value: "1%/2%/3%/4%" },
     },
     max: 4,
     position: [2, 1],
@@ -152,7 +152,7 @@ export const DOUBLE_BLADE_SCHEMA = [
     variables: {
       statName0: { type: "translation", value: "Stat_PoisonDamage" },
       statName1: { type: "translation", value: "Stat_BleedDamage" },
-      statPower0: { type: "raw", value: "15/10/15/20/25%" },
+      statPower0: { type: "raw", value: "15%/10%/15%/20%/25%" },
     },
     max: 5,
     position: [4, 3],
@@ -162,9 +162,9 @@ export const DOUBLE_BLADE_SCHEMA = [
     id: 86,
     variables: {
       statName0: { type: "translation", value: "Stat_MovementSpeed" },
-      effectPower0: { type: "raw", value: "10/12.5/15/17.5%" },
+      effectPower0: { type: "raw", value: "10%/12.5%/15%/17.5%" },
       statName1: { type: "translation", value: "Stat_AttackSpeed" },
-      effectPower1: { type: "raw", value: "5/10/15/20%" },
+      effectPower1: { type: "raw", value: "5%/10%/15%/20%" },
       effectDuration0: { type: "raw", value: "1" },
     },
     max: 4,
@@ -175,7 +175,7 @@ export const DOUBLE_BLADE_SCHEMA = [
     id: 89,
     variables: {
       statName0: { type: "translation", value: "Stat_MovementSpeed" },
-      effectPower0: { type: "raw", value: "3/3.75/4.5/5.25/6%" },
+      effectPower0: { type: "raw", value: "3%/3.75%/4.5%/5.25%/6%" },
       effectDuration0: { type: "raw", value: "1/2/3/4/5" },
       effectCount0: { type: "raw", value: "10" },
     },
@@ -207,9 +207,9 @@ export const DOUBLE_BLADE_SCHEMA = [
     variables: {
       effectCount0: { type: "raw", value: "100", highlight: false },
       statName0: { type: "translation", value: "Stat_CriticalChance" },
-      effectPower0: { type: "raw", value: "5/6/7/8/9%" },
+      effectPower0: { type: "raw", value: "5%/6%/7%/8%/9%" },
       statName1: { type: "translation", value: "Stat_CriticalDamage" },
-      effectPower1: { type: "raw", value: "10/15/20/25/30%" },
+      effectPower1: { type: "raw", value: "10%/15%/20%/25%/30%" },
     },
     max: 5,
     position: [6, 3],
@@ -235,8 +235,8 @@ export const DOUBLE_BLADE_SCHEMA = [
   {
     id: 200,
     variables: {
-      effectChance0: { type: "raw", value: "1/1.15/1.3/1.45/1.6%" },
-      effectPower0: { type: "raw", value: "2.2/4.4/6.6/8.8/10.1%" },
+      effectChance0: { type: "raw", value: "1%/1.15%/1.3%/1.45%/1.6%" },
+      effectPower0: { type: "raw", value: "2.2%/4.4%/6.6%/8.8%/10.1%" },
     },
     max: 5,
     position: [7, 3],

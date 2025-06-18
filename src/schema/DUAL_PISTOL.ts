@@ -5,7 +5,7 @@ export const DUAL_PISTOL_SCHEMA = [
     id: 94,
     variables: {
       statName0: { type: "translation", value: "Stat_AllDamage" },
-      statPower0: { type: "raw", value: "6/12/18/24/30%" },
+      statPower0: { type: "raw", value: "6%/12%/18%/24%/30%" },
     },
     max: 5,
     position: [0, 0],
@@ -14,7 +14,7 @@ export const DUAL_PISTOL_SCHEMA = [
     id: 95,
     variables: {
       statName0: { type: "translation", value: "Stat_AttackSpeed" },
-      statPower0: { type: "raw", value: "3/6/9/12/15%" },
+      statPower0: { type: "raw", value: "3%/6%/9%/12%/15%" },
     },
     max: 5,
     position: [0, 1],
@@ -31,7 +31,7 @@ export const DUAL_PISTOL_SCHEMA = [
   {
     id: 97,
     variables: {
-      effectChance0: { type: "raw", value: "2.5/3.1/3.7/4.3/5%" },
+      effectChance0: { type: "raw", value: "2.5%/3.1%/3.7%/4.3%/5%" },
       effectCount0: { type: "raw", value: "1/2/3/4/5" },
       effectCooldown0: { type: "raw", value: "2" },
     },
@@ -43,7 +43,7 @@ export const DUAL_PISTOL_SCHEMA = [
     id: 98,
     variables: {
       statName0: { type: "translation", value: "Stat_MovementSpeed" },
-      statPower0: { type: "raw", value: "2/4/6/8%" },
+      statPower0: { type: "raw", value: "2%/4%/6%/8%" },
     },
     max: 4,
     position: [1, 2],
@@ -62,9 +62,9 @@ export const DUAL_PISTOL_SCHEMA = [
     id: 100,
     variables: {
       statName0: { type: "translation", value: "Stat_CriticalChance" },
-      statPower0: { type: "raw", value: "2/4/6/8/10%" },
+      statPower0: { type: "raw", value: "2%/4%/6%/8%/10%" },
       statName1: { type: "translation", value: "Stat_CriticalDamage" },
-      statPower1: { type: "raw", value: "4/8/12/16/20%" },
+      statPower1: { type: "raw", value: "4%/8%/12%/16%/20%" },
     },
     max: 5,
     position: [2, 0],
@@ -74,9 +74,9 @@ export const DUAL_PISTOL_SCHEMA = [
     id: 101,
     variables: {
       statName0: { type: "translation", value: "Stat_MovementSpeed" },
-      effectPower0: { type: "raw", value: "4/8/12/16/20%" },
+      effectPower0: { type: "raw", value: "4%/8%/12%/16%/20%" },
       statName1: { type: "translation", value: "Stat_AttackSpeed" },
-      effectPower1: { type: "raw", value: "2/4/6/8/10%" },
+      effectPower1: { type: "raw", value: "2%/4%/6%/8%/10%" },
     },
     max: 5,
     position: [2, 2],
@@ -86,7 +86,7 @@ export const DUAL_PISTOL_SCHEMA = [
     id: 102,
     variables: {
       statName0: { type: "translation", value: "Stat_Dodge" },
-      statPower0: { type: "raw", value: "1/2/3/4/5%" },
+      statPower0: { type: "raw", value: "1%/2%/3%/4%/5%" },
     },
     max: 5,
     position: [2, 3],
@@ -95,7 +95,7 @@ export const DUAL_PISTOL_SCHEMA = [
     id: 103,
     variables: {
       statName0: { type: "translation", value: "Stat_AllDamage" },
-      statPower0: { type: "raw", value: "5/10/15/20/25%" },
+      statPower0: { type: "raw", value: "5%/10%/15%/20%/25%" },
       statName1: { type: "translation", value: "Stat_MaxHp" },
       statPower1: { type: "raw", value: "30/60/90/120/150" },
     },
@@ -150,7 +150,7 @@ export const DUAL_PISTOL_SCHEMA = [
     id: 203,
     variables: {
       statName0: { type: "translation", value: "Stat_FireDotDamage" },
-      statPower0: { type: "raw", value: "3/6/9/12/15%" },
+      statPower0: { type: "raw", value: "3%/6%/9%/12%/15%" },
     },
     max: 5,
     position: [4, 3],
@@ -165,7 +165,7 @@ export const DUAL_PISTOL_SCHEMA = [
     id: 109,
     variables: {
       statName0: { type: "translation", value: "Stat_AttackSpeed" },
-      statPower0: { type: "raw", value: "2/4/6/8/10%" },
+      statPower0: { type: "raw", value: "2%/4%/6%/8%/10%" },
       statName1: { type: "translation", value: "Stat_LifeSteal" },
       statPower1: { type: "raw", value: "2/3/4/5/6" },
       statName2: { type: "translation", value: "Stat_MaxHp" },

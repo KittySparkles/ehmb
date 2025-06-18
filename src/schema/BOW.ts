@@ -14,7 +14,7 @@ export const BOW_SCHEMA = [
     id: 25,
     variables: {
       statName0: { type: "translation", value: "Stat_AllDamage" },
-      statPower0: { type: "raw", value: "6/12/18/24/30%" },
+      statPower0: { type: "raw", value: "6%/12%/18%/24%/30%" },
     },
     max: 5,
     position: [0, 1],
@@ -23,7 +23,7 @@ export const BOW_SCHEMA = [
     id: 26,
     variables: {
       statName0: { type: "translation", value: "Stat_CriticalChance" },
-      statPower0: { type: "raw", value: "2/4/6/8/10%" },
+      statPower0: { type: "raw", value: "2%/4%/6%/8%/10%" },
     },
     max: 5,
     position: [0, 2],
@@ -50,7 +50,7 @@ export const BOW_SCHEMA = [
     id: 29,
     variables: {
       statName0: { type: "translation", value: "Stat_CriticalDamage" },
-      statPower0: { type: "raw", value: "6/9/12/15/18%" },
+      statPower0: { type: "raw", value: "6%/9%/12%/15%/18%" },
     },
     max: 5,
     position: [1, 2],
@@ -61,7 +61,7 @@ export const BOW_SCHEMA = [
       statName0: { type: "translation", value: "Stat_MaxHp" },
       statPower0: { type: "raw", value: "30/60/90/120/150" },
       statName1: { type: "translation", value: "Stat_Dodge" },
-      statPower1: { type: "raw", value: "1/2/3/4/5%" },
+      statPower1: { type: "raw", value: "1%/2%/3%/4%/5%" },
     },
     max: 5,
     position: [1, 3],
@@ -79,7 +79,7 @@ export const BOW_SCHEMA = [
   {
     id: 33,
     variables: {
-      effectChance0: { type: "raw", value: "10/17.5/25/32.5/40%" },
+      effectChance0: { type: "raw", value: "10%/17.5%/25%/32.5%/40%" },
       effectDuration0: { type: "raw", value: "0.52/0.65/0.71/0.85/1s" },
     },
     max: 5,
@@ -88,7 +88,7 @@ export const BOW_SCHEMA = [
   {
     id: 34,
     variables: {
-      effectChance0: { type: "raw", value: "5/6/7/8/9%" },
+      effectChance0: { type: "raw", value: "5%/6%/7%/8%/9%" },
       effectDamage0: { type: "raw", value: "X" },
     },
     max: 5,
@@ -109,7 +109,7 @@ export const BOW_SCHEMA = [
     id: 38,
     variables: {
       statName0: { type: "translation", value: "Stat_MovementSpeed" },
-      statPower0: { type: "raw", value: "3/6/9/12/15%" },
+      statPower0: { type: "raw", value: "3%/6%/9%/12%/15%" },
     },
     max: 5,
     position: [3, 2],
@@ -133,7 +133,7 @@ export const BOW_SCHEMA = [
     id: 199,
     variables: {
       statName0: { type: "translation", value: "Stat_PoisonDamage" },
-      statPower0: { type: "raw", value: "3/6/9/12/15%" },
+      statPower0: { type: "raw", value: "3%/6%/9%/12%/15%" },
     },
     max: 5,
     position: [4, 1],
@@ -143,7 +143,7 @@ export const BOW_SCHEMA = [
     id: 39,
     variables: {
       statName0: { type: "translation", value: "Stat_AttackSpeed" },
-      statPower0: { type: "raw", value: "2/4/6/8/10%" },
+      statPower0: { type: "raw", value: "2%/4%/6%/8%/10%" },
     },
     max: 5,
     position: [4, 2],
@@ -159,7 +159,7 @@ export const BOW_SCHEMA = [
     id: 41,
     variables: {
       statName0: { type: "translation", value: "Stat_AllDamage" },
-      statPower0: { type: "raw", value: "10/15/20/25/30%" },
+      statPower0: { type: "raw", value: "10%/15%/20%/25%/30%" },
       statName1: { type: "translation", value: "Stat_Armor" },
       statPower1: { type: "raw", value: "2/4/6/8/10" },
       statName2: { type: "translation", value: "Stat_MaxHp" },
@@ -171,7 +171,7 @@ export const BOW_SCHEMA = [
   {
     id: 42,
     variables: {
-      effectChance0: { type: "raw", value: "5/10/15/20/25%" },
+      effectChance0: { type: "raw", value: "5%/10%/15%/20%/25%" },
       effectCount0: { type: "raw", value: "3" },
       effectCooldown0: { type: "raw", value: "3.5" },
     },
@@ -229,11 +229,11 @@ export const BOW_SCHEMA = [
     id: 46,
     variables: {
       statName0: { type: "translation", value: "Stat_CriticalChance" },
-      statPower0: { type: "raw", value: "1/2/3%" },
+      statPower0: { type: "raw", value: "1%/2%/3%" },
       statName1: { type: "translation", value: "Stat_CriticalDamage" },
-      statPower1: { type: "raw", value: "10/20/30%" },
+      statPower1: { type: "raw", value: "10%/20%/30%" },
       statName2: { type: "translation", value: "Stat_AllDamage" },
-      statPower2: { type: "raw", value: "10/20/30%" },
+      statPower2: { type: "raw", value: "10%/20%/30%" },
     },
     max: 3,
     position: [7, 2],

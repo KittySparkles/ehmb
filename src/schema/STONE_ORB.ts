@@ -5,7 +5,7 @@ export const STONE_ORB_SCHEMA = [
     id: 138,
     variables: {
       statName0: { type: "translation", value: "Stat_AllDamage" },
-      statPower0: { type: "raw", value: "5/10/15/20/25%" },
+      statPower0: { type: "raw", value: "5%/10%/15%/20%/25%" },
     },
     max: 5,
     position: [0, 0],
@@ -34,7 +34,7 @@ export const STONE_ORB_SCHEMA = [
     id: 143,
     variables: {
       statName0: { type: "translation", value: "Stat_Dodge" },
-      statPower0: { type: "raw", value: "1/2/3/4/5%" },
+      statPower0: { type: "raw", value: "1%/2%/3%/4%/5%" },
     },
     max: 5,
     position: [0, 3],
@@ -43,7 +43,7 @@ export const STONE_ORB_SCHEMA = [
     id: 141,
     variables: {
       statName0: { type: "translation", value: "Stat_CriticalChance" },
-      statPower0: { type: "raw", value: "2/4/6/8/10%" },
+      statPower0: { type: "raw", value: "2%/4%/6%/8%/10%" },
     },
     max: 5,
     position: [1, 0],
@@ -63,9 +63,9 @@ export const STONE_ORB_SCHEMA = [
     id: 144,
     variables: {
       statName0: { type: "translation", value: "Stat_AllDamage" },
-      statPower0: { type: "raw", value: "2/4/6/8/10%" },
+      statPower0: { type: "raw", value: "2%/4%/6%/8%/10%" },
       statName1: { type: "translation", value: "Stat_CriticalDamage" },
-      statPower1: { type: "raw", value: "5/7.5/10/12.5/15%" },
+      statPower1: { type: "raw", value: "5%/7.5%/10%/12.5%/15%" },
     },
     max: 5,
     position: [2, 0],
@@ -93,7 +93,7 @@ export const STONE_ORB_SCHEMA = [
     id: 147,
     variables: {
       effectCooldown0: { type: "raw", value: "10" },
-      effectPower0: { type: "raw", value: "5/10/15/20/25%" },
+      effectPower0: { type: "raw", value: "5%/10%/15%/20%/25%" },
       effectEveryX0: { type: "raw", value: "0.75" },
       effectDuration0: { type: "raw", value: "3" },
     },
@@ -125,7 +125,7 @@ export const STONE_ORB_SCHEMA = [
     id: 146,
     variables: {
       statName0: { type: "translation", value: "Stat_MovementSpeed" },
-      statPower0: { type: "raw", value: "2/4/6/8/10%" },
+      statPower0: { type: "raw", value: "2%/4%/6%/8%/10%" },
     },
     max: 5,
     position: [3, 3],
@@ -134,11 +134,11 @@ export const STONE_ORB_SCHEMA = [
     id: 150,
     variables: {
       statName0: { type: "translation", value: "Stat_Armor" },
-      statPower0: { type: "raw", value: "1/2/3/4/5%" },
+      statPower0: { type: "raw", value: "1%/2%/3%/4%/5%" },
       statName1: { type: "translation", value: "Stat_MaxHp" },
       statPower1: { type: "raw", value: "15/30/45/60/75" },
       statName2: { type: "translation", value: "Stat_AllDamage" },
-      statPower2: { type: "raw", value: "1/2/3/4/5%" },
+      statPower2: { type: "raw", value: "1%/2%/3%/4%/5%" },
     },
     max: 5,
     position: [4, 0],
@@ -168,7 +168,7 @@ export const STONE_ORB_SCHEMA = [
   {
     id: 154,
     variables: {
-      effectChance0: { type: "raw", value: "5/10/15/20/25%" },
+      effectChance0: { type: "raw", value: "5%/10%/15%/20%/25%" },
     },
     max: 5,
     position: [5, 1],
@@ -178,7 +178,7 @@ export const STONE_ORB_SCHEMA = [
     id: 155,
     variables: {
       statName0: { type: "translation", value: "Stat_AttackSpeed" },
-      statPower0: { type: "raw", value: "3/6/9/12/15%" },
+      statPower0: { type: "raw", value: "3%/6%/9%/12%/15%" },
       statName1: { type: "translation", value: "Stat_LifeSteal" },
       statPower1: { type: "raw", value: "1/2/3/4/5" },
       statName2: { type: "translation", value: "Stat_HpRegen" },
@@ -191,7 +191,7 @@ export const STONE_ORB_SCHEMA = [
     id: 202,
     variables: {
       statName0: { type: "translation", value: "Stat_FireDotDamage" },
-      statPower0: { type: "raw", value: "4/8/12/16/20%" },
+      statPower0: { type: "raw", value: "4%/8%/12%/16%/20%" },
     },
     max: 5,
     position: [5, 3],
@@ -247,7 +247,7 @@ export const STONE_ORB_SCHEMA = [
     id: 162,
     variables: {
       attackCount0: { type: "raw", value: "5", highlight: false },
-      effectDuration0: { type: "raw", value: "1.5/3/4.5/6/7.5s" },
+      effectDuration0: { type: "raw", value: "1.5/3/4.5/6/7.5" },
     },
     max: 5,
     position: [7, 3],

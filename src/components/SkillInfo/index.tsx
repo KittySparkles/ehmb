@@ -12,7 +12,7 @@ import { Controls } from "../Controls"
 import Styles from "./styles.module.css"
 
 const useLocalizedDescription = (skill: Skill) => {
-  const { t } = useLocalization()
+  const { t, locale } = useLocalization()
   const key = `Talent_${skill.id}_Desc`
   const translation = t(key)
   if (!translation) throw new Error(`Could not find description for ${key}`)
@@ -60,12 +60,6 @@ const useLocalizedDescription = (skill: Skill) => {
     }
   }
 
-  // This moves some symbol units (like `%`, `s` or `m` in English, or `с` in
-  // Russian) inside of the highlights in instances where they are not
-  // (e.g. `*20*%` -> `*20%*`) — this won’t work in all languages though, and
-  // some may have non-highlighted units
-  description = description.replace(/\*([smс%])/g, "$1*")
-
   // Replace weird edge cases where we ended up with double highlighting (for
   // instance, in the Chinese translation, some highlighting tokens were added
   // where they’re not needed)
@@ -77,7 +71,7 @@ const useLocalizedDescription = (skill: Skill) => {
   description = description.replace("{{X}} * ARMOR}}", "*X*")
   description = description.replace("{{X}} * MAX_HP}}", "*X*")
 
-  return diffDescription(skill, description, {
+  return diffDescription(skill, description, locale, {
     Del: ({ children }) => <del className={Styles.del}>{children}</del>,
     Ins: ({ children }) => <ins className={Styles.ins}>{children}</ins>,
   })

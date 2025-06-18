@@ -5,7 +5,7 @@ export const RIFLE_SCHEMA = [
     id: 48,
     variables: {
       statName0: { type: "translation", value: "Stat_CriticalChance" },
-      statPower0: { type: "raw", value: "2/4/6/8/10%" },
+      statPower0: { type: "raw", value: "2%/4%/6%/8%/10%" },
     },
     max: 5,
     position: [0, 0],
@@ -13,7 +13,7 @@ export const RIFLE_SCHEMA = [
   {
     id: 52,
     variables: {
-      effectChance0: { type: "raw", value: "10/15/20/25/30%" },
+      effectChance0: { type: "raw", value: "10%/15%/20%/25%/30%" },
       effectDamage0: { type: "raw", value: "X" },
     },
     max: 4,
@@ -23,7 +23,7 @@ export const RIFLE_SCHEMA = [
     id: 49,
     variables: {
       statName0: { type: "translation", value: "Stat_AllDamage" },
-      statPower0: { type: "raw", value: "4/8/12/16/20%" },
+      statPower0: { type: "raw", value: "4%/8%/12%/16%/20%" },
     },
     max: 5,
     position: [0, 2],
@@ -41,7 +41,7 @@ export const RIFLE_SCHEMA = [
     id: 51,
     variables: {
       statName0: { type: "translation", value: "Stat_AttackSpeed" },
-      statPower0: { type: "raw", value: "2/4/6/8/10%" },
+      statPower0: { type: "raw", value: "2%/4%/6%/8%/10%" },
     },
     max: 5,
     position: [1, 0],
@@ -49,7 +49,7 @@ export const RIFLE_SCHEMA = [
   {
     id: 55,
     variables: {
-      effectChance0: { type: "raw", value: "20/24/28/32/36%" },
+      effectChance0: { type: "raw", value: "20%/24%/28%/32%/36%" },
       effectDamage0: { type: "raw", value: "X" },
       effectEveryX0: { type: "raw", value: "0.9" },
       effectDuration0: { type: "raw", value: "3" },
@@ -62,7 +62,7 @@ export const RIFLE_SCHEMA = [
     id: 53,
     variables: {
       statName0: { type: "translation", value: "Stat_CriticalDamage" },
-      statPower0: { type: "raw", value: "4/8/12/16/20%" },
+      statPower0: { type: "raw", value: "4%/8%/12%/16%/20%" },
     },
     max: 5,
     position: [1, 2],
@@ -74,7 +74,7 @@ export const RIFLE_SCHEMA = [
       statName0: { type: "translation", value: "Stat_MaxHp" },
       statPower0: { type: "raw", value: "30/60/90/120/150" },
       statName1: { type: "translation", value: "Stat_AllDamage" },
-      statPower1: { type: "raw", value: "3/6/9/12/15%" },
+      statPower1: { type: "raw", value: "3%/6%/9%/12%/15%" },
     },
     max: 5,
     position: [2, 0],
@@ -83,7 +83,7 @@ export const RIFLE_SCHEMA = [
     id: 204,
     variables: {
       statName0: { type: "translation", value: "Stat_FireDotDamage" },
-      statPower0: { type: "raw", value: "3/6/9/12/15%" },
+      statPower0: { type: "raw", value: "3%/6%/9%/12%/15%" },
     },
     max: 5,
     position: [2, 1],
@@ -100,9 +100,9 @@ export const RIFLE_SCHEMA = [
   {
     id: 56,
     variables: {
-      effectChance0: { type: "raw", value: "10/12/14/16/18%" },
+      effectChance0: { type: "raw", value: "10%/12%/14%/16%/18%" },
       effectDuration0: { type: "raw", value: "2/2.2/2.4/2.6/2.8" },
-      effectPower0: { type: "raw", value: "1.5/1.8/2.1/2.4/2.7%" },
+      effectPower0: { type: "raw", value: "1.5%/1.8%/2.1%/2.4%/2.7%" },
     },
     max: 5,
     position: [2, 3],
@@ -146,9 +146,9 @@ export const RIFLE_SCHEMA = [
     id: 59,
     variables: {
       statName0: { type: "translation", value: "Stat_AllDamage" },
-      statPower0: { type: "raw", value: "4/8/12/16%" },
+      statPower0: { type: "raw", value: "4%/8%/12%/16%" },
       statName1: { type: "translation", value: "Stat_CriticalChance" },
-      statPower1: { type: "raw", value: "1/2/3/4%" },
+      statPower1: { type: "raw", value: "1%/2%/3%/4%" },
     },
     max: 4,
     position: [3, 3],
@@ -157,7 +157,7 @@ export const RIFLE_SCHEMA = [
     id: 60,
     variables: {
       statName0: { type: "translation", value: "Stat_Dodge" },
-      statPower0: { type: "raw", value: "1/2/3/4/5%" },
+      statPower0: { type: "raw", value: "1%/2%/3%/4%/5%" },
     },
     max: 5,
     position: [4, 0],
@@ -167,9 +167,9 @@ export const RIFLE_SCHEMA = [
     id: 164,
     variables: {
       statName0: { type: "translation", value: "Stat_AttackSpeed" },
-      statPower0: { type: "raw", value: "1/2/3/4/5%" },
+      statPower0: { type: "raw", value: "1%/2%/3%/4%/5%" },
       statName1: { type: "translation", value: "Stat_MovementSpeed" },
-      statPower1: { type: "raw", value: "1/2/3/4/5%" },
+      statPower1: { type: "raw", value: "1%/2%/3%/4%/5%" },
       statName2: { type: "translation", value: "Stat_LifeSteal" },
       statPower2: { type: "raw", value: "1/2/3/4/5" },
     },
@@ -180,7 +180,7 @@ export const RIFLE_SCHEMA = [
     id: 64,
     variables: {
       statName0: { type: "translation", value: "Stat_MovementSpeed" },
-      statPower0: { type: "raw", value: "5/6/7/8/9%" },
+      statPower0: { type: "raw", value: "5%/6%/7%/8%/9%" },
     },
     max: 5,
     position: [5, 0],

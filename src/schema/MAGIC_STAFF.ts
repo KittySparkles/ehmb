@@ -5,7 +5,7 @@ export const MAGIC_STAFF_SCHEMA = [
     id: 115,
     variables: {
       statName0: { type: "translation", value: "Stat_AllDamage" },
-      statPower0: { type: "raw", value: "5/10/15/20/25%" },
+      statPower0: { type: "raw", value: "5%/10%/15%/20%/25%" },
     },
     max: 5,
     position: [0, 0],
@@ -14,7 +14,7 @@ export const MAGIC_STAFF_SCHEMA = [
     id: 116,
     variables: {
       statName0: { type: "translation", value: "Stat_AttackSpeed" },
-      statPower0: { type: "raw", value: "2/4/6/8/10%" },
+      statPower0: { type: "raw", value: "2%/4%/6%/8%/10%" },
     },
     max: 5,
     position: [0, 1],
@@ -35,7 +35,7 @@ export const MAGIC_STAFF_SCHEMA = [
       statName0: { type: "translation", value: "Stat_MaxHp" },
       statPower0: { type: "raw", value: "20/40/60/80/100" },
       statName1: { type: "translation", value: "Stat_MovementSpeed" },
-      statPower1: { type: "raw", value: "1/2/3/4/5%" },
+      statPower1: { type: "raw", value: "1%/2%/3%/4%/5%" },
     },
     max: 5,
     position: [0, 3],
@@ -44,7 +44,7 @@ export const MAGIC_STAFF_SCHEMA = [
     id: 118,
     variables: {
       statName0: { type: "translation", value: "Stat_MovementSpeed" },
-      statPower0: { type: "raw", value: "6/12/18/24/30%" },
+      statPower0: { type: "raw", value: "6%/12%/18%/24%/30%" },
     },
     max: 5,
     position: [1, 1],
@@ -53,9 +53,9 @@ export const MAGIC_STAFF_SCHEMA = [
   {
     id: 122,
     variables: {
-      effectChance0: { type: "raw", value: "10/20/30/40/50%" },
+      effectChance0: { type: "raw", value: "10%/20%/30%/40%/50%" },
       statName0: { type: "translation", value: "Stat_MovementSpeed" },
-      effectCount0: { type: "raw", value: "7/15/22.5/30/37.5%" },
+      effectCount0: { type: "raw", value: "7%/15%/22.5%/30%/37.5%" },
       effectDamage0: { type: "raw", value: "X" },
       effectEveryX0: { type: "raw", value: "0.5" },
       effectDuration0: { type: "raw", value: "5" },
@@ -67,7 +67,7 @@ export const MAGIC_STAFF_SCHEMA = [
   {
     id: 120,
     variables: {
-      effectChance0: { type: "raw", value: "2.5/5/7.5/10/12.5%" },
+      effectChance0: { type: "raw", value: "2.5%/5%/7.5%/10%/12.5%" },
       effectCount0: { type: "raw", value: "1/2/3/4/5" },
       effectDamage0: { type: "raw", value: "X" },
     },
@@ -78,9 +78,9 @@ export const MAGIC_STAFF_SCHEMA = [
     id: 121,
     variables: {
       statName0: { type: "translation", value: "Stat_CriticalChance" },
-      statPower0: { type: "raw", value: "2/4/6/8/10%" },
+      statPower0: { type: "raw", value: "2%/4%/6%/8%/10%" },
       statName1: { type: "translation", value: "Stat_CriticalDamage" },
-      statPower1: { type: "raw", value: "5/10/15/20/25%" },
+      statPower1: { type: "raw", value: "5%/10%/15%/20%/25%" },
     },
     max: 5,
     position: [2, 0],
@@ -90,7 +90,7 @@ export const MAGIC_STAFF_SCHEMA = [
     id: 131,
     variables: {
       statName0: { type: "translation", value: "Stat_AttackSpeed" },
-      statPower0: { type: "raw", value: "3/6/9/12/15%" },
+      statPower0: { type: "raw", value: "3%/6%/9%/12%/15%" },
       statName1: { type: "translation", value: "Stat_LifeSteal" },
       statPower1: { type: "raw", value: "2/3/4/8/10" },
       statName2: { type: "translation", value: "Stat_HpRegen" },
@@ -102,7 +102,7 @@ export const MAGIC_STAFF_SCHEMA = [
   {
     id: 123,
     variables: {
-      effectPower0: { type: "raw", value: "50/80/110/140/170%" },
+      effectPower0: { type: "raw", value: "50%/80%/110%/140%/170%" },
     },
     max: 5,
     position: [2, 3],
@@ -112,7 +112,7 @@ export const MAGIC_STAFF_SCHEMA = [
     id: 124,
     variables: {
       statName0: { type: "translation", value: "Stat_AllDamage" },
-      statPower0: { type: "raw", value: "5/10/15/20/25%" },
+      statPower0: { type: "raw", value: "5%/10%/15%/20%/25%" },
       statName1: { type: "translation", value: "Stat_MaxHp" },
       statPower1: { type: "raw", value: "30/60/90/120/150" },
     },
@@ -188,7 +188,7 @@ export const MAGIC_STAFF_SCHEMA = [
         value: "Stat_FireDotDamage",
         highlight: false,
       },
-      statPower0: { type: "raw", value: "5/10/15/20/25%" },
+      statPower0: { type: "raw", value: "5%/10%/15%/20%/25%" },
     },
     max: 5,
     position: [5, 2],

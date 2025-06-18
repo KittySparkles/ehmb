@@ -5,7 +5,7 @@ export const SCYTHE_SCHEMA = [
     id: 207,
     variables: {
       statName0: { type: "translation", value: "Stat_AllDamage" },
-      statPower0: { type: "raw", value: "5/10/15/20/25%" },
+      statPower0: { type: "raw", value: "5%/10%/15%/20%/25%" },
     },
     max: 5,
     position: [0, 0],
@@ -14,7 +14,7 @@ export const SCYTHE_SCHEMA = [
     id: 226,
     variables: {
       statName0: { type: "translation", value: "Stat_CriticalChance" },
-      statPower0: { type: "raw", value: "2/4/6/8/10%" },
+      statPower0: { type: "raw", value: "2%/4%/6%/8%/10%" },
     },
     max: 5,
     position: [0, 2],
@@ -32,7 +32,7 @@ export const SCYTHE_SCHEMA = [
     id: 225,
     variables: {
       statName0: { type: "translation", value: "Stat_AllDamage" },
-      statPower0: { type: "raw", value: "3/6/9/12/15%" },
+      statPower0: { type: "raw", value: "3%/6%/9%/12%/15%" },
       statName1: { type: "translation", value: "Stat_Armor" },
       statPower1: { type: "raw", value: "10/20/30/40/50" },
     },
@@ -44,7 +44,7 @@ export const SCYTHE_SCHEMA = [
     id: 227,
     variables: {
       statName0: { type: "translation", value: "Stat_AttackSpeed" },
-      statPower0: { type: "raw", value: "3/6/9/12/15%" },
+      statPower0: { type: "raw", value: "3%/6%/9%/12%/15%" },
     },
     max: 5,
     position: [1, 1],
@@ -53,7 +53,7 @@ export const SCYTHE_SCHEMA = [
     id: 223,
     variables: {
       statName0: { type: "translation", value: "Stat_CriticalDamage" },
-      statPower0: { type: "raw", value: "5/10/15/20/25%" },
+      statPower0: { type: "raw", value: "5%/10%/15%/20%/25%" },
     },
     max: 5,
     position: [1, 2],
@@ -65,7 +65,7 @@ export const SCYTHE_SCHEMA = [
       statName0: { type: "translation", value: "Stat_MaxHp" },
       statPower0: { type: "raw", value: "100/200/300/400/500" },
       statName1: { type: "translation", value: "Stat_HpRegen" },
-      statPower1: { type: "raw", value: "40/80/120/160/200%" },
+      statPower1: { type: "raw", value: "40%/80%/120%/160%/200%" },
     },
     max: 5,
     position: [2, 0],
@@ -76,7 +76,7 @@ export const SCYTHE_SCHEMA = [
       statName0: { type: "translation", value: "Stat_LifeSteal" },
       statPower0: { type: "raw", value: "3/6/9/12/15" },
       statName1: { type: "translation", value: "Stat_MovementSpeed" },
-      statPower1: { type: "raw", value: "1/2/3/4/5%" },
+      statPower1: { type: "raw", value: "1%/2%/3%/4%/5%" },
     },
     max: 5,
     position: [2, 1],
@@ -104,7 +104,7 @@ export const SCYTHE_SCHEMA = [
   {
     id: 212,
     variables: {
-      effectPower0: { type: "raw", value: "25/31/37/43/50%" },
+      effectPower0: { type: "raw", value: "25%/31%/37%/43%/50%" },
     },
     max: 5,
     position: [3, 2],
@@ -113,7 +113,7 @@ export const SCYTHE_SCHEMA = [
   {
     id: 214,
     variables: {
-      effectChance0: { type: "raw", value: "5/6/7/8/9%" },
+      effectChance0: { type: "raw", value: "5%/6%/7%/8%/9%" },
       effectDuration0: { type: "raw", value: "6" },
       effectDamage0: { type: "raw", value: "X" },
     },
@@ -123,7 +123,7 @@ export const SCYTHE_SCHEMA = [
   {
     id: 221,
     variables: {
-      effectChance0: { type: "raw", value: "10/12.5/15/17.5/20%" },
+      effectChance0: { type: "raw", value: "10%/12.5%/15%/17.5%/20%" },
       effectDamage0: { type: "raw", value: "X" },
       effectCooldown0: { type: "raw", value: "8" },
     },
@@ -165,7 +165,7 @@ export const SCYTHE_SCHEMA = [
     id: 231,
     variables: {
       statName0: { type: "translation", value: "Stat_PoisonDamage" },
-      statPower0: { type: "raw", value: "9/18/27/36%" },
+      statPower0: { type: "raw", value: "9%/18%/27%/36%" },
     },
     max: 4,
     position: [5, 2],
@@ -174,7 +174,7 @@ export const SCYTHE_SCHEMA = [
     id: 224,
     variables: {
       statName0: { type: "translation", value: "Stat_BleedDamage" },
-      statPower0: { type: "raw", value: "10/20/30/40%" },
+      statPower0: { type: "raw", value: "10%/20%/30%/40%" },
     },
     max: 4,
     position: [6, 0],
@@ -192,7 +192,7 @@ export const SCYTHE_SCHEMA = [
     id: 219,
     variables: {
       statName0: { type: "translation", value: "Stat_AllyDamage" },
-      statPower0: { type: "raw", value: "1.5/1.8/2.1/2.4/2.7%" },
+      statPower0: { type: "raw", value: "1.5%/1.8%/2.1%/2.4%/2.7%" },
     },
     max: 5,
     position: [6, 2],
@@ -227,7 +227,7 @@ export const SCYTHE_SCHEMA = [
     variables: {
       effectCount0: { type: "raw", value: "65", highlight: false },
       statName0: { type: "translation", value: "Stat_AllyDamage" },
-      effectPower0: { type: "raw", value: "3/3.5/4%" },
+      effectPower0: { type: "raw", value: "3%/3.5%/4%" },
     },
     max: 3,
     position: [7, 2],

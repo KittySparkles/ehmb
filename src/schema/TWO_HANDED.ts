@@ -4,7 +4,7 @@ export const TWO_HANDED_SCHEMA = [
   {
     id: 0,
     variables: {
-      statPower0: { type: "raw", value: "7/14/21/28/35%" },
+      statPower0: { type: "raw", value: "7%/14%/21%/28%/35%" },
     },
     max: 5,
     position: [0, 0],
@@ -13,7 +13,7 @@ export const TWO_HANDED_SCHEMA = [
     id: 1,
     variables: {
       statName0: { type: "translation", value: "Stat_CriticalDamage" },
-      statPower0: { type: "raw", value: "2/4/6/8/10%" },
+      statPower0: { type: "raw", value: "2%/4%/6%/8%/10%" },
     },
     max: 5,
     position: [0, 1],
@@ -21,7 +21,7 @@ export const TWO_HANDED_SCHEMA = [
   {
     id: 7,
     variables: {
-      effectChance0: { type: "raw", value: "20/30/40/50/60%" },
+      effectChance0: { type: "raw", value: "20%/30%/40%/50%/60%" },
       effectDamage0: { type: "raw", value: "X" },
       effectEveryX0: { type: "raw", value: "0.49" },
       effectDuration0: { type: "raw", value: "4" },
@@ -44,7 +44,7 @@ export const TWO_HANDED_SCHEMA = [
       statName0: { type: "translation", value: "Stat_MaxHp" },
       statPower0: { type: "raw", value: "35/70/105/140/175" },
       statName1: { type: "translation", value: "Stat_AllDamage" },
-      statPower1: { type: "raw", value: "6/9/12/15/18%" },
+      statPower1: { type: "raw", value: "6%/9%/12%/15%/18%" },
     },
     max: 5,
     position: [1, 0],
@@ -56,7 +56,7 @@ export const TWO_HANDED_SCHEMA = [
       statName0: { type: "translation", value: "Stat_CriticalChance" },
       statPower0: { type: "raw", value: "1.5/3/4.5/5/6.5" },
       statName1: { type: "translation", value: "Stat_CriticalDamage" },
-      statPower1: { type: "raw", value: "7.5/11.25/15%" },
+      statPower1: { type: "raw", value: "7.5%/11.25%/15%" },
     },
     max: 3,
     position: [1, 1],
@@ -65,7 +65,7 @@ export const TWO_HANDED_SCHEMA = [
   {
     id: 6,
     variables: {
-      effectChance0: { type: "raw", value: "20/40/60/80/100%" },
+      effectChance0: { type: "raw", value: "20%/40%/60%/80%/100%" },
       effectDamage0: { type: "raw", value: "X" },
     },
     max: 5,
@@ -76,7 +76,7 @@ export const TWO_HANDED_SCHEMA = [
     id: 8,
     variables: {
       statName0: { type: "translation", value: "Stat_Dodge" },
-      statPower0: { type: "raw", value: "5/10%" },
+      statPower0: { type: "raw", value: "5%/10%" },
     },
     max: 2,
     position: [2, 0],
@@ -97,7 +97,7 @@ export const TWO_HANDED_SCHEMA = [
     id: 197,
     variables: {
       statName0: { type: "translation", value: "Stat_BleedDamage" },
-      statPower0: { type: "raw", value: "10/20/30/40/50%" },
+      statPower0: { type: "raw", value: "10%/20%/30%/40%/50%" },
     },
     max: 5,
     position: [2, 2],
@@ -107,7 +107,7 @@ export const TWO_HANDED_SCHEMA = [
     id: 9,
     variables: {
       effectCount0: { type: "raw", value: "20/40/60", highlight: false },
-      statPower0: { type: "raw", value: "20/25/30%" },
+      statPower0: { type: "raw", value: "20%/25%/30%" },
     },
     max: 3,
     position: [2, 3],
@@ -116,7 +116,7 @@ export const TWO_HANDED_SCHEMA = [
     id: 13,
     variables: {
       statName0: { type: "translation", value: "Stat_MovementSpeed" },
-      statPower0: { type: "raw", value: "4/5/6/7/8%" },
+      statPower0: { type: "raw", value: "4%/5%/6%/7%/8%" },
     },
     max: 5,
     position: [3, 0],
@@ -142,9 +142,9 @@ export const TWO_HANDED_SCHEMA = [
   {
     id: 19,
     variables: {
-      effectChance0: { type: "raw", value: "25/50/75/100/125%" },
+      effectChance0: { type: "raw", value: "25%/50%/75%/100%/125%" },
       statName0: { type: "translation", value: "Stat_MovementSpeed" },
-      statPower0: { type: "raw", value: "10/15/20/25/30%" },
+      statPower0: { type: "raw", value: "10%/15%/20%/25%/30%" },
       effectDuration0: { type: "raw", value: "3/4.5/6/7.5/9" },
     },
     max: 4,
@@ -185,7 +185,7 @@ export const TWO_HANDED_SCHEMA = [
     id: 17,
     variables: {
       statName0: { type: "translation", value: "Stat_MovementSpeed" },
-      statPower0: { type: "raw", value: "10/15/20/25/30%" },
+      statPower0: { type: "raw", value: "10%/15%/20%/25%/30%" },
       statName1: { type: "translation", value: "Stat_Armor" },
       statPower1: { type: "raw", value: "5/7.5/10/12.5/15" },
     },
@@ -208,7 +208,7 @@ export const TWO_HANDED_SCHEMA = [
       statName0: { type: "translation", value: "Stat_LifeSteal" },
       statPower0: { type: "raw", value: "4/8/12" },
       statName1: { type: "translation", value: "Stat_AllDamage" },
-      statPower1: { type: "raw", value: "3/4.5/6%" },
+      statPower1: { type: "raw", value: "3%/4.5%/6%" },
     },
     max: 3,
     position: [6, 0],
@@ -224,7 +224,7 @@ export const TWO_HANDED_SCHEMA = [
   {
     id: 21,
     variables: {
-      effectChance0: { type: "raw", value: "15/22.5/30/37.5/45%" },
+      effectChance0: { type: "raw", value: "15%/22.5%/30%/37.5%/45%" },
       effectDamage0: { type: "raw", value: "X" },
     },
     max: 5,

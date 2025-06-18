@@ -1,5 +1,3 @@
-import type { Skill } from "../types"
-
 const REGEX = [
   null,
   null,

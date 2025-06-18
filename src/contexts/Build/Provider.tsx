@@ -6,7 +6,12 @@ import {
   useContext,
   useMemo,
 } from "react"
-import { useLoaderData, useNavigate, useParams } from "react-router-dom"
+import {
+  useLoaderData,
+  useLocation,
+  useNavigate,
+  useParams,
+} from "react-router-dom"
 
 import { MASTERIES } from "../../schema/data"
 import { mapSchema } from "../../helpers/mapSchema"
@@ -33,19 +38,22 @@ export const BuildContext = createContext<{
 export const BuildProvider: FC<PropsWithChildren> = ({ children }) => {
   const mastery = useMastery()
   const navigate = useNavigate()
+  const location = useLocation()
   const { build } = useLoaderData() as { build: Build }
   const hash = useParams().hash ?? hashData(mastery.id, build)
 
   const updateBuild = useCallback(
-    (build: Build) =>
-      navigate(`/${mastery.slug}/${hashData(mastery.id, build)}`),
-    [navigate, mastery]
+    (build: Build) => {
+      const search = location.search
+      navigate(`/${mastery.slug}/${hashData(mastery.id, build)}${search}`)
+    },
+    [navigate, mastery, location.search]
   )
 
-  const resetBuild = useCallback(
-    () => navigate(`/${mastery.slug}`),
-    [navigate, mastery.slug]
-  )
+  const resetBuild = useCallback(() => {
+    const search = location.search
+    navigate(`/${mastery.slug}${search}`)
+  }, [navigate, mastery.slug, location.search])
 
   const level = useMemo(
     () => build.reduce((acc, key) => acc + key.current, 0),

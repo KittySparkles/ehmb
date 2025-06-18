@@ -11,7 +11,7 @@ import { useLocalization } from "../../contexts/Localization/Provider"
 export const Grid = () => {
   const mastery = useMastery()
   const { level, build } = useBuild()
-  const { t } = useLocalization()
+  const { t, tf } = useLocalization()
   const masteryName = t(mastery.key)
 
   return (
@@ -21,10 +21,12 @@ export const Grid = () => {
           {masteryName}
         </Title>
         <p className={Styles.level}>
-          Level:{" "}
-          <span style={{ color: `rgb(${360 - level * 6}, ${level * 6}, 0)` }}>
-            {level}
-          </span>
+          {tf(
+            "level_x",
+            <span style={{ color: `rgb(${360 - level * 6}, ${level * 6}, 0)` }}>
+              {level}
+            </span>
+          )}
         </p>
         <BuildMenu />
       </div>

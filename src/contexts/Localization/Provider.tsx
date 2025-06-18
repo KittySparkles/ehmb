@@ -18,15 +18,18 @@ import {
   ALLOWED_LOCALES,
   type LocalizationItem,
 } from "./config"
+import { formatUnity } from "../../helpers/formatUnity"
 
 export const LocalizationContext = createContext<{
   locale: Locale
   setLocale: Dispatch<SetStateAction<Locale>>
-  t: (key: string) => string | undefined
+  t: (key: string) => string
+  tf: typeof formatUnity
 }>({
   locale: DEFAULT_LOCALE,
   setLocale: () => {},
-  t: () => undefined,
+  t: () => "",
+  tf: () => [],
 })
 
 const dictionary = (translations as LocalizationItem[]).reduce<
@@ -40,10 +43,16 @@ export const LocalizationProvider: FC<PropsWithChildren> = ({ children }) => {
   const location = useLocation()
   const [locale, setLocale] = useState<Locale>(DEFAULT_LOCALE)
   const t = useCallback(
-    (key: string) => dictionary[key]?.[locale] ?? undefined,
+    (key: string) => dictionary[key]?.[locale] ?? "",
     [locale]
   )
-  const context = useMemo(() => ({ locale, setLocale, t }), [locale, t])
+  const tf = useCallback(
+    (...args: Parameters<typeof formatUnity>) =>
+      formatUnity(t(args[0]) ?? "", ...args.slice(1)),
+    [t]
+  )
+
+  const context = useMemo(() => ({ locale, setLocale, t, tf }), [locale, t, tf])
 
   useEffect(() => {
     const params = new URLSearchParams(location.search)

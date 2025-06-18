@@ -1,5 +1,6 @@
 .env
 crowdin-translations.zip
+translations.json
 
 # Logs
 logs

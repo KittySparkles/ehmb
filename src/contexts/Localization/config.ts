@@ -5,6 +5,9 @@ export const TRANSLATIONS_PATTERNS = [
   /^Stat_/,
   /^Talent_/,
   ...MASTERIES.map((mastery) => new RegExp(`^${mastery.key}$`)),
+  /^talent_required$/,
+  /^talent_overall_point_required$/,
+  /^level_x$/,
 ]
 export const ALLOWED_LOCALES = [
   "en",

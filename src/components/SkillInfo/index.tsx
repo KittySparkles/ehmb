@@ -4,13 +4,14 @@ import { diffWords } from "diff"
 import type { Skill } from "../../types"
 import { resolveDescription } from "../../helpers/resolveDescription"
 import { microMarkdown } from "../../helpers/microMarkdown"
+import { useLocalization } from "../../contexts/Localization/Provider"
+import { useMastery } from "../../contexts/Mastery/Provider"
 import { useBuild } from "../../contexts/Build/Provider"
 import { useSkill } from "../../hooks/useSkill"
 import { Title } from "../Title"
 import { Controls } from "../Controls"
 
 import Styles from "./styles.module.css"
-import { useLocalization } from "../../contexts/Localization/Provider"
 
 const useDiffedDescription = (skill: Skill, description: string) => {
   const current = resolveDescription(description, skill.max, skill.current)
@@ -127,9 +128,10 @@ const useLocalizedDescription = (skill: Skill) => {
 
 export const SkillInfo: FC<{ skill: Skill }> = ({ skill }) => {
   const { level } = useBuild()
+  const mastery = useMastery()
   const { dependsOn, canIncrement } = useSkill(skill)
   const description = useLocalizedDescription(skill)
-  const { t } = useLocalization()
+  const { t, tf } = useLocalization()
 
   return (
     <>
@@ -146,15 +148,19 @@ export const SkillInfo: FC<{ skill: Skill }> = ({ skill }) => {
       {canIncrement.permission === "DENIED" ? (
         canIncrement.reason === "MISSING_REQUIREMENT" && dependsOn ? (
           <p className={Styles.dependsOn}>
-            Requires {dependsOn.max - dependsOn.current} more point
-            {dependsOn.max - dependsOn.current !== 1 ? "s" : ""} in the “
-            {t(`Talent_${dependsOn.id}_Name`) ?? dependsOn.id}” talent.
+            {tf(
+              "talent_required",
+              dependsOn.max - dependsOn.current,
+              t(`Talent_${dependsOn.id}_Name`)
+            )}
           </p>
         ) : canIncrement.reason === "NOT_ENOUGH_SPENT" ? (
           <p className={Styles.dependsOn}>
-            Requires {skill.position[0] * 5 - level} more point
-            {skill.position[0] * 5 - level !== 1 ? "s" : ""} in the mastery
-            tree.
+            {tf(
+              "talent_overall_point_required",
+              skill.position[0] * 5 - level,
+              t(mastery.key)
+            )}
           </p>
         ) : null
       ) : null}

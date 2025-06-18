@@ -71,6 +71,12 @@ const useLocalizedDescription = (skill: Skill) => {
   // where they’re not needed)
   description = description.replace(/\*\*/g, "*")
 
+  // Fix some weird edge cases for Shield specifically (talents 177, 181, 195,
+  // and 189); these formulares are resolved within the game directly, so they
+  // should just be ignored in the builder
+  description = description.replace("{{X}} * ARMOR}}", "*X*")
+  description = description.replace("{{X}} * MAX_HP}}", "*X*")
+
   return diffDescription(skill, description, {
     Del: ({ children }) => <del className={Styles.del}>{children}</del>,
     Ins: ({ children }) => <ins className={Styles.ins}>{children}</ins>,

@@ -97,7 +97,7 @@ export const SHIELD_SCHEMA = [
     id: 176,
     variables: {
       attackCount0: { type: "raw", value: "8", highlight: false },
-      effectDamage0: { type: "raw", value: "X" },
+      effectDamage0: { type: "raw", value: "X", highlight: false },
     },
     max: 5,
     position: [2, 2],
@@ -107,7 +107,7 @@ export const SHIELD_SCHEMA = [
     id: 177,
     variables: {
       attackCount0: { type: "raw", value: "4", highlight: false },
-      effectDamage0: { type: "raw", value: "X" },
+      effectDamage0: { type: "raw", value: "X", highlight: false },
     },
     max: 5,
     position: [2, 3],
@@ -126,7 +126,7 @@ export const SHIELD_SCHEMA = [
   {
     id: 181,
     variables: {
-      effectDamage0: { type: "raw", value: "X" },
+      effectDamage0: { type: "raw", value: "X", highlight: false },
     },
     max: 5,
     position: [3, 3],
@@ -173,7 +173,7 @@ export const SHIELD_SCHEMA = [
     id: 185,
     variables: {
       attackCount0: { type: "raw", value: "6", highlight: false },
-      effectDamage0: { type: "raw", value: "X" },
+      effectDamage0: { type: "raw", value: "X", highlight: false },
     },
     max: 5,
     position: [4, 3],

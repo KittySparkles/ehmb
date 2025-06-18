@@ -22,8 +22,8 @@ const ENTRIES = [
           Eternal Hero
         </a>
         . It is not directly affiliated with the game and I am not working for
-        Supersonic Studios LTD. If you find a problem or want to contribute,
-        reach out to kitty.sparkles on{" "}
+        Rivvy Games. If you find a problem or want to contribute, reach out to
+        kitty.sparkles on{" "}
         <a href="https://discord.gg/992Ycu6K" rel="noopener noreferrer">
           Discord
         </a>
@@ -38,17 +38,6 @@ const ENTRIES = [
         The mastery build is automatically saved in the page URL as you
         distribute points, so you can safely refresh the page or copy and paste
         the link to share your build.
-      </p>
-    ),
-  },
-  {
-    question: "Why are descriptions different from the game?",
-    answer: (
-      <p>
-        Descriptions in the game are quite inconsistent in terms of wording,
-        capitalization, highlighting, punctuation and more. I took the liberty
-        to normalize skill descriptions as much as possible to improve the
-        reading experience. This is why they may differ from the game.
       </p>
     ),
   },

@@ -26,7 +26,7 @@ export const LocalizationContext = createContext<{
   locale: Locale
   setLocale: Dispatch<SetStateAction<Locale>>
   t: (key: string) => string
-  tf: typeof formatUnity
+  tf: (key: string, ...args: ReactNode[]) => ReactNode[]
 }>({
   locale: DEFAULT_LOCALE,
   setLocale: () => {},
@@ -63,9 +63,9 @@ export const LocalizationProvider: FC<PropsWithChildren> = ({ children }) => {
   const tf = useCallback(
     (key: string, ...args: ReactNode[]) => {
       checkKey(key)
-      return formatUnity(t(key), ...args.slice(1))
+      return formatUnity(t(key), locale, ...args)
     },
-    [t, checkKey]
+    [t, locale, checkKey]
   )
 
   const context = useMemo(() => ({ locale, setLocale, t, tf }), [locale, t, tf])

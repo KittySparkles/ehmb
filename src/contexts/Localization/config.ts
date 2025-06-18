@@ -1,4 +1,4 @@
-export const DEFAULT_LOCALE: Locale = "ko"
+export const DEFAULT_LOCALE: Locale = "en"
 export const TRANSLATIONS_PATTERNS = [
   /^Stat_/,
   /^Talent_/,

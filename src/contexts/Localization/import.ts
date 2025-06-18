@@ -7,6 +7,13 @@ import decompress from "decompress"
 import csvtojson from "csvtojson"
 import type Client from "@crowdin/crowdin-api-client"
 import { default as Crowdin } from "@crowdin/crowdin-api-client"
+import {
+  ALLOWED_LOCALES,
+  type CrowdinItem,
+  type Locale,
+  type LocalizationItem,
+  TRANSLATIONS_PATTERNS,
+} from "./config"
 
 dotenv.config()
 
@@ -21,7 +28,10 @@ const csvPaths = [
   path.join(process.cwd(), "./dist/unity-plugin/Talent.csv"),
   path.join(process.cwd(), "./dist/unity-plugin/Generic.csv"),
 ]
-const jsonPath = path.join(process.cwd(), "./dist/translations.json")
+const jsonPath = path.join(
+  process.cwd(),
+  "./src/contexts/Localization/translations.json"
+)
 
 async function main() {
   console.log(`Starting to build project with ID ${PROJECT_ID}`)
@@ -65,13 +75,28 @@ async function main() {
   console.log(`Extracting ZIP file from ${zipPath}`)
   await decompress(zipPath, "dist")
 
-  const jsons = await Promise.all(
+  const jsons: CrowdinItem[][] = await Promise.all(
     csvPaths.map((path) => {
       console.log(`Converting CSV file to JSON from ${path}`)
       return csvtojson().fromFile(path)
     })
   )
-  const json = jsons.reduce((acc, array) => acc.concat(array), [])
+  const json = jsons
+    .reduce((acc, array) => acc.concat(array), [])
+    .filter((object) => {
+      return TRANSLATIONS_PATTERNS.some((pattern) => pattern.test(object.Key))
+    })
+    .map((object) => {
+      const item: LocalizationItem = {
+        key: object.Key,
+        translations: {} as Record<Locale, string>,
+      }
+      for (const locale in object) {
+        if (ALLOWED_LOCALES.includes(locale as Locale))
+          item.translations[locale as Locale] = object[locale as Locale]
+      }
+      return item
+    })
 
   console.log(`Wring JSON file at ${jsonPath}`)
   await writeFile(jsonPath, JSON.stringify(json, null, 2), "utf8")

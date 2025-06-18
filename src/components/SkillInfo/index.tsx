@@ -10,9 +10,7 @@ import { Title } from "../Title"
 import { Controls } from "../Controls"
 
 import Styles from "./styles.module.css"
-import { TRANSLATIONS } from "../../schema/data"
-
-export const LOCALE = "en"
+import { useLocalization } from "../../contexts/Localization/Provider"
 
 const useDiffedDescription = (skill: Skill, description: string) => {
   const current = resolveDescription(description, skill.max, skill.current)
@@ -91,8 +89,9 @@ const useDiffedDescription = (skill: Skill, description: string) => {
 }
 
 const useLocalizedDescription = (skill: Skill) => {
+  const { t } = useLocalization()
   const key = `Talent_${skill.id}_Desc`
-  const translation = TRANSLATIONS.get(key)?.[LOCALE]
+  const translation = t(key)
   if (!translation) throw new Error(`Could not find description for ${key}`)
 
   // Replace the coloration variables with stars since this is what our system
@@ -112,7 +111,7 @@ const useLocalizedDescription = (skill: Skill) => {
         variable.highlight !== false ? `*${variable.value}*` : variable.value
       )
     else if (variable.type === "translation") {
-      const next = TRANSLATIONS.get(variable.value)?.[LOCALE]
+      const next = t(variable.value)
       if (next)
         description = description.replace(
           new RegExp(`{{${variableName}}}`, "g"),
@@ -130,11 +129,12 @@ export const SkillInfo: FC<{ skill: Skill }> = ({ skill }) => {
   const { level } = useBuild()
   const { dependsOn, canIncrement } = useSkill(skill)
   const description = useLocalizedDescription(skill)
+  const { t } = useLocalization()
 
   return (
     <>
       <Title Component="h2" size={120}>
-        {TRANSLATIONS.get(`Talent_${skill.id}_Name`)?.[LOCALE] ?? skill.id}
+        {t(`Talent_${skill.id}_Name`) ?? skill.id}
       </Title>
 
       <p className={Styles.rank}>
@@ -148,9 +148,7 @@ export const SkillInfo: FC<{ skill: Skill }> = ({ skill }) => {
           <p className={Styles.dependsOn}>
             Requires {dependsOn.max - dependsOn.current} more point
             {dependsOn.max - dependsOn.current !== 1 ? "s" : ""} in the “
-            {TRANSLATIONS.get(`Talent_${dependsOn.id}_Name`)?.[LOCALE] ??
-              dependsOn.id}
-            ” talent.
+            {t(`Talent_${dependsOn.id}_Name`) ?? dependsOn.id}” talent.
           </p>
         ) : canIncrement.reason === "NOT_ENOUGH_SPENT" ? (
           <p className={Styles.dependsOn}>

@@ -6,16 +6,19 @@ import { Title } from "../Title"
 import { BuildMenu } from "../BuildMenu"
 
 import Styles from "./styles.module.css"
+import { useLocalization } from "../../contexts/Localization/Provider"
 
 export const Grid = () => {
   const mastery = useMastery()
   const { level, build } = useBuild()
+  const { t } = useLocalization()
+  const masteryName = t(mastery.key)
 
   return (
     <>
       <div className={Styles.header}>
         <Title Component="h2" size={200} className={Styles.name}>
-          {mastery.name}
+          {masteryName}
         </Title>
         <p className={Styles.level}>
           Level:{" "}

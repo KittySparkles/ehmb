@@ -1,21 +1,22 @@
 import type { FC } from "react"
 import { Button as RButton } from "react-aria-components"
 
+import { useLocalization } from "../../contexts/Localization/Provider"
 import type { Skill } from "../../types"
 import { Popover } from "../Popover"
 import { useSkill } from "../../hooks/useSkill"
-import { LOCALE, SkillInfo } from "../SkillInfo"
+import { SkillInfo } from "../SkillInfo"
 import { Title } from "../Title"
 import { Controls } from "../Controls"
 
 import Styles from "./styles.module.css"
-import { TRANSLATIONS } from "../../schema/data"
 
 export const Tile: FC<{ skill?: Skill; position: Skill["position"] }> = ({
   skill,
   position,
 }) => {
   const { dependencyOf, dependsOn, state } = useSkill(skill, position)
+  const { t } = useLocalization()
 
   if (!skill) {
     return (
@@ -43,10 +44,7 @@ export const Tile: FC<{ skill?: Skill; position: Skill["position"] }> = ({
             <Popover
               control={
                 <RButton className={Styles.toggle}>
-                  <Title Component="span">
-                    {TRANSLATIONS.get(`Talent_${skill.id}_Name`)?.[LOCALE] ??
-                      skill.id}
-                  </Title>
+                  <Title Component="span">{t(`Talent_${skill.id}_Name`)}</Title>
                   <span className={Styles.help}>ⓘ</span>
                 </RButton>
               }

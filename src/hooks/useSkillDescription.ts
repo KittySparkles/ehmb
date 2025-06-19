@@ -74,7 +74,6 @@ export const useSkillDescription = (skill: Skill) => {
   const key = `Talent_${skill.id}_Desc`
   const translation = t(key)
   if (!translation) throw new Error(`Could not find description for “${key}”`)
-
   // Replace the coloration variables with stars since this is what our system
   // uses for highlight
   let description = replaceColorTokens(translation)
@@ -132,9 +131,20 @@ function replaceVariables(
 function enhanceHighlighting(value: string, locale: Locale) {
   if (!value) return value
 
-  if (locale === "en") value = value.replace(/(\d)\*s/g, "$1s*")
+  // Distances & durations
+  if (locale === "en") value = value.replace(/(\d)\*([ms])/g, "$1$2*")
+  if (locale === "ru") value = value.replace(/(\d)\*([см])/g, "$1$2*")
+
+  // Distances
+  if (locale === "it") value = value.replace(/(\d)\*m/g, "$1m*")
+  if (locale === "pl") value = value.replace(/(\d)\*m/g, "$1m*")
+  if (locale === "fr") value = value.replace(/(\d)\*m/g, "$1m*")
+  if (locale === "de") value = value.replace(/(\d)\*m/g, "$1m*")
+  if (locale === "pt-BR") value = value.replace(/(\d)\*m/g, "$1m*")
+
+  // Durations
   if (locale === "ko") value = value.replace(/(\d)\*초/g, "$1초*")
-  if (locale === "ru") value = value.replace(/(\d)\*с/g, "$1с*")
+  if (locale === "zh-CN") value = value.replace(/(\d)\*米/g, "$1米*")
 
   return value
 }
@@ -148,6 +158,12 @@ function diffDescription(skill: Skill, description: string, locale: Locale) {
     unpackValue(description, skill.max, skill.current + 1),
     locale
   )
+  console.log({
+    locale,
+    description,
+    a: unpackValue(description, skill.max, skill.current + 1),
+    b: next,
+  })
 
   if (skill.current === skill.max) return microMarkdown(current)
   if (skill.current === 0) return microMarkdown(next)

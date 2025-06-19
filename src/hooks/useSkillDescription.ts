@@ -158,12 +158,6 @@ function diffDescription(skill: Skill, description: string, locale: Locale) {
     unpackValue(description, skill.max, skill.current + 1),
     locale
   )
-  console.log({
-    locale,
-    description,
-    a: unpackValue(description, skill.max, skill.current + 1),
-    b: next,
-  })
 
   if (skill.current === skill.max) return microMarkdown(current)
   if (skill.current === 0) return microMarkdown(next)

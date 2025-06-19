@@ -67,11 +67,27 @@ export const useSkill = (skill?: Skill, position?: Skill["position"]) => {
     setBuild(copy)
   }, [canIncrement, build, setBuild, skill])
 
+  const incrementToMax = useCallback(() => {
+    if (!skill || !canIncrement) return
+    const copy = structuredClone(build)
+    const entry = copy.find((other) => other.id === skill.id)
+    if (entry) entry.current = entry.max
+    setBuild(copy)
+  }, [canIncrement, build, setBuild, skill])
+
   const decrement = useCallback(() => {
     if (!skill || !canDecrement) return
     const copy = structuredClone(build)
     const entry = copy.find((other) => other.id === skill.id)
     if (entry) entry.current = Math.max(entry.current - 1, 0)
+    setBuild(copy)
+  }, [canDecrement, build, setBuild, skill])
+
+  const decrementToMin = useCallback(() => {
+    if (!skill || !canDecrement) return
+    const copy = structuredClone(build)
+    const entry = copy.find((other) => other.id === skill.id)
+    if (entry) entry.current = 0
     setBuild(copy)
   }, [canDecrement, build, setBuild, skill])
 
@@ -102,6 +118,8 @@ export const useSkill = (skill?: Skill, position?: Skill["position"]) => {
     () => ({
       increment,
       decrement,
+      incrementToMax,
+      decrementToMin,
       canIncrement,
       canDecrement,
       dependencyOf,
@@ -111,6 +129,8 @@ export const useSkill = (skill?: Skill, position?: Skill["position"]) => {
     [
       increment,
       decrement,
+      incrementToMax,
+      decrementToMin,
       canIncrement,
       canDecrement,
       dependencyOf,

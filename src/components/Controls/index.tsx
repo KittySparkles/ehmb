@@ -6,18 +6,34 @@ import type { Skill } from "../../types"
 import { ShiftBy } from "../ShiftBy"
 
 import Styles from "./styles.module.css"
+import useLongPress from "../../hooks/useLongPress"
 
 export const Controls: FC<
   PropsWithChildren<ComponentProps<"div"> & { skill: Skill }>
 > = ({ skill, className, children }) => {
-  const { increment, canIncrement, decrement, canDecrement } = useSkill(skill)
-
+  const {
+    increment,
+    incrementToMax,
+    canIncrement,
+    decrement,
+    decrementToMin,
+    canDecrement,
+  } = useSkill(skill)
+  const incrementProps = useLongPress({
+    onShortPress: increment,
+    onLongPress: incrementToMax,
+  })
+  const decrementProps = useLongPress({
+    onShortPress: decrement,
+    onLongPress: decrementToMin,
+  })
   return (
     <div className={[Styles.controls, className].filter(Boolean).join(" ")}>
       <Button
         className={Styles.button}
         aria-label="Decrement"
-        onPress={decrement}
+        onPressStart={decrementProps.onPressStart}
+        onPressEnd={decrementProps.onPressEnd}
         isDisabled={canDecrement.permission === "DENIED"}
       >
         <ShiftBy Component="span" y={-1}>
@@ -28,7 +44,8 @@ export const Controls: FC<
       <Button
         className={Styles.button}
         aria-label="Increment"
-        onPress={increment}
+        onPressStart={incrementProps.onPressStart}
+        onPressEnd={incrementProps.onPressEnd}
         isDisabled={canIncrement.permission === "DENIED"}
       >
         <ShiftBy Component="span" y={-1}>

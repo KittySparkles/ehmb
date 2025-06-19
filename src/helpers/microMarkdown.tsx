@@ -9,9 +9,23 @@ export const microMarkdown = (string: string) => {
   // therefore prevent line-breaks from happening before/after the hyphen by
   // using a non-breaking hyphen.
   // See: https://unicode-table.com/en/2011/
-  const string_ = string.replace(/-/g, "‑")
+  const chunks = [string.replace(/-/g, "‑")]
 
-  return replaceInString(string_, /\*([^*]+)\*/g, (match, index) => (
-    <strong key={match + index}>{match}</strong>
-  ))
+  const chunksWithHighlights = replaceInString(
+    chunks,
+    /\*([^*]+)\*/g,
+    (match, index) => <strong key={match + index}>{match}</strong>
+  )
+  const chunksWithDeletions = replaceInString(
+    chunksWithHighlights,
+    /\~([^~]+)\~/g,
+    (match, index) => <del key={match + index}>{match}</del>
+  )
+  const chunksWithInsertions = replaceInString(
+    chunksWithDeletions,
+    /\+([^+]+)\+/g,
+    (match, index) => <ins key={match + index}>{match}</ins>
+  )
+
+  return chunksWithInsertions
 }

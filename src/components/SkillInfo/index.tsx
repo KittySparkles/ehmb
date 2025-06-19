@@ -4,84 +4,18 @@ import type { Skill } from "../../types"
 import { useLocalization } from "../../contexts/Localization/Provider"
 import { useMastery } from "../../contexts/Mastery/Provider"
 import { useBuild } from "../../contexts/Build/Provider"
+import { useSkillDescription } from "../../hooks/useSkillDescription"
 import { useSkill } from "../../hooks/useSkill"
-import { diffDescription } from "../../helpers/diffDescription"
 import { Title } from "../Title"
 import { Controls } from "../Controls"
 
 import Styles from "./styles.module.css"
 
-const useLocalizedDescription = (skill: Skill) => {
-  const { t, locale } = useLocalization()
-  const key = `Talent_${skill.id}_Desc`
-  const translation = t(key)
-  if (!translation) throw new Error(`Could not find description for ${key}`)
-
-  // Replace the coloration variables with stars since this is what our system
-  // uses for highlight (could potentially stop doing that and use the colora-
-  // tion variables directly)
-  let description = translation
-    .replace(/<color=[^>]+>/g, "*")
-    .replace(/<\/color>/g, "*")
-
-  // For every variable that is defined for the given skill, replace it inside
-  // the description
-  for (const variableName in skill.variables) {
-    const variable = skill.variables[variableName]
-    const regex = new RegExp(`{{${variableName}}}`, "g")
-    const highlight = (value: string) => `*${value}*`
-
-    // If the type is `raw`, simply inject the given value in place of the
-    // variable; replaced values are typically automatically highlighted within
-    // the game, but in some cases the highlight is done in the translation in
-    // which case we shouldn’t do it twice
-    if (variable.type === "raw") {
-      description = description.replace(
-        regex,
-        variable.highlight !== false
-          ? highlight(variable.value)
-          : variable.value
-      )
-    }
-
-    // If the type is `translation`, replace the variable with the translation
-    // of the given value
-    else if (variable.type === "translation") {
-      const next = t(variable.value)
-
-      if (!next) {
-        throw new Error(`Cannot find translation for key “${variable.value}”`)
-      }
-
-      description = description.replace(
-        regex,
-        variable.highlight !== false ? highlight(next) : next
-      )
-    }
-  }
-
-  // Replace weird edge cases where we ended up with double highlighting (for
-  // instance, in the Chinese translation, some highlighting tokens were added
-  // where they’re not needed)
-  description = description.replace(/\*\*/g, "*")
-
-  // Fix some weird edge cases for Shield specifically (talents 176, 177, 180,
-  // 181, 185, and 189); these formulares are resolved within the game directly,
-  // so they should just be ignored in the builder
-  description = description.replace("{{X}} * ARMOR}}", "*X*")
-  description = description.replace("{{X}} * MAX_HP}}", "*X*")
-
-  return diffDescription(skill, description, locale, {
-    Del: ({ children }) => <del className={Styles.del}>{children}</del>,
-    Ins: ({ children }) => <ins className={Styles.ins}>{children}</ins>,
-  })
-}
-
 export const SkillInfo: FC<{ skill: Skill }> = ({ skill }) => {
   const { level } = useBuild()
   const mastery = useMastery()
   const { dependsOn, canIncrement } = useSkill(skill)
-  const description = useLocalizedDescription(skill)
+  const description = useSkillDescription(skill)
   const { t, tf } = useLocalization()
 
   return (

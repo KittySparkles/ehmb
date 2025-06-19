@@ -1,4 +1,5 @@
 import type { ReactNode } from "react"
+import React from "react"
 
 const isString = (value: unknown) => typeof value === "string"
 
@@ -84,13 +85,27 @@ export function replaceString(
 }
 
 export function replaceInString(
-  source: string | string[],
+  source: ReactNode[],
   match: RegExp,
   fn: (match: string, index: number, _: number) => ReactNode
-) {
-  if (!Array.isArray(source)) source = [source]
-
+): ReactNode[] {
   return flatten(
-    source.map((x) => (isString(x) ? replaceString(x, match, fn) : x))
+    source.map((x) => {
+      if (isString(x)) {
+        return replaceString(x, match, fn)
+      }
+
+      if (React.isValidElement(x) && x.props?.children) {
+        const newChildren = replaceInString(
+          Array.isArray(x.props.children)
+            ? x.props.children
+            : [x.props.children],
+          match,
+          fn
+        )
+        return React.cloneElement(x, { ...x.props, children: newChildren })
+      }
+      return x
+    })
   )
 }

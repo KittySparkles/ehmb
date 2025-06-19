@@ -4,6 +4,29 @@
   font-weight: normal;
 }
 
+.description del {
+  text-decoration: none;
+  color: rgb(217 157 157);
+}
+
+.description ins {
+  text-decoration: none;
+  color: rgb(153 196 192);
+}
+
+/**
+ * This is a bit of a workaround: when a diff happens within a highlighting, it
+ * leads the `ins` and `del` elements to be within the `strong` element from the
+ * highlight. To make sure the `→` symbol living between the `ins` and `del` is
+ * white, we need to force the color on the highlight `strong`. It works because
+ * in such cases, the only content within the highlight that’s not a diff ele-
+ * ment is the arrow.
+ */
+.description strong:has(ins):has(del) {
+  color: white;
+}
+
+
 .next {
   opacity: 0.8;
 }

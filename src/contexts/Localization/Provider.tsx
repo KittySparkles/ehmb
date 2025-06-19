@@ -15,10 +15,12 @@ import {
 import { type Locale, DEFAULT_LOCALE, SUPPORTED_LOCALES } from "./config"
 import { formatUnity, translate } from "../../helpers/i18n"
 
+export type TranslateFunction = (key: string) => string
+
 export const LocalizationContext = createContext<{
   locale: Locale
   setLocale: Dispatch<SetStateAction<Locale>>
-  t: (key: string) => string
+  t: TranslateFunction
   tf: (key: string, ...args: ReactNode[]) => ReactNode[]
 }>({
   locale: DEFAULT_LOCALE,

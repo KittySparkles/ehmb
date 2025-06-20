@@ -164,7 +164,7 @@ function diffDescription(skill: Skill, description: string, locale: Locale) {
 
   const diff = diffWords(current, next, {
     // @ts-expect-error
-    intlSegmenter: new Intl.Segmenter("en", { granularity: "word" }),
+    intlSegmenter: new Intl.Segmenter(locale, { granularity: "word" }),
   })
 
   const diffed = diff

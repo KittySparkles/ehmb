@@ -1,12 +1,9 @@
-import {
-  type TranslateFunction,
-  useLocalization,
-} from "../contexts/Localization/Provider"
 import type { Skill } from "../types"
-import { diffWords } from "diff"
-import { microMarkdown } from "../helpers/microMarkdown"
-import { unpackValue } from "../helpers/unpackValue"
+import type { TranslateFunction } from "../contexts/Localization/Provider"
 import type { Locale } from "../contexts/Localization/config"
+import { diffDescription } from "./diffDescription"
+import { replaceColorTokens } from "./replaceColorTokens"
+import { replaceVariables } from "./replaceVariables"
 
 // There is _a lot_ going on with the skill descriptions. It needs to go through
 // several iterations:
@@ -69,8 +66,11 @@ import type { Locale } from "../contexts/Localization/config"
 //    See: https://www.npmjs.com/package/diff
 // 8. At that point, we should have an array of React nodes that can be safely
 //    rendered as a description (hopefully).
-export const useSkillDescription = (skill: Skill) => {
-  const { t, locale } = useLocalization()
+export const resolveSkillDescription = (
+  t: TranslateFunction,
+  locale: Locale,
+  skill: Skill
+) => {
   const key = `Talent_${skill.id}_Desc`
   const translation = t(key)
   if (!translation) throw new Error(`Could not find description for “${key}”`)
@@ -92,88 +92,4 @@ export const useSkillDescription = (skill: Skill) => {
   description = description.replace(/{{X}} \* ([A-Z_]+)}}/g, "*X*")
 
   return diffDescription(skill, description, locale)
-}
-
-function replaceColorTokens(value: string) {
-  return value.replace(/<color=[^>]+>/g, "*").replace(/<\/color>/g, "*")
-}
-
-function replaceVariables(
-  t: TranslateFunction,
-  variables: Skill["variables"],
-  description: string
-) {
-  // For every variable that is defined for the given skill, replace it inside
-  // the description
-  for (const variableName in variables) {
-    const { type, value, highlight } = variables[variableName]
-    const regex = new RegExp(`{{${variableName}}}`, "g")
-    const inject = (value: string) =>
-      description.replace(regex, highlight !== false ? `*${value}*` : value)
-
-    // If the type is `raw`, simply inject the given value in place of the
-    // variable; replaced values are typically automatically highlighted within
-    // the game, but in some cases the highlight is done in the translation in
-    // which case we shouldn’t do it twice
-    if (type === "raw") description = inject(value)
-    // If the type is `translation`, replace the variable with the translation
-    // of the given value
-    else if (type === "translation") description = inject(t(value))
-  }
-
-  return description
-}
-
-// This is a bit of an ugly language-specific trick to include the duration unit
-// into a highlighted bit. It transforms something like `*1*s` into `*1s*`. It
-// needs to happen post-unpacking, otherwise it changes something like `*1/2*s`
-// into `*1/2s*`, which causes the unit to only be displayed for the last value.
-function enhanceHighlighting(value: string, locale: Locale) {
-  if (!value) return value
-
-  // Distances & durations
-  if (locale === "en") value = value.replace(/(\d)\*([ms])/g, "$1$2*")
-  if (locale === "ru") value = value.replace(/(\d)\*([см])/g, "$1$2*")
-
-  // Distances
-  if (locale === "it") value = value.replace(/(\d)\*m/g, "$1m*")
-  if (locale === "pl") value = value.replace(/(\d)\*m/g, "$1m*")
-  if (locale === "fr") value = value.replace(/(\d)\*m/g, "$1m*")
-  if (locale === "de") value = value.replace(/(\d)\*m/g, "$1m*")
-  if (locale === "pt-BR") value = value.replace(/(\d)\*m/g, "$1m*")
-
-  // Durations
-  if (locale === "ko") value = value.replace(/(\d)\*초/g, "$1초*")
-  if (locale === "zh-CN") value = value.replace(/(\d)\*米/g, "$1米*")
-
-  return value
-}
-
-function diffDescription(skill: Skill, description: string, locale: Locale) {
-  const current = enhanceHighlighting(
-    unpackValue(description, skill.max, skill.current),
-    locale
-  )
-  const next = enhanceHighlighting(
-    unpackValue(description, skill.max, skill.current + 1),
-    locale
-  )
-
-  if (skill.current === skill.max) return microMarkdown(current)
-  if (skill.current === 0) return microMarkdown(next)
-
-  const diff = diffWords(current, next, {
-    // @ts-expect-error
-    intlSegmenter: new Intl.Segmenter(locale, { granularity: "word" }),
-  })
-
-  const diffed = diff
-    .map((chunk) => {
-      if (chunk.removed) return `~${chunk.value}~`
-      if (chunk.added) return ` → +${chunk.value}+`
-      return chunk.value
-    })
-    .join("")
-
-  return microMarkdown(diffed)
 }

@@ -4,7 +4,7 @@ import type { Skill } from "../../types"
 import { useLocalization } from "../../contexts/Localization/Provider"
 import { useMastery } from "../../contexts/Mastery/Provider"
 import { useBuild } from "../../contexts/Build/Provider"
-import { useSkillDescription } from "../../hooks/useSkillDescription"
+import { resolveSkillDescription } from "../../helpers/resolveSkillDescription"
 import { useSkill } from "../../hooks/useSkill"
 import { Title } from "../Title"
 import { Controls } from "../Controls"
@@ -15,8 +15,8 @@ export const SkillInfo: FC<{ skill: Skill }> = ({ skill }) => {
   const { level } = useBuild()
   const mastery = useMastery()
   const { dependsOn, canIncrement } = useSkill(skill)
-  const description = useSkillDescription(skill)
-  const { t, tf } = useLocalization()
+  const { t, tf, locale } = useLocalization()
+  const description = resolveSkillDescription(t, locale, skill)
 
   return (
     <>

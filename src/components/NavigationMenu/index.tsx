@@ -24,9 +24,9 @@ export const NavigationMenu = () => {
     <MenuTrigger>
       <RButton aria-label="Menu" className={Styles.button}>
         <ShiftBy Component="span" y={-1.5}>
-          ☰
+          <span className={Styles.icon}>☰</span>
         </ShiftBy>{" "}
-        Menu
+        <span className={Styles.label}>Menu</span>
       </RButton>
       <Popover className={Styles.popover} placement="bottom end">
         <Menu className={[Styles.menu, boxStyles].join(" ")}>

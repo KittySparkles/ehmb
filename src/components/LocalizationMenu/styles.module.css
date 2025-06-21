@@ -1,6 +1,6 @@
 .button {
   font-size: 100%;
-  padding: 0.5em;
+  padding: 0.25em 0.5em;
 }
 
 .menu {
@@ -50,4 +50,10 @@
 .itemActive {
   color: var(--lime);
   font-weight: bold;
+}
+
+@media (max-width: 600px){
+  .label {
+    display: none;
+  }
 }

@@ -20,9 +20,9 @@ export const LocalizationMenu = () => {
     <MenuTrigger>
       <RButton aria-label="Menu" className={Styles.button}>
         <ShiftBy Component="span" y={-1.5}>
-          ☰
+          🌐
         </ShiftBy>{" "}
-        Language
+        <span className={Styles.label}>Language</span>
       </RButton>
       <Popover className={Styles.popover} placement="bottom end">
         <Menu className={[Styles.menu, boxStyles].join(" ")}>

@@ -231,7 +231,7 @@ export const SHIELD_SCHEMA = [
   {
     id: 191,
     variables: {
-      effectCount0: { type: "raw", value: "20/30/40" },
+      effectCount0: { type: "raw", value: "20%/30%/40%", highlight: false },
       statName0: { type: "translation", value: "Stat_Armor" },
       statPower0: { type: "raw", value: "200/400/600" },
     },

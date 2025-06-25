@@ -199,8 +199,9 @@ export const SCYTHE_SCHEMA = [
   },
   {
     id: 216,
-    description:
-      "Summon a permanent abomination to fight by your side, dealing *X* damage to all enemies in range with each attack.",
+    variables: {
+      effectDamage0: { type: "raw", value: "X" },
+    },
     max: 5,
     position: [6, 3],
   },

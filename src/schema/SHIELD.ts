@@ -213,7 +213,7 @@ export const SHIELD_SCHEMA = [
     id: 189,
     variables: {
       attackCount0: { type: "raw", value: "10", highlight: false },
-      effectDamage0: { type: "raw", value: "X" },
+      effectDamage0: { type: "raw", value: "X", highlight: false },
     },
     max: 5,
     position: [6, 1],

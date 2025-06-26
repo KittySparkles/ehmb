@@ -2,19 +2,19 @@ import type { RawSkill } from "../types"
 
 export const BOW_SCHEMA = [
   {
-    id: 27,
+    id: 28,
     variables: {
-      statName0: { type: "translation", value: "Stat_Armor" },
-      statPower0: { type: "raw", value: "3/6/9/12/15" },
+      statName0: { type: "translation", value: "Stat_ExtraAttackTargets" },
+      statPower0: { type: "raw", value: "1" },
     },
-    max: 5,
+    max: 1,
     position: [0, 0],
   },
   {
-    id: 25,
+    id: 31,
     variables: {
-      statName0: { type: "translation", value: "Stat_AllDamage" },
-      statPower0: { type: "raw", value: "6%/12%/18%/24%/30%" },
+      attackCount0: { type: "raw", value: "3", highlight: false },
+      effectDamage0: { type: "raw", value: "X" },
     },
     max: 5,
     position: [0, 1],
@@ -29,21 +29,21 @@ export const BOW_SCHEMA = [
     position: [0, 2],
   },
   {
-    id: 31,
+    id: 27,
     variables: {
-      attackCount0: { type: "raw", value: "3", highlight: false },
-      effectDamage0: { type: "raw", value: "X" },
+      statName0: { type: "translation", value: "Stat_Armor" },
+      statPower0: { type: "raw", value: "3/6/9/12/15" },
     },
     max: 5,
-    position: [1, 0],
+    position: [0, 3],
   },
   {
-    id: 28,
+    id: 25,
     variables: {
-      statName0: { type: "translation", value: "Stat_ExtraAttackTargets" },
-      statPower0: { type: "raw", value: "1" },
+      statName0: { type: "translation", value: "Stat_AllDamage" },
+      statPower0: { type: "raw", value: "6%/12%/18%/24%/30%" },
     },
-    max: 1,
+    max: 5,
     position: [1, 1],
   },
   {

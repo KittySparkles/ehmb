@@ -65,7 +65,7 @@ export const SCYTHE_SCHEMA = [
       statName0: { type: "translation", value: "Stat_MaxHp" },
       statPower0: { type: "raw", value: "100/200/300/400/500" },
       statName1: { type: "translation", value: "Stat_HpRegen" },
-      statPower1: { type: "raw", value: "40%/80%/120%/160%/200%" },
+      statPower1: { type: "raw", value: "40/80/120/160/200" },
     },
     max: 5,
     position: [2, 0],

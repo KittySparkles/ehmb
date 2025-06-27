@@ -221,7 +221,7 @@ export const SHIELD_SCHEMA = [
   {
     id: 190,
     variables: {
-      effectChance0: { type: "raw", value: "5" },
+      effectChance0: { type: "raw", value: "5%" },
       effectDamage0: { type: "raw", value: "X" },
       effectCooldown0: { type: "raw", value: "8" },
     },

@@ -207,6 +207,17 @@ export const RIFLE_SCHEMA = [
     position: [5, 3],
   },
   {
+    id: 233,
+    variables: {
+      attackCount0: { type: "raw", value: "13", highlight: false },
+      effectEveryX0: { type: "raw", value: "0.5" },
+      effectDuration0: { type: "raw", value: "3" },
+      effectDamage0: { type: "raw", value: "X" },
+    },
+    max: 5,
+    position: [6, 0],
+  },
+  {
     id: 68,
     variables: {
       attackCount0: { type: "raw", value: "3", highlight: false },
@@ -225,6 +236,18 @@ export const RIFLE_SCHEMA = [
     max: 1,
     position: [6, 2],
     requires: 65,
+  },
+  {
+    id: 234,
+    variables: {
+      effectCount0: { type: "raw", value: "5" },
+      effectPower0: { type: "raw", value: "20%/25%/30%" },
+      effectDuration0: { type: "raw", value: "5" },
+      statName0: { type: "translation", value: "Stat_FireDotDamage" },
+    },
+    max: 3,
+    position: [7, 0],
+    requires: 233,
   },
   {
     id: 70,

@@ -234,7 +234,7 @@ export const TWO_HANDED_SCHEMA = [
     id: 24,
     variables: {
       statName0: { type: "translation", value: "Stat_AllDamage" },
-      statPower0: { type: "raw", value: "50%" },
+      statPower0: { type: "raw", value: "75%" },
     },
     max: 1,
     position: [6, 3],

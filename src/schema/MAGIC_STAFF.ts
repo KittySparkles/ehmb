@@ -197,7 +197,7 @@ export const MAGIC_STAFF_SCHEMA = [
   {
     id: 132,
     variables: {
-      attackCount0: { type: "raw", value: "12", highlight: false },
+      attackCount0: { type: "raw", value: "11", highlight: false },
       effectDamage0: { type: "raw", value: "X" },
     },
     max: 5,

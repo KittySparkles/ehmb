@@ -1,7 +1,7 @@
-import { useMemo, useCallback } from "react"
+import { useCallback, useMemo } from "react"
 
-import type { Skill } from "../types"
 import { useBuild } from "../contexts/Build/Provider"
+import type { Skill } from "../types"
 
 type TileType = "void" | "bridge" | "skill"
 
@@ -20,7 +20,7 @@ export const useSkill = (skill?: Skill, position?: Skill["position"]) => {
     if (!skill) return { permission: "DENIED", reason: "UNKNOWN" }
 
     // Too many points spent
-    if (level > 72) return { permission: "DENIED", reason: "MAX_SPENT" }
+    if (level > 73) return { permission: "DENIED", reason: "MAX_SPENT" }
 
     // Not enough points spent
     if (level < skill.position[0] * 5)
